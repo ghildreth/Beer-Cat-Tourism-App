@@ -1,6 +1,6 @@
 function cat(meow) {
-  return meow;
-}
+      return meow;
+ }
 
 cat('meeeowowwwwww');
 
