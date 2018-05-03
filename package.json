@@ -1,0 +1,23 @@
+{
+  "name": "final-project",
+  "version": "1.0.0",
+  "description": "![OG Beer Cat](https://user-images.githubusercontent.com/34799149/39559655-ac12da28-4e4c-11e8-9535-b41f2aa0f977.jpg)",
+  "main": "lint_test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghildreth/final-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ghildreth/final-project/issues"
+  },
+  "homepage": "https://github.com/ghildreth/final-project#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1"
+  }
+}
