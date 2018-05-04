@@ -26,9 +26,10 @@ brew2 = Brewery.create(name: "Cat's Meow", city: 'Vancouver', address: '237 That
 
 puts "Creating Beers ..."
 
-brew1.beers.create!({
+Beer.create!({
+  brewery_id: 1,
   name:  'Magic Ale',
-  description: Faker::Hipster.paragraph(1),
+  description: "Description",
   style: 'Amber Ale',
   score_ABV: 5,
   score_SRM: 6,
@@ -38,9 +39,10 @@ brew1.beers.create!({
   seasonal: false
 })
 
-brew1.beers.create!({
+Beer.create!({
+  brewery_id: 1,
   name:  'Butterbeer',
-  description: Faker::Hipster.paragraph(1),
+  description: "Description",
   style: 'Cream Ale',
   score_ABV: 4.5,
   score_SRM: 8,
@@ -50,9 +52,10 @@ brew1.beers.create!({
   seasonal: false
 })
 
-brew1.beers.create!({
+Beer.create!({
+  brewery_id: 1,
   name:  'Leviosa Pilsner',
-  description: Faker::Hipster.paragraph(1),
+  description: "Description",
   style: 'Pilsner',
   score_ABV: 4,
   score_SRM: 4,
@@ -62,9 +65,10 @@ brew1.beers.create!({
   seasonal: false
 })
 
-brew1.beers.create!({
+Beer.create!({
+  brewery_id: 1,
   name:  'House Elf IPA',
-  description: Faker::Hipster.paragraph(1),
+  description: "Description",
   style: 'IPA',
   score_ABV: 6,
   score_SRM: 5,
@@ -74,9 +78,10 @@ brew1.beers.create!({
   seasonal: true
 })
 
-brew2.beers.create!({
+Beer.create!({
+  brewery_id: 2,
   name:  'Fat Cat Stout',
-  description: Faker::Hipster.paragraph(1),
+  description: "Description",
   style: 'Stout',
   score_ABV: 6,
   score_SRM: 17,
@@ -86,9 +91,10 @@ brew2.beers.create!({
   seasonal: true
 })
 
-brew2.beers.create!({
+Beer.create!({
+  brewery_id: 2,
   name:  "Yarn Ballin' IPA",
-  description: Faker::Hipster.paragraph(1),
+  description: "Description",
   style: 'IPA',
   score_ABV: 6.5,
   score_SRM: 6,
@@ -99,9 +105,10 @@ brew2.beers.create!({
 })
 
 
-brew2.beers.create!({
+Beer.create!({
+  brewery_id: 2,
   name:  "Bowl of Milk Stout",
-  description: Faker::Hipster.paragraph(1),
+  description: "Description",
   style: 'Stout',
   score_ABV: 8,
   score_SRM: 19,
@@ -120,21 +127,21 @@ Tour.create!({
   city: "Vancouver",
   duration: 3.5,
   description: "It's awesome!",
-  tips: "See all the things."
-  rating: 4,
+  tips: "See all the things.",
+  rating: 4
 })
 
 ## TourBreweries
 
-puts "Creating TourBreweries ..."
+puts "Creating TourBrewery ..."
 
-TourBreweries.create!({
+TourBrewery.create!({
   tour_id: 1,
   brewery_id: 1,
   brewery_order: 1
 })
 
-TourBreweries.create!({
+TourBrewery.create!({
   tour_id: 1,
   brewery_id: 2,
   brewery_order: 2
