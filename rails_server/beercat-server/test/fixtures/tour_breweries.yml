@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tour: one
+  brewery: one
+  brewery_order: 1
+
+two:
+  tour: two
+  brewery: two
+  brewery_order: 1
