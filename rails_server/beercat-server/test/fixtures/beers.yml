@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  brewery: one
+  name: MyString
+  description: MyText
+  style: MyString
+  score_ABV: 1.5
+  score_SRM: MyString
+  score_adventurous: false
+  score_sour: false
+  seasonal: false
+
+two:
+  brewery: two
+  name: MyString
+  description: MyText
+  style: MyString
+  score_ABV: 1.5
+  score_SRM: MyString
+  score_adventurous: false
+  score_sour: false
+  seasonal: false

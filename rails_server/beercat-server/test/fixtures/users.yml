@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  email: MyString
+  username: MyString
+  password_hash: MyString
+  preference_ABV: false
+  preference_SRM: false
+  preference_IBU: false
+  preference_adventurous: false
+  preference_sour: false
+
+two:
+  name: MyString
+  email: MyString
+  username: MyString
+  password_hash: MyString
+  preference_ABV: false
+  preference_SRM: false
+  preference_IBU: false
+  preference_adventurous: false
+  preference_sour: false
