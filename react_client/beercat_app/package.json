@@ -6,11 +6,12 @@
     "create-react-app": "^1.5.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-google-maps": "^7.3.0",
     "react-scripts": "1.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && cp -a build/* ../../rails_server/beercat-server/public/",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
