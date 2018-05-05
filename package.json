@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@rails/webpacker": "3.5",
+    "axios": "^0.18.0",
     "react-router-dom": "^4.2.2"
   }
 }

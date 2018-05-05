@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React, { Component } from 'react';
 import Beer from './Beer.jsx';
+import axios from 'axios';
 
 export default class BeerList extends Component {
 
