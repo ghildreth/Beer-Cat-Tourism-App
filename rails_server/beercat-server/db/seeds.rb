@@ -22,6 +22,8 @@ puts "Creating Breweries ..."
 Brewery.create(name: 'Brewery 9 3/4', city: 'Vancouver', address: '1234 Fake Street', description: "This is the descriptiono of the brewery, it's the best brewery ever.", latitude: 49.283834, longitude: -123.0665496)
 Brewery.create(name: "Cat's Meow", city: 'Vancouver', address: '237 That Street', description: "You can get beer here. It's tasty.", latitude: 49.2691407, longitude: -123.1051664)
 Brewery.create(name: "Mouse Hole", city: 'Vancouver', address: '615 Cheese Street', description: "Tiny hole in the wall watering hole,", latitude: 49.2691602, longitude: -123.1051512)
+Brewery.create(name: 'The Honeycomb', city: 'Vancouver', address: '435 The Farm', description: "Where the bees come to pollinate. Take a break from being a busy worker bee and drink some nectar.", latitude: 49.282684, longitude: -123.138617)
+
 
 ## BEERS
 
@@ -105,7 +107,6 @@ Beer.create!({
   seasonal: false
 })
 
-
 Beer.create!({
   brewery_id: 2,
   name:  "Bowl of Milk Stout",
@@ -184,6 +185,72 @@ Beer.create!({
   seasonal: false
 })
 
+Beer.create!({
+  brewery_id: 4,
+  name:  'The Beekeeper',
+  description: "A hoppy delight - this IPA has hints of smokiness",
+  style: 'IPA',
+  score_ABV: 4,
+  score_SRM: 5,
+  score_IBU: 70,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 4,
+  name:  'Queen Bee',
+  description: "A strong Stout, and our bestseller.",
+  style: 'Stout',
+  score_ABV: 4.8,
+  score_SRM: 22,
+  score_IBU: 30,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 4,
+  name:  'Bee Venom',
+  description: "Not for the faint of heart, this delightful sour will sting your tastebuds.",
+  style: 'Gose',
+  score_ABV: 4.1,
+  score_SRM: 3.2,
+  score_IBU: 8,
+  score_adventurous: true,
+  score_sour: true,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 4,
+  name:  'Worker Bee Session',
+  description: "Great for an all day break from work with your fellow worker bees.",
+  style: 'ISA',
+  score_ABV: 4.3,
+  score_SRM: 5.0,
+  score_IBU: 30,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 4,
+  name:  'Pollen Saison',
+  description: "A fresh delightful spring beer with hints of honey.",
+  style: 'Saison',
+  score_ABV: 4.8,
+  score_SRM: 3.5,
+  score_IBU: 25,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: true
+})
+
+
 ## Tours
 
 puts "Creating Tours ..."
@@ -195,6 +262,15 @@ Tour.create!({
   description: "It's awesome!",
   tips: "See all the things.",
   rating: 4
+})
+
+Tour.create!({
+  name: "Late Night Pub Pounce",
+  city: "Vancouver",
+  duration: 1.5,
+  description: "Amazing Vancouver nightlife.",
+  tips: "Don't get lost",
+  rating: 2
 })
 
 ## TourBreweries
@@ -211,6 +287,12 @@ TourBrewery.create!({
   tour_id: 1,
   brewery_id: 2,
   brewery_order: 2
+})
+
+TourBrewery.create!({
+  tour_id: 2,
+  brewery_id: 4,
+  brewery_order: 1
 })
 
 ## Users
