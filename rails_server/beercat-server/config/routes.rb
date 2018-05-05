@@ -3,5 +3,9 @@ Rails.application.routes.draw do
   scope :api do
     resources :breweries
     resources :beers
+    resources :tours
+    resources :users
+    resources :user_tours
+    resources :tour_breweries
   end
 end
