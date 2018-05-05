@@ -19,8 +19,9 @@ end
 
 puts "Creating Breweries ..."
 
-brew1 = Brewery.create(name: 'Brewery 9 3/4', city: 'Vancouver', address: '1234 Fake Street', description: "This is the descriptiono of the brewery, it's the best brewery ever.", latitude: 49.283834, longitude: -123.0665496)
-brew2 = Brewery.create(name: "Cat's Meow", city: 'Vancouver', address: '237 That Street', description: "You can get beer here. It's tasty.", latitude: 49.2691407, longitude: -123.1051664)
+Brewery.create(name: 'Brewery 9 3/4', city: 'Vancouver', address: '1234 Fake Street', description: "This is the descriptiono of the brewery, it's the best brewery ever.", latitude: 49.283834, longitude: -123.0665496)
+Brewery.create(name: "Cat's Meow", city: 'Vancouver', address: '237 That Street', description: "You can get beer here. It's tasty.", latitude: 49.2691407, longitude: -123.1051664)
+Brewery.create(name: "Mouse Hole", city: 'Vancouver', address: '615 Cheese Street', description: "Tiny hole in the wall watering hole,", latitude: 49.2691602, longitude: -123.1051512)
 
 ## BEERS
 
@@ -118,6 +119,71 @@ Beer.create!({
   seasonal: true
 })
 
+Beer.create!({
+  brewery_id: 3,
+  name:  "Door Mouse IPA",
+  description: "Description",
+  style: 'IPA',
+  score_ABV: 8,
+  score_SRM: 11,
+  score_IBU: 80,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 3,
+  name:  "Cheese Ale",
+  description: "Description",
+  style: 'Golden Ale',
+  score_ABV: 5,
+  score_SRM: 10,
+  score_IBU: 20,
+  score_adventurous: true,
+  score_sour: false,
+  seasonal: true
+})
+
+Beer.create!({
+  brewery_id: 3,
+  name:  "Farm Mouse Ale",
+  description: "Description",
+  style: 'Farmhouse Ale',
+  score_ABV: 5.5,
+  score_SRM: 5,
+  score_IBU: 20,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 3,
+  name:  "Three Blind Mice Saison",
+  description: "Description",
+  style: 'Sasion',
+  score_ABV: 8,
+  score_SRM: 5,
+  score_IBU: 25,
+  score_adventurous: true,
+  score_sour: true,
+  seasonal: true
+})
+
+Beer.create!({
+  brewery_id: 3,
+  name:  "Street Rat Porter",
+  description: "Description",
+  style: 'Porter',
+  score_ABV: 6,
+  score_SRM: 25,
+  score_IBU: 20,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
 ## Tours
 
 puts "Creating Tours ..."
@@ -146,5 +212,33 @@ TourBrewery.create!({
   brewery_id: 2,
   brewery_order: 2
 })
+
+## Users
+
+puts "Creating Users ..."
+
+User.create!({
+  name: "First",
+  email: "first@user.com",
+  username: "firstUser",
+  password_hash: "password",
+  preference_ABV: true,
+  preference_SRM: false,
+  preference_IBU: true,
+  preference_adventurous: true,
+  preference_sour: true
+  })
+
+User.create!({
+  name: "Second",
+  email: "second@user.com",
+  username: "secondUser",
+  password_hash: "password",
+  preference_ABV: true,
+  preference_SRM: false,
+  preference_IBU: false,
+  preference_adventurous: false,
+  preference_sour: false
+  })
 
 puts "DONE!"
