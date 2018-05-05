@@ -2,7 +2,9 @@
 import React, { Component } from 'react';
 import { Map } from './Map';
 import Navigation from './Router.jsx';
+import Brewery from './Brewery';
 import './App.css';
+
 
 class App extends Component {
   componentDidMount(){
@@ -15,6 +17,7 @@ class App extends Component {
   render() {
     return (
       <Navigation />
+
     );
   }
 }
