@@ -33,33 +33,36 @@ class App extends Component {
     fetch('/api/beers')
       .then(response => response.json())
       .then((beers) => {
-        const beersList = this.state.beers.concat(beers)
-        this.setState({beers: beersList});
+        const beerList = this.state.beers.concat(beers)
+        this.setState({beers: beerList});
       })
 
     fetch('/api/tours')
       .then(response => response.json())
       .then((tours) => {
         const tourList = this.state.tours.concat(tours)
-        this.setState({tours: tourList})
+        this.setState({tours: tourList});
     })
 
     fetch('/api/tour_breweries')
       .then(response => response.json())
       .then((tour_breweries) => {
-        console.log('tour_breweries', tour_breweries);
+        const tourBreweryList = this.state.tour_breweries.concat(tour_breweries)
+        this.setState({tour_breweries: tourBreweryList});
     })
 
     fetch('/api/user_tours')
     .then(response => response.json())
     .then((user_tours) => {
-      console.log('user_tours', user_tours);
+      const userTourList = this.state.user_tours.concat(user_tours)
+      this.setState({user_tours: userTourList});
     })
 
     fetch('/api/users')
     .then(response => response.json())
     .then((users) => {
-      console.log('users', users);
+      const userList = this.state.users.concat(users)
+      this.setState({users: userList});
     })
   }
   render() {
