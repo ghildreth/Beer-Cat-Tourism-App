@@ -27,8 +27,7 @@ class App extends Component {
       .then((breweries) => {
         console.log('breweries', breweries);
         const breweryList = this.state.breweries.concat(breweries)
-        this.setState({breweries: brewerylist});
-        console.log('state', this.state.breweries)
+        this.setState({breweries: breweryList});
       })
 
     fetch('/api/beers')
@@ -41,7 +40,8 @@ class App extends Component {
     fetch('/api/tours')
       .then(response => response.json())
       .then((tours) => {
-        console.log('tours', tours);
+        const tourList = this.state.tours.concat(tours)
+        this.setState({tours: tourList})
     })
 
     fetch('/api/tour_breweries')
