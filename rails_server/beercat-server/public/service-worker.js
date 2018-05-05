@@ -1,5 +1,5 @@
 /* eslint-disable */
-let precacheConfig = [['/index.html', '8d304a3733ab6b5f284fe7ad33634806'], ['/static/css/main.f1778c2a.css', '26e55ef9a6360a85a756e53ed90b2f14'], ['/static/js/main.c65e7e26.js', '1ec9649a49ebf957059d6a6a9c9e4b74']],
+let precacheConfig = [['/index.html', '60541d2b09039cac95ba1c8ea8e6c9d8'], ['/static/css/main.f1778c2a.css', '26e55ef9a6360a85a756e53ed90b2f14'], ['/static/js/main.15b1869e.js', 'b77bd9e0374226de73fa632946712533']],
   cacheName = `sw-precache-v3-sw-precache-webpack-plugin-${self.registration ? self.registration.scope : ''}`,
   ignoreUrlParametersMatching = [/^utm_/],
   addDirectoryIndex = function (e, t) { const n = new URL(e); return n.pathname.slice(-1) === '/' && (n.pathname += t), n.toString(); },
@@ -17,7 +17,7 @@ let precacheConfig = [['/index.html', '8d304a3733ab6b5f284fe7ad33634806'], ['/st
       n = e[1],
       r = new URL(t, self.location),
       a = createCacheKey(r, hashParamName, n, /\.\w{8}\./); return [r.toString(), a];
-  })); function setOfCachedUrls(e) { return e.keys().then(e => e.map(e => e.url)).then(e => new Set(e)); }self.addEventListener('install', (e) => { e.waitUntil(caches.open(cacheName).then(r => setOfCachedUrls(r).then(n => Promise.all(Array.from(urlsToCacheKeys.values()).map((t) => { if (!n.has(t)) { const e = new Request(t, { credentials: 'same-origin' }); return fetch(e).then((e) => { if (!e.ok) throw new Error(`Request for ${t } returned a response with status ${e.status}`); return cleanResponse(e).then(e => r.put(t, e)); }); } })))).then(() => self.skipWaiting())); }), self.addEventListener('activate', (e) => { const n = new Set(urlsToCacheKeys.values()); e.waitUntil(caches.open(cacheName).then(t => t.keys().then(e => Promise.all(e.map((e) => { if (!n.has(e.url)) return t.delete(e); })))).then(() => self.clients.claim())); }), self.addEventListener('fetch', (t) => {
+  })); function setOfCachedUrls(e) { return e.keys().then(e => e.map(e => e.url)).then(e => new Set(e)); }self.addEventListener('install', (e) => { e.waitUntil(caches.open(cacheName).then(r => setOfCachedUrls(r).then(n => Promise.all(Array.from(urlsToCacheKeys.values()).map((t) => { if (!n.has(t)) { const e = new Request(t, { credentials: 'same-origin' }); return fetch(e).then((e) => { if (!e.ok) throw new Error(`Request for ${t} returned a response with status ${e.status}`); return cleanResponse(e).then(e => r.put(t, e)); }); } })))).then(() => self.skipWaiting())); }), self.addEventListener('activate', (e) => { const n = new Set(urlsToCacheKeys.values()); e.waitUntil(caches.open(cacheName).then(t => t.keys().then(e => Promise.all(e.map((e) => { if (!n.has(e.url)) return t.delete(e); })))).then(() => self.clients.claim())); }), self.addEventListener('fetch', (t) => {
   if (t.request.method === 'GET') {
     let e,
       n = stripIgnoredUrlParameters(t.request.url, ignoreUrlParametersMatching),
