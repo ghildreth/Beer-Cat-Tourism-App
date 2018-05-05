@@ -1,12 +1,6 @@
-class BreweryController < ApplicationController
+class BreweriesController < ApplicationController
   def index
-    places = Place.search(search_params.to_h.symbolize_keys)
-    render json: places
-  end
-
-  private
-
-  def search_params
-    params.permit(:min_lng, :max_lng, :min_lat, :max_lat)
+    @breweries = Brewery.all
+    render json: @breweries
   end
 end
