@@ -1,7 +1,6 @@
 /* eslint-disable */
 import React, { Component } from 'react';
-import { Map } from './Map';
-import Navigation from './Router.jsx';
+import SiteRouter from './Router.jsx';
 import Brewery from './Brewery';
 import Beer from './Beer';
 import axios from 'axios';
@@ -46,6 +45,7 @@ class App extends Component {
     .then(response => {
       console.log('User Tours Response', response)
       this.setState({user_tours: response.data});
+
     })
     axios.get('/api/users')
     .then(response => {
@@ -58,7 +58,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navigation />
+        <SiteRouter />
       </div>
     );
   }
