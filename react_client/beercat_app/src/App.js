@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Map } from './Map';
 import Navigation from './Router.jsx';
 import Brewery from './Brewery';
+import Beer from './Beer';
 import './App.css';
 
 
