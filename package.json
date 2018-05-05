@@ -26,6 +26,7 @@
     "webpack-dev-server": "2.11.2"
   },
   "dependencies": {
-    "@rails/webpacker": "3.5"
+    "@rails/webpacker": "3.5",
+    "react-router-dom": "^4.2.2"
   }
 }
