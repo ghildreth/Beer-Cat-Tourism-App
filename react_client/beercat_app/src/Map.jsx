@@ -9,7 +9,7 @@ const AirbnbMap = withGoogleMap(props => (
   />
 ));
 
-export class Map extends Component {
+export default class Map extends Component {
   constructor(props) {
     super(props);
 
@@ -25,7 +25,7 @@ export class Map extends Component {
     const { lat, lng } = this.state;
 
     return (
-      <div style={{ width: '750px', height: '750px' }}>
+      <div style={{ width: '100px', height: '100px' }}>
         <AirbnbMap
           center={{
             lat,
