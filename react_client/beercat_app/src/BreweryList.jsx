@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom'
 
 class BreweryList extends Component {
 
-  // state = {                                   // eslint-disable-line no-alert
-  //   breweries: null
-  // }
+  state = {                                   // eslint-disable-line no-alert
+    breweries: null
+  }
 
   componentDidMount() {
     axios.get('/api/breweries')
