@@ -1,27 +1,70 @@
 /* eslint-disable */
 import React, { Component } from 'react';
 import Map from "./Map.jsx";
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-export default class Tour extends Component {
+export default class Tours extends Component {
+
+  state = {
+    tours: null
+  }
+
+  componentDidMount() {
+    axios.get('/api/tours')
+    .then(response => {
+      console.log('Tours Response', response)
+      this.setState({tours: response.data});
+      console.log('tour state', this.state.tours)
+    })
+  }
 
   render() {
-
-    const tour = this.props.tours.map((tour) => {
-      return (
-      <span key={tour.id}>
-      <h2>{tour.name}</h2>
-      <h5>{tour.city}</h5>
-      <h5>{tour.duration} hrs</h5>
-      <p>{tour.description}</p><br/>
-      </span>);
-    });
-
+    const { tours } = this.state
     return (
       <div>
-        <h2>Individual Tour Page</h2>
-        <h5>{tour}</h5>
-        <Map/>
+      <ul>
+      {tours ? (tours.map(tour => (
+        <li key={tour.id}>
+          <Link to={`/tour/${tour.id}`}>{tour.name}</Link>
+        </li>
+        ))
+      ) : (
+      <div>Loading...</div>
+      )}
+      </ul>
       </div>
-    );
+      )
   }
 }
+
+
+
+// export default class Tour extends Component {
+// const tourAPI =
+//     axios.get('/api/tours')
+//     .then(response => {
+//       console.log('Tours Response', response)
+//       response.data
+//     })
+
+// const Tour = () => (
+//   <div>
+//     <ul>
+//       {
+//         tourAPI.map(t => (
+//           <li key={t.id}>
+//             <Link to={`/tours/${t.id}`}>{t.name}></Link>
+//           </li>
+//         ))
+//       }
+//     </ul>
+//   </div>
+// )
+
+// export default Tour
+
+//   render() {
+
+
+// }

@@ -9,12 +9,11 @@ import Beer from './Beer.jsx';
 // import SingleTour from './SingleTour.jsx';
 import Over19 from './pages/Over19';
 import Navigation from './Navigation';
-import Tours from './Tours';
+import Tours from './Tour';
 import axios from 'axios';
 import Signup from './Signup';
 import Login from './Login';
 import './App.css';
-
 
 
 
@@ -43,12 +42,12 @@ class App extends Component {
       console.log('Beers Response', response)
       this.setState({beers: response.data});
     })
-    axios.get('/api/tours')
-    .then(response => {
-      console.log('Tours Response', response)
-      this.setState({tours: response.data});
-      console.log('tour state', this.state.tours)
-    })
+    // axios.get('/api/tours')
+    // .then(response => {
+    //   console.log('Tours Response', response)
+    //   this.setState({tours: response.data});
+    //   console.log('tour state', this.state.tours)
+    // })
     axios.get('/api/tour_breweries')
     .then(response => {
       console.log('Tour Breweries Response', response)
@@ -65,7 +64,7 @@ class App extends Component {
       console.log('Users Response', response)
       this.setState({users: response.data});
     })
-    axios.post('/api/users', {
+    axios.post('/api/user*s', {
                               name: 'Fred',
                               email: 'fred@fred.fred',
                               username: 'yabbadabbaDO',
@@ -88,7 +87,7 @@ class App extends Component {
     return (
         <div className="App">
           <div className="container">
-          
+
           <Navigation/>
           <hr />
           <Switch>
@@ -102,7 +101,7 @@ class App extends Component {
             } />
             <Route path='/over19' render={
               () => {
-                return this.state.over_19 ? 
+                return this.state.over_19 ?
                   <Redirect to='/'/> :
                   <Over19 agree={() => {
                       this.setState({over_19: true});
@@ -115,8 +114,11 @@ class App extends Component {
             <Route path="/about" component={About} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
-            {/* <Route path="/beers" component={BeerList} /> 
-            <Route path="/beers/:id" component={Beer} /> 
+            <Route path="/tours" component={Tours} />
+{/*            <Route path="/tours/:id" component={SingleTour} />*/}
+
+            {/* <Route path="/beers" component={BeerList} />
+            <Route path="/beers/:id" component={Beer} />
             <Route path="/tours" component={Tours} />
             <Route path="/tours/:id" component={SingleTour} />
             <Route path="/breweries/:id" component={SingleBrewery} />
