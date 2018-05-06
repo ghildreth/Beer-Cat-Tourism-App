@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "create-react-app": "^1.5.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
@@ -16,5 +17,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-   "proxy": "http://localhost:8080"
+  "proxy": "http://localhost:8080"
 }
