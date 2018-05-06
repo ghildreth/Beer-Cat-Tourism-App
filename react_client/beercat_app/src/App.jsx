@@ -1,8 +1,11 @@
 /* eslint-disable */
 import React, { Component } from 'react';
-import SiteRouter from './Router.jsx';
-import Brewery from './Brewery';
-import Beer from './Beer';
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+import Brewery from './Brewery.jsx';
+import Beer from './Beer.jsx';
+import Tour from './Tour.jsx';
+import Over19 from './pages/Over19';
+import Home from './Home';
 import axios from 'axios';
 import './App.css';
 
@@ -11,6 +14,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      over_19: false,
       beers: [],
       breweries: [],
       tours: [],
@@ -35,6 +39,7 @@ class App extends Component {
     .then(response => {
       console.log('Tours Response', response)
       this.setState({tours: response.data});
+      console.log('tour state', this.state.tours)
     })
     axios.get('/api/tour_breweries')
     .then(response => {
@@ -57,10 +62,52 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <SiteRouter />
-      </div>
+        <div className="App">
+          <div className="container">
+          <ul>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/">Tours</Link></li>
+            <li><Link to="/signup">Sign-up</Link></li>
+            <li><Link to="/login">Login</Link></li>
+          </ul>
+
+          <hr />
+          <Switch>
+            <Route exact path="/" render={
+              () => {
+                if(!this.state.over_19){
+                  return <Redirect to='/over19'/>
+                }
+                return <Home/>
+              }
+            } />
+            <Route path='/over19' render={
+              () => {
+                return this.state.over_19 ? 
+                  <Redirect to='/'/> :
+                  <Over19 agree={() => {
+                      this.setState({over_19: true});
+                    }}
+                    disagree={() => {
+                      window.location = 'https://www.ytv.com/';
+                    }}/>
+              }
+            }/>
+            {/* <Route path="/about" component={About} /> */}
+            {/* <Route path="/signup" component={Signup} />
+            <Route path="/login" component={Login} />
+            <Route path="/beer" component={Beer} />
+            <Route path="/tour" component={Tour} />
+            <Route path="/brewery(/:id)" component={Brewery} />
+            <Route path="/user/:id" component={User}/> */}
+          </Switch>
+          </div>
+        </div>
     );
+
+    const Brewery = ({ match }) => {
+      return <h1>Hello {match.params.id}!</h1>
+    };
   }
 }
 
