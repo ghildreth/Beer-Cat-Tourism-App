@@ -1,6 +1,8 @@
 /* eslint-disable */
 import React, {Component} from 'react';
-import axios from 'axios';
+import { Switch, Route } from 'react-router-dom'
+// import BreweryList from './BreweryList'
+// import SingleBrewery from './SingleBrewery'
 
 export default class Brewery extends Component{
 
