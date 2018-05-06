@@ -57,6 +57,22 @@ class App extends Component {
       console.log('Users Response', response)
       this.setState({users: response.data});
     })
+    axios.post('/api/users', {
+                              name: 'Fred',
+                              email: 'fred@fred.fred',
+                              username: 'yabbadabbaDO',
+                              password_hash: 'asdf',
+                              preference_ABV: 5,
+                              preference_SRM: 5,
+                              perference_IBU: 55,
+                              perference_adventurous: true,
+                              prefereence_sour: false
+
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+
     .catch(error => console.log(error))
   }
 
