@@ -1,13 +1,21 @@
 /* eslint-disable */
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
-import Brewery from './Brewery.jsx';
+import About from './About';
+// import SingleBrewery from './SingleBrewery.jsx';
+// import BreweryList from './BreweryList.jsx';
 import Beer from './Beer.jsx';
-import Tour from './Tour.jsx';
+// import BeerList from './BeerList.jsx';
+// import SingleTour from './SingleTour.jsx';
 import Over19 from './pages/Over19';
-import Home from './Home';
+import Navigation from './Navigation';
+import Tours from './Tours';
 import axios from 'axios';
+import Signup from './Signup';
+import Login from './Login';
 import './App.css';
+
+
 
 
 class App extends Component {
@@ -64,13 +72,8 @@ class App extends Component {
     return (
         <div className="App">
           <div className="container">
-          <ul>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/">Tours</Link></li>
-            <li><Link to="/signup">Sign-up</Link></li>
-            <li><Link to="/login">Login</Link></li>
-          </ul>
-
+          
+          <Navigation/>
           <hr />
           <Switch>
             <Route exact path="/" render={
@@ -78,7 +81,7 @@ class App extends Component {
                 if(!this.state.over_19){
                   return <Redirect to='/over19'/>
                 }
-                return <Home/>
+                return <Tours/>
               }
             } />
             <Route path='/over19' render={
@@ -93,21 +96,21 @@ class App extends Component {
                     }}/>
               }
             }/>
-            {/* <Route path="/about" component={About} /> */}
-            {/* <Route path="/signup" component={Signup} />
+            <Route path="/about" component={About} />
+            <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
-            <Route path="/beer" component={Beer} />
-            <Route path="/tour" component={Tour} />
-            <Route path="/brewery(/:id)" component={Brewery} />
-            <Route path="/user/:id" component={User}/> */}
+            {/* <Route path="/beers" component={BeerList} /> 
+            <Route path="/beers/:id" component={Beer} /> 
+            <Route path="/tours" component={Tours} />
+            <Route path="/tours/:id" component={SingleTour} />
+            <Route path="/breweries/:id" component={SingleBrewery} />
+            <Route path="/breweries" component={BreweryList} /> */}
+
+            {/* <Route path="/user/:id" component={User}/> */}
           </Switch>
           </div>
         </div>
     );
-
-    const Brewery = ({ match }) => {
-      return <h1>Hello {match.params.id}!</h1>
-    };
   }
 }
 
