@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-ro
 import About from './About';
 // import SingleBrewery from './SingleBrewery.jsx';
 // import BreweryList from './BreweryList.jsx';
-import Beer from './Beer.jsx';
-// import BeerList from './BeerList.jsx';
+// import SingleBeer from './SingleBeer.jsx';
+import BeerList from './BeerList.jsx';
 // import SingleTour from './SingleTour.jsx';
 import Over19 from './pages/Over19';
 import Navigation from './Navigation';
@@ -115,8 +115,9 @@ class App extends Component {
             <Route path="/about" component={About} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
-            {/* <Route path="/beers" component={BeerList} /> 
-            <Route path="/beers/:id" component={Beer} /> 
+            <Route path="/beers" component={BeerList} />
+            {/*  
+                <Route path="/beers/:id" component={SingleBeer} /> 
             <Route path="/tours" component={Tours} />
             <Route path="/tours/:id" component={SingleTour} />
             <Route path="/breweries/:id" component={SingleBrewery} />
