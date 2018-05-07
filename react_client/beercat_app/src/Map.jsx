@@ -17,7 +17,7 @@ export default class Map extends Component {
 
     this.state = {
       lat: 49.2827,
-      lng: 123.1207,
+      lng: -123.1207,
     };
   }
 

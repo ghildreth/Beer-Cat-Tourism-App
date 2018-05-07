@@ -9,10 +9,11 @@ import Beer from './Beer.jsx';
 // import SingleTour from './SingleTour.jsx';
 import Over19 from './pages/Over19';
 import Navigation from './Navigation';
-import Tours from './Tour';
+import TourList from './TourList';
 import axios from 'axios';
 import Signup from './Signup';
 import Login from './Login';
+import SingleTour from './SingleTour'
 import './App.css';
 
 
@@ -96,7 +97,7 @@ class App extends Component {
                 if(!this.state.over_19){
                   return <Redirect to='/over19'/>
                 }
-                return <Tours/>
+                return <TourList/>
               }
             } />
             <Route path='/over19' render={
@@ -114,8 +115,8 @@ class App extends Component {
             <Route path="/about" component={About} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
-            <Route path="/tours" component={Tours} />
-{/*            <Route path="/tours/:id" component={SingleTour} />*/}
+            <Route exact path="/tours" component={TourList} />
+            <Route path="/tours/:id" component={SingleTour} />
 
             {/* <Route path="/beers" component={BeerList} />
             <Route path="/beers/:id" component={Beer} />
