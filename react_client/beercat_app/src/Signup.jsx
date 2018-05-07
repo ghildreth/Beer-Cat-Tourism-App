@@ -1,22 +1,25 @@
-/* eslint-disable */
+ /* eslint-disable */
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import Quiz  from './Quiz'
 import axios from 'axios';
 
-export default class Signup extends Component {
+export default class Login extends Component {
   constructor(props) {
     super(props);
       this.state = {
+        current_user: false,
         over_19: true,
         name: '',
         username: '',
         email: '',
-        password_hash: '',
+        password_confirmation: '',
+        pizza: '',
         preference_ABV: true,
         preference_SRM: true,
-        perference_IBU: true,
-        perference_adventurous: true,
-        prefereence_sour: true
+        preference_IBU: true,
+        preference_adventurous: true,
+        preference_sour: true
       };
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -28,23 +31,30 @@ export default class Signup extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    console.log('Button was clicked');    
-    axios.post('/api/users', {
-      name: this.state.name,
-      email: this.state.email,
-      username: this.state.username,
-      password_hash: this.state.password_hash,
-      preference_ABV: this.state.preference_ABV,
-      preference_SRM: this.state.preference_SRM,
-      perference_IBU: this.state.perference_IBU,
-      perference_adventurous: this.state.perference_adventurous,
-      prefereence_sour: this.state.preference_sour
-    })
-    .then(function (response) {
-    console.log(response);
-    window.location = '/tours'
-    })
-    .catch(error => console.log(error))
+    console.log('Button was clicked');
+    console.log('Checking password match');
+    console.log('password', this.state.password);
+    console.log('confirmation', this.state.password_confirmation)
+    console.log('name', this.state.name)
+    if (this.state.password === this.state.password_confirmation) {
+      axios.post('/api/users', {
+        name: this.state.name,
+        email: this.state.email,
+        username: this.state.username,
+        password_hash: this.state.password,
+        preference_ABV: this.state.preference_ABV,
+        preference_SRM: this.state.preference_SRM,
+        preference_IBU: this.state.preference_IBU,
+        preference_adventurous: this.state.preference_adventurous,
+        preference_sour: this.state.preference_sour
+      })
+      .then(function (response) {
+      console.log(response);
+      window.location = '/tours'
+      });
+    } else {
+      console.log("Password doesn't match");
+    }
   }
 
   render() {
@@ -74,16 +84,20 @@ export default class Signup extends Component {
           placeholder="Username"/><br/>
         <label>Password:</label>
         <input className="password"
-          name="password_hash"
+          name="password"
           type="text"
           onChange={this.handleChange}
           placeholder="Password"/><br/>
         <label>Password Confirmation:</label>
-        <input className="password"
-          name="password confirmation"
+        <input className="password_confirmation"
+          name="password_confirmation"
           type="text"
-          placeholder="Password Confirmation"/><br/>
-        <input type="submit" value="Meow." />
+          placeholder="password_confirmation"
+          onChange={this.handleChange}/><br/>
+
+        <Quiz handleChange={this.handleChange}/>
+
+        <input type="submit" value="Meow." /><br/>
         </form>
       </div>
     );

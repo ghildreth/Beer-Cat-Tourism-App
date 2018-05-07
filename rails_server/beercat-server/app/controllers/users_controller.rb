@@ -18,9 +18,9 @@ class UsersController < ApplicationController
                                   :password_hash,
                                   :preference_ABV,
                                   :preference_SRM,
-                                  :perference_IBU,
-                                  :perference_adventurous,
-                                  :prefereence_sour
+                                  :preference_IBU,
+                                  :preference_adventurous,
+                                  :preference_sour
                                   )
   end
 end
