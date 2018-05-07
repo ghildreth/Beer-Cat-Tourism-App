@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-ro
 import About from './About';
 import SingleBrewery from './SingleBrewery.jsx';
 import BreweryList from './BreweryList.jsx';
-import Beer from './Beer.jsx';
-// import BeerList from './BeerList.jsx';
+import SingleBeer from './SingleBeer.jsx';
+import BeerList from './BeerList.jsx';
 // import SingleTour from './SingleTour.jsx';
 import Over19 from './pages/Over19';
 import Navigation from './Navigation';
@@ -14,8 +14,6 @@ import axios from 'axios';
 import Signup from './Signup';
 import Login from './Login';
 import './App.css';
-
-
 
 
 class App extends Component {
@@ -114,10 +112,11 @@ class App extends Component {
             <Route path="/login" component={Login} />
             <Route exact path="/breweries" component={BreweryList} />
             <Route path="/breweries/:id" component={SingleBrewery} />
-            {/* <Route path="/beers" component={BeerList} /> */}
-            <Route path="/beers/:id" component={Beer} />
+            <Route exact path="/beers" component={BeerList} />
+            <Route path="/beers/:id" component={SingleBeer} />
+            {/*  
             <Route path="/tours" component={Tours} />
-            {/* <Route path="/tours/:id" component={SingleTour} /> */}
+            <Route path="/tours/:id" component={SingleTour} />
             {/*<Route path="/user/:id" component={User}/> */}
           </Switch>
           </div>
