@@ -65,21 +65,6 @@ class App extends Component {
       console.log('Users Response', response)
       this.setState({users: response.data});
     })
-    axios.post('/api/users', {
-                              name: 'Fred',
-                              email: 'fred@fred.fred',
-                              username: 'yabbadabbaDO',
-                              password_hash: 'asdf',
-                              preference_ABV: 5,
-                              preference_SRM: 5,
-                              perference_IBU: 55,
-                              perference_adventurous: true,
-                              prefereence_sour: false
-
-    })
-    .then(function (response) {
-      console.log(response);
-    })
 
     .catch(error => console.log(error))
   }
@@ -89,18 +74,9 @@ class App extends Component {
         <div className="App">
           <div className="container">
           
-          <Navigation/>
-          <hr />
+          
           <Switch>
-            <Route exact path="/" render={
-              () => {
-                if(!this.state.over_19){
-                  return <Redirect to='/over19'/>
-                }
-                return <Tours/>
-              }
-            } />
-            <Route path='/over19' render={
+          <Route path='/over19' render={
               () => {
                 return this.state.over_19 ? 
                   <Redirect to='/'/> :
@@ -112,17 +88,33 @@ class App extends Component {
                     }}/>
               }
             }/>
-            <Route path="/about" component={About} />
-            <Route path="/signup" component={Signup} />
-            <Route path="/login" component={Login} />
+            <Route path="/" render={
+              () => {
+                if(!this.state.over_19){
+                  return <Redirect to='/over19'/>
+                }
+                return <div>
+                    <Navigation/>
+                    <hr/>
+                    <Switch>
+                      <Route path="/about" component={About} />
+                      <Route path="/signup" component={Signup} />
+                      <Route path="/login" component={Login} />
+                      <Redirect from='/logout' to='/tours'/>
+                      <Route path="/tours" component={Tours} />x
+                      
+                    </Switch>
+                  </div>
+                return <Tours/>
+              }
+            } />
             {/* <Route path="/beers" component={BeerList} /> 
             <Route path="/beers/:id" component={Beer} /> 
             <Route path="/tours" component={Tours} />
             <Route path="/tours/:id" component={SingleTour} />
             <Route path="/breweries/:id" component={SingleBrewery} />
-            <Route path="/breweries" component={BreweryList} /> */}
-
-            {/* <Route path="/user/:id" component={User}/> */}
+            <Route path="/breweries" component={BreweryList} />
+            <Route path="/user/:id" component={User}/> */}
           </Switch>
           </div>
         </div>
