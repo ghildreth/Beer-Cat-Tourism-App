@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 class BreweryList extends Component {
 
-  state = {                                   // eslint-disable-line no-alert
+  state = {
     breweries: null
   }
 
@@ -14,6 +14,7 @@ class BreweryList extends Component {
     .then(response => {
       this.setState({ breweries: response.data})
     })
+    console.log("BreweryList HI")
   }
 
   render () {

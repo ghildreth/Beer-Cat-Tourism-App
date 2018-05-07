@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 import About from './About';
-// import SingleBrewery from './SingleBrewery.jsx';
+import SingleBrewery from './SingleBrewery.jsx';
 import BreweryList from './BreweryList.jsx';
 import Beer from './Beer.jsx';
 // import BeerList from './BeerList.jsx';
@@ -115,7 +115,8 @@ class App extends Component {
             <Route path="/about" component={About} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
-            <Route path="/breweries" component={BreweryList} />
+            <Route exact path="/breweries" component={BreweryList} />
+            <Route path="/breweries/:id" component={SingleBrewery} />
             {/* <Route path="/beers" component={BeerList} />
             <Route path="/beers/:id" component={Beer} />
             <Route path="/tours" component={Tours} />

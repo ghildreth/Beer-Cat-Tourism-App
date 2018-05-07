@@ -1,24 +1,45 @@
 /* eslint-disable */
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
 import { Switch, Route } from 'react-router-dom'
-// import BreweryList from './BreweryList'
-// import SingleBrewery from './SingleBrewery'
 
-export default class Brewery extends Component{
+class SingleBrewery extends Component {
 
-  render() {
-  console.log('Rendering <Brewery />');
-  return (
-    <div>
-      <img alt="beer" src="https://pixabay.com/get/ea36b5082cf5013ed1534705fb0938c9bd22ffd41cb3144592f6c87aa6/eat-3347410_1920.jpg"/>
-      <h3>Brewery Avatar</h3>
-      <h4>Address: </h4>
-      <h4>Website: </h4>
-      <h4>Description: </h4>
-      <h4>Beer List: (BEER COMPONENT)</h4>
+  state = {
+    brewery: null
+  }
 
+  componentDidMount() {
+    const { match: {params} } = this.props;
 
-    </div>
-    );
+    axios.get(`/api/breweries/${params.id}`)
+    .then(({ data: brewery }) => {
+      this.setState({ brewery })
+    })
+  }
+
+  render () {
+    const { brewery } = this.state
+    if (brewery === null) {
+        return <div>Loading ... </div>;
+      } else {
+        return (
+          <div>
+             <span key={brewery.id}>
+               <h2>{brewery.name}</h2>
+               <h4>City: {brewery.city}</h4>
+               <h4>Address: {brewery.address}</h4>
+               <h4>Description: {brewery.description}</h4>
+             </span>
+             <a href="/breweries">Back</a>
+          </div>
+      )
+    }
   }
 }
+export default SingleBrewery
+
+
+
+
+
