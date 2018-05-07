@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 import About from './About';
-// import SingleBrewery from './SingleBrewery.jsx';
-// import BreweryList from './BreweryList.jsx';
+import SingleBrewery from './SingleBrewery.jsx';
+import BreweryList from './BreweryList.jsx';
 import Beer from './Beer.jsx';
 // import BeerList from './BeerList.jsx';
 // import SingleTour from './SingleTour.jsx';
@@ -73,12 +73,11 @@ class App extends Component {
     return (
         <div className="App">
           <div className="container">
-          
-          
+
           <Switch>
           <Route path='/over19' render={
               () => {
-                return this.state.over_19 ? 
+                return this.state.over_19 ?
                   <Redirect to='/'/> :
                   <Over19 agree={() => {
                       this.setState({over_19: true});
@@ -88,6 +87,7 @@ class App extends Component {
                     }}/>
               }
             }/>
+
             <Route path="/" render={
               () => {
                 if(!this.state.over_19){
@@ -101,20 +101,24 @@ class App extends Component {
                       <Route path="/signup" component={Signup} />
                       <Route path="/login" component={Login} />
                       <Redirect from='/logout' to='/tours'/>
-                      <Route path="/tours" component={Tours} />x
-                      
+                      <Route path="/tours" component={Tours} />
+
                     </Switch>
                   </div>
                 return <Tours/>
               }
             } />
-            {/* <Route path="/beers" component={BeerList} /> 
-            <Route path="/beers/:id" component={Beer} /> 
+
+            <Route path="/about" component={About} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/login" component={Login} />
+            <Route exact path="/breweries" component={BreweryList} />
+            <Route path="/breweries/:id" component={SingleBrewery} />
+            <Route path="/beers" component={BeerList} />
+            <Route path="/beers/:id" component={Beer} />
             <Route path="/tours" component={Tours} />
             <Route path="/tours/:id" component={SingleTour} />
-            <Route path="/breweries/:id" component={SingleBrewery} />
-            <Route path="/breweries" component={BreweryList} />
-            <Route path="/user/:id" component={User}/> */}
+            {/*<Route path="/user/:id" component={User}/> */}
           </Switch>
           </div>
         </div>
