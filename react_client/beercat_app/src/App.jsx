@@ -114,10 +114,10 @@ class App extends Component {
             <Route path="/login" component={Login} />
             <Route exact path="/breweries" component={BreweryList} />
             <Route path="/breweries/:id" component={SingleBrewery} />
-            <Route path="/beers" component={BeerList} />
+            {/* <Route path="/beers" component={BeerList} /> */}
             <Route path="/beers/:id" component={Beer} />
             <Route path="/tours" component={Tours} />
-            <Route path="/tours/:id" component={SingleTour} />
+            {/* <Route path="/tours/:id" component={SingleTour} /> */}
             {/*<Route path="/user/:id" component={User}/> */}
           </Switch>
           </div>
