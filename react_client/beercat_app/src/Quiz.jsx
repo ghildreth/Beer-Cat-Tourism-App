@@ -16,7 +16,7 @@ const Quiz = ({handleChange}) => (
           higher than 5%<br/>
         </div>
 
-        <label for="abv"><strong>2) What color beer do you prefer?</strong></label>
+        <label for="srm"><strong>2) What color beer do you prefer?</strong></label>
         <div>
           <input type="radio" name="preference_SRM"
           value={true}
@@ -29,7 +29,7 @@ const Quiz = ({handleChange}) => (
           Dark<br/>
         </div>
 
-        <label for="abv"><strong>3) How about bitter beer?</strong></label>
+        <label for="ibu"><strong>3) How about bitter beer?</strong></label>
         <div>
           <input type="radio" name="preference_IBU"
           value={true}
@@ -42,7 +42,7 @@ const Quiz = ({handleChange}) => (
           Nope!<br/>
         </div>
 
-        <label for="abv"><strong>4) Are you an adventurous drinker?</strong></label>
+        <label for="adventurous"><strong>4) Are you an adventurous drinker?</strong></label>
         <div>
           <input type="radio" name="preference_adventurous"
           value={true}
@@ -55,7 +55,7 @@ const Quiz = ({handleChange}) => (
           Ummmmmm I'll pass<br/>
         </div>
 
-        <label for="abv"><strong>5) Do you like sours?</strong></label>
+        <label for="sour"><strong>5) Do you like sours?</strong></label>
         <div>
           <input type="radio" name="preference_sour"
           value={true}
