@@ -6,14 +6,13 @@ import SingleBrewery from './SingleBrewery.jsx';
 import BreweryList from './BreweryList.jsx';
 import SingleBeer from './SingleBeer.jsx';
 import BeerList from './BeerList.jsx';
-// import SingleTour from './SingleTour.jsx';
 import Over19 from './pages/Over19';
 import Navigation from './Navigation';
 import TourList from './TourList';
 import axios from 'axios';
 import Signup from './Signup';
 import Login from './Login';
-import SingleTour from './SingleTour'
+import SingleTour from './SingleTour';
 import './App.css';
 
 class App extends Component {
