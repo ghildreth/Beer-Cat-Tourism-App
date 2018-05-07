@@ -4,7 +4,7 @@ import Map from "./Map.jsx";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-export default class Tours extends Component {
+export default class TourList extends Component {
 
   state = {
     tours: null
@@ -26,7 +26,7 @@ export default class Tours extends Component {
       <ul>
       {tours ? (tours.map(tour => (
         <li key={tour.id}>
-          <Link to={`/tour/${tour.id}`}>{tour.name}</Link>
+          <Link to={`/tours/${tour.id}`}>{tour.name}</Link>
         </li>
         ))
       ) : (

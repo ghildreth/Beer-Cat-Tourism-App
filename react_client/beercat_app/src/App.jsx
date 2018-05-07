@@ -9,12 +9,12 @@ import BeerList from './BeerList.jsx';
 // import SingleTour from './SingleTour.jsx';
 import Over19 from './pages/Over19';
 import Navigation from './Navigation';
-import Tours from './Tours';
+import TourList from './TourList';
 import axios from 'axios';
 import Signup from './Signup';
 import Login from './Login';
+import SingleTour from './SingleTour'
 import './App.css';
-
 
 class App extends Component {
   constructor(props) {
@@ -41,12 +41,12 @@ class App extends Component {
       console.log('Beers Response', response)
       this.setState({beers: response.data});
     })
-    axios.get('/api/tours')
-    .then(response => {
-      console.log('Tours Response', response)
-      this.setState({tours: response.data});
-      console.log('tour state', this.state.tours)
-    })
+    // axios.get('/api/tours')
+    // .then(response => {
+    //   console.log('Tours Response', response)
+    //   this.setState({tours: response.data});
+    //   console.log('tour state', this.state.tours)
+    // })
     axios.get('/api/tour_breweries')
     .then(response => {
       console.log('Tour Breweries Response', response)
@@ -64,6 +64,22 @@ class App extends Component {
       this.setState({users: response.data});
     })
 
+    axios.post('/api/user*s', {
+                              name: 'Fred',
+                              email: 'fred@fred.fred',
+                              username: 'yabbadabbaDO',
+                              password_hash: 'asdf',
+                              preference_ABV: 5,
+                              preference_SRM: 5,
+                              perference_IBU: 55,
+                              perference_adventurous: true,
+                              prefereence_sour: false
+
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+
     .catch(error => console.log(error))
   }
 
@@ -73,7 +89,7 @@ class App extends Component {
           <div className="container">
 
           <Switch>
-          <Route path='/over19' render={
+            <Route path='/over19' render={
               () => {
                 return this.state.over_19 ?
                   <Redirect to='/'/> :
@@ -99,7 +115,7 @@ class App extends Component {
                       <Route path="/signup" component={Signup} />
                       <Route path="/login" component={Login} />
                       <Redirect from='/logout' to='/tours'/>
-                      <Route path="/tours" component={Tours} />
+{/*                      <Route path="/tours" component={Tours} />*/}
 
                     </Switch>
                   </div>
@@ -114,8 +130,7 @@ class App extends Component {
             <Route path="/breweries/:id" component={SingleBrewery} />
             <Route exact path="/beers" component={BeerList} />
             <Route path="/beers/:id" component={SingleBeer} />
-            {/*  
-            <Route path="/tours" component={Tours} />
+            <Route exact path="/tours" component={TourList} />
             <Route path="/tours/:id" component={SingleTour} />
             {/*<Route path="/user/:id" component={User}/> */}
           </Switch>
