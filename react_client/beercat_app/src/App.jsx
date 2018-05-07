@@ -115,7 +115,7 @@ class App extends Component {
                       <Route path="/signup" component={Signup} />
                       <Route path="/login" component={Login} />
                       <Redirect from='/logout' to='/tours'/>
-{/*                      <Route path="/tours" component={Tours} />*/}
+{/*                   <Route path="/tours" component={Tours} />*/}
 
                     </Switch>
                   </div>
