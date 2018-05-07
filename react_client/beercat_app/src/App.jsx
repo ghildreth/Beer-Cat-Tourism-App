@@ -19,7 +19,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      over_19: false,
+      over_19: true,
       beers: [],
       breweries: [],
       tours: [],
@@ -40,44 +40,32 @@ class App extends Component {
       console.log('Beers Response', response)
       this.setState({beers: response.data});
     })
-    // axios.get('/api/tours')
-    // .then(response => {
-    //   console.log('Tours Response', response)
-    //   this.setState({tours: response.data});
-    //   console.log('tour state', this.state.tours)
-    // })
+    axios.get('/api/tours')
+    .then(response => {
+      console.log('Tours Response', response)
+      this.setState({tours: response.data});
+      console.log('tour state', this.state.tours)
+    })
+    
     axios.get('/api/tour_breweries')
     .then(response => {
       console.log('Tour Breweries Response', response)
       this.setState({tour_breweries: response.data});
     })
+
     axios.get('/api/user_tours')
     .then(response => {
       console.log('User Tours Response', response)
       this.setState({user_tours: response.data});
-
     })
+
     axios.get('/api/users')
     .then(response => {
       console.log('Users Response', response)
       this.setState({users: response.data});
     })
 
-    axios.post('/api/user*s', {
-                              name: 'Fred',
-                              email: 'fred@fred.fred',
-                              username: 'yabbadabbaDO',
-                              password_hash: 'asdf',
-                              preference_ABV: 5,
-                              preference_SRM: 5,
-                              perference_IBU: 55,
-                              perference_adventurous: true,
-                              prefereence_sour: false
 
-    })
-    .then(function (response) {
-      console.log(response);
-    })
 
     .catch(error => console.log(error))
   }
@@ -110,28 +98,24 @@ class App extends Component {
                     <Navigation/>
                     <hr/>
                     <Switch>
+                      <Route exact path="/" component={TourList} />
                       <Route path="/about" component={About} />
                       <Route path="/signup" component={Signup} />
                       <Route path="/login" component={Login} />
                       <Redirect from='/logout' to='/tours'/>
-{/*                   <Route path="/tours" component={Tours} />*/}
+                      <Route exact path="/breweries" component={BreweryList} />
+                      <Route path="/breweries/:id" component={SingleBrewery} />
+                      <Route exact path="/beers" component={BeerList} />
+                      <Route path="/beers/:id" component={SingleBeer} />
+                      <Route exact path="/tours" component={TourList} />
+                      <Route path="/tours/:id" component={SingleTour} />
+                      {/*<Route path="/user/:id" component={User}/> */}
 
                     </Switch>
                   </div>
                 return <Tours/>
               }
-            } />
-
-            <Route path="/about" component={About} />
-            <Route path="/signup" component={Signup} />
-            <Route path="/login" component={Login} />
-            <Route exact path="/breweries" component={BreweryList} />
-            <Route path="/breweries/:id" component={SingleBrewery} />
-            <Route exact path="/beers" component={BeerList} />
-            <Route path="/beers/:id" component={SingleBeer} />
-            <Route exact path="/tours" component={TourList} />
-            <Route path="/tours/:id" component={SingleTour} />
-            {/*<Route path="/user/:id" component={User}/> */}
+            } />            
           </Switch>
           </div>
         </div>
