@@ -1,10 +1,16 @@
 /* eslint-disable */
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './styles/quiz_modal.css'
 
-const Quiz = ({handleChange}) => (
-      <div>
-        <label for="abv"><strong>1) How strong do you like your beer?</strong></label>
+const Quiz = ({handleChange, handleClose, show}) => {
+  const showHideClassName = show ? "modal display-block" : "modal display-none";
+  console.log('show', showHideClassName)
+
+      return (
+      <div className={show ? "modal display-block" : "modal display-none"}>
+      <section className="modal-main">
+        <label htmlFor="abv"><strong>1) How strong do you like your beer?</strong></label>
         <div>
           <input type="radio" name="preference_ABV" value={ true }
           onChange={handleChange}/>
@@ -16,7 +22,7 @@ const Quiz = ({handleChange}) => (
           higher than 5%<br/>
         </div>
 
-        <label for="srm"><strong>2) What color beer do you prefer?</strong></label>
+        <label htmlFor="srm"><strong>2) What color beer do you prefer?</strong></label>
         <div>
           <input type="radio" name="preference_SRM"
           value={true}
@@ -29,7 +35,7 @@ const Quiz = ({handleChange}) => (
           Dark<br/>
         </div>
 
-        <label for="ibu"><strong>3) How about bitter beer?</strong></label>
+        <label htmlFor="ibu"><strong>3) How about bitter beer?</strong></label>
         <div>
           <input type="radio" name="preference_IBU"
           value={true}
@@ -42,7 +48,7 @@ const Quiz = ({handleChange}) => (
           Nope!<br/>
         </div>
 
-        <label for="adventurous"><strong>4) Are you an adventurous drinker?</strong></label>
+        <label htmlFor="adventurous"><strong>4) Are you an adventurous drinker?</strong></label>
         <div>
           <input type="radio" name="preference_adventurous"
           value={true}
@@ -55,7 +61,7 @@ const Quiz = ({handleChange}) => (
           Ummmmmm I'll pass<br/>
         </div>
 
-        <label for="sour"><strong>5) Do you like sours?</strong></label>
+        <label htmlFor="sour"><strong>5) Do you like sours?</strong></label>
         <div>
           <input type="radio" name="preference_sour"
           value={true}
@@ -67,7 +73,9 @@ const Quiz = ({handleChange}) => (
           onChange={handleChange}/>
           Eww<br/>
         </div>
+        </section>
       </div>
-)
+      )
+}
 
 export default Quiz

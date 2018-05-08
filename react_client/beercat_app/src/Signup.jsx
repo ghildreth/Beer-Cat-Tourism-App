@@ -19,7 +19,8 @@ export default class Login extends Component {
         preference_SRM: true,
         preference_IBU: true,
         preference_adventurous: true,
-        preference_sour: true
+        preference_sour: true,
+        show: false
       };
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -28,6 +29,15 @@ export default class Login extends Component {
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value});
   }
+
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
+
 
   onSubmit(e) {
     e.preventDefault();
@@ -95,8 +105,8 @@ export default class Login extends Component {
           placeholder="password_confirmation"
           onChange={this.handleChange}/><br/>
 
-        <Quiz handleChange={this.handleChange}/>
-
+        <Quiz handleChange={this.handleChange} show={this.state.show} handleClose={this.hideModal}/>
+        <button type="button" onClick={this.showModal}>SHOW MODAL</button>
         <input type="submit" value="Meow." /><br/>
         </form>
       </div>
