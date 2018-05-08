@@ -1,6 +1,5 @@
 /* eslint-disable */
 import React, { Component } from 'react';
-import Map from "./Map.jsx";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
