@@ -73,6 +73,7 @@ const Quiz = ({handleChange, handleClose, show}) => {
           onChange={handleChange}/>
           Eww<br/>
         </div>
+        <button onClick={handleClose}>close</button>
         </section>
       </div>
       )
