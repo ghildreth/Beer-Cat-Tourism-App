@@ -13,6 +13,7 @@ import axios from 'axios';
 import Signup from './Signup';
 import Login from './Login';
 import SingleTour from './SingleTour';
+import SingleUser from './SingleUser';
 import './App.css';
 
 class App extends Component {
@@ -20,6 +21,8 @@ class App extends Component {
     super(props);
     this.state = {
       over_19: true,
+      current_user: false,
+      id: '',
       beers: [],
       breweries: [],
       tours: [],
@@ -65,9 +68,14 @@ class App extends Component {
       this.setState({users: response.data});
     })
 
-
-
     .catch(error => console.log(error))
+  }
+
+  currentUser(id, status) {
+    this.setState({
+      id: id,
+      current_user: status,
+    });
   }
 
   render() {
@@ -109,7 +117,7 @@ class App extends Component {
                       <Route path="/beers/:id" component={SingleBeer} />
                       <Route exact path="/tours" component={TourList} />
                       <Route path="/tours/:id" component={SingleTour} />
-                      {/*<Route path="/user/:id" component={User}/> */}
+                      <Route path="/user/:id" component={SingleUser}/>
 
                     </Switch>
                   </div>

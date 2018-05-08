@@ -13,8 +13,8 @@ export default class Login extends Component {
         name: '',
         username: '',
         email: '',
+        password: '',
         password_confirmation: '',
-        pizza: '',
         preference_ABV: true,
         preference_SRM: true,
         preference_IBU: true,
@@ -46,12 +46,12 @@ export default class Login extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    console.log('Button was clicked');
+    console.log('Button was clicked'); 
     console.log('Checking password match');
     console.log('password', this.state.password);
     console.log('confirmation', this.state.password_confirmation)
     console.log('name', this.state.name)
-    if (this.state.password === this.state.password_confirmation) {
+    if (this.state.password === this.state.password_confirmation) {   
       axios.post('/api/users', {
         name: this.state.name,
         email: this.state.email,
@@ -62,6 +62,7 @@ export default class Login extends Component {
         preference_IBU: this.state.preference_IBU,
         preference_adventurous: this.state.preference_adventurous,
         preference_sour: this.state.preference_sour
+
       })
       .then(function (response) {
       console.log(response);
@@ -109,7 +110,6 @@ export default class Login extends Component {
           type="text"
           placeholder="password_confirmation"
           onChange={this.handleChange}/><br/>
-
         <Quiz handleChange={this.handleChange}
               show={this.state.show}
               handleClose={this.hideModal}
@@ -117,6 +117,7 @@ export default class Login extends Component {
               handleNextStep={this.handleNextStep}/>
         <button type="button" onClick={this.showModal}>SHOW MODAL</button>
         <input type="submit" value="Meow." /><br/>
+
         </form>
       </div>
     );
