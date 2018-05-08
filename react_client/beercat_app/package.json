@@ -12,7 +12,7 @@
     "react-scripts": "1.1.4"
   },
   "scripts": {
-    "start": "CHOKIDAR_USEPOLLING=true react-scripts start",
+    "start": "CHOKIDAR_USEPOLLING=true react-scripts start 2>&1",
     "build": "react-scripts build && cp -a build/* ../../rails_server/beercat-server/public/",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
