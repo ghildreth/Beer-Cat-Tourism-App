@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { withGoogleMap, GoogleMap } from 'react-google-maps';
 import { PinMarker } from './PinMarker'
+import axios from 'axios'
 
 const TourMap = props => {
   return (
@@ -14,8 +15,13 @@ const TourMap = props => {
     defaultZoom={props.zoom}>
     {
       props.places && props.places.map(place => (
-        <PinMarker lat={place.lat}
-                    lng={place.lng}
+        <PinMarker
+                    key={place.id}
+                    city={place.city}
+                    address={place.address}
+                    lat={place.latitude}
+                    lng={place.longitude}
+                    logo={place.logo_image_url}
                     description={ place.description }
                     name={ place.name } />
         ))
@@ -33,7 +39,7 @@ export default class Map extends Component {
     this.yMapBounds = { min: null, max: null }
 
     this.mapFullyLoaded = false
-    this.zoom = 7;
+    this.zoom = 12;
 
     this.state = {
       places: [],
@@ -68,24 +74,32 @@ export default class Map extends Component {
   }
 
 fetchPlacesFromApi() {
-  const places = [
-  {
-    id: 1,
-    lat: 49.2827,
-    lng: -123.1207,
-    description: 'description',
-    name: 'BrewHaus'
-  },
-    {
-    id: 2,
-    lat: 49.5827,
-    lng: -123.2207,
-    description: 'second',
-    name: 'Taphouse'
-  }
-  ];//<PinMarker lat={49.2827} lng={-123.1207} description={'description'} name={'BrewHaus'} />
-  this.setState({ places })
+
+  axios.get(`/api/breweries`)
+  .then(({data: places }) => {
+    this.setState({ places })
+  console.log('this is what u want', places)
+
+  })
 }
+
+  // const places = [
+  // {
+  //   id: 1,
+  //   lat: 49.2827,
+  //   lng: -123.1207,
+  //   description: 'description',
+  //   name: 'BrewHaus'
+  // },
+  //   {
+  //   id: 2,
+  //   lat: 49.5827,
+  //   lng: -123.2207,
+  //   description: 'second',
+  //   name: 'Taphouse'
+  // }
+  // ];//<PinMarker lat={49.2827} lng={-123.1207} description={'description'} name={'BrewHaus'} />
+
 
 getMapBounds() {
   let mapBounds = this.map.getBounds()
@@ -102,7 +116,7 @@ getMapBounds() {
   render() {
     const { lat, lng, places } = this.state;
     return (
-      <div style={{ width: '300px', height: '300px' }}>
+      <div style={{ width: '500px', height: '500px' }}>
         <ul>
           <li>lng: {lng}</li>
           <li>lat: {lat}</li>

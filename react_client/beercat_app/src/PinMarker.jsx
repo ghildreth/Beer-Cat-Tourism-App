@@ -20,7 +20,7 @@ export class PinMarker extends Component {
 
   render() {
   const {showTooltip} = this.state
-  const {lat, lng, name, city, description} = this.props
+  const {lat, lng, name, city, description, address} = this.props
 
   return(
     <Marker
@@ -33,6 +33,9 @@ export class PinMarker extends Component {
       <PinInfoWindow description={description}
                       name={name}
                       city={city}
+                      address={address}
+                      lat={lat}
+                      lng={lng}
                       closeWindow={this.closeWindow.bind(this)}/>
       )}
     </Marker>
