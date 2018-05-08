@@ -1,18 +1,17 @@
 /* eslint-disable */
 import React, { Component } from 'react';
-// import Beer from './Beer.jsx';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-class SingleBeer extends Component {
+class BeerList extends Component {
   state = {
     beers: null
   }
 
   componentDidMount() {
     axios.get('/api/beers/')
-      .then(response => {
-        this.setState ({ beers: response.data })
+    .then(response => {
+      this.setState ({ beers: response.data })
    })
   }
 
@@ -35,4 +34,4 @@ class SingleBeer extends Component {
   }
 }
 
-export default SingleBeer
+export default BeerList;
