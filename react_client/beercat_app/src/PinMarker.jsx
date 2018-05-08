@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Marker } from 'react-google-maps'
 import { PinInfoWindow } from './PinInfoWindow'
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+
 
 export class PinMarker extends Component {
   constructor(props) {
@@ -20,7 +22,7 @@ export class PinMarker extends Component {
 
   render() {
   const {showTooltip} = this.state
-  const {lat, lng, name, city, description, address} = this.props
+  const {lat, lng, name, city, description, address, id} = this.props
 
   return(
     <Marker
@@ -31,6 +33,7 @@ export class PinMarker extends Component {
     onClick={this.clickTooltip.bind(this)}>
     {showTooltip && (
       <PinInfoWindow description={description}
+                      id={id}
                       name={name}
                       city={city}
                       address={address}

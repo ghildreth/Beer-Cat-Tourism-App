@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { withGoogleMap, GoogleMap } from 'react-google-maps';
 import { PinMarker } from './PinMarker'
 import axios from 'axios'
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+
 
 const TourMap = props => {
   return (
@@ -17,6 +19,7 @@ const TourMap = props => {
       props.places && props.places.map(place => (
         <PinMarker
                     key={place.id}
+                    id={place.id}
                     city={place.city}
                     address={place.address}
                     lat={place.latitude}
@@ -116,7 +119,7 @@ getMapBounds() {
   render() {
     const { lat, lng, places } = this.state;
     return (
-      <div style={{ width: '500px', height: '500px' }}>
+      <div style={{ width: '750px', height: '750px' }}>
         <ul>
           <li>lng: {lng}</li>
           <li>lat: {lat}</li>
