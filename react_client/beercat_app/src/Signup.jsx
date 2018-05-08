@@ -20,7 +20,8 @@ export default class Login extends Component {
         preference_IBU: true,
         preference_adventurous: true,
         preference_sour: true,
-        show: false
+        show: false,
+        modal_step: 1
       };
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -36,6 +37,10 @@ export default class Login extends Component {
 
   hideModal = () => {
     this.setState({ show: false });
+  };
+
+  handleNextStep = (step) => {
+    this.setState({ modal_step: step});
   };
 
 
@@ -68,7 +73,7 @@ export default class Login extends Component {
   }
 
   render() {
-
+    console.log('MODAL STEP: ', this.state.modal_step)
     return (
       <div>
         <h2>Signup for BeerCat</h2>
@@ -105,7 +110,11 @@ export default class Login extends Component {
           placeholder="password_confirmation"
           onChange={this.handleChange}/><br/>
 
-        <Quiz handleChange={this.handleChange} show={this.state.show} handleClose={this.hideModal}/>
+        <Quiz handleChange={this.handleChange}
+              show={this.state.show}
+              handleClose={this.hideModal}
+              modalStep={this.state.modal_step}
+              handleNextStep={this.handleNextStep}/>
         <button type="button" onClick={this.showModal}>SHOW MODAL</button>
         <input type="submit" value="Meow." /><br/>
         </form>
