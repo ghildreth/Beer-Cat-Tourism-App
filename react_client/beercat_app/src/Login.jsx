@@ -33,28 +33,31 @@ export default class Login extends Component {
     console.log('username', username);
     console.log('password', password);
     console.log('logging user in');
-    axios.get('/api/users_login/', {
-      params: {
-        username: username,
-        password: password
-      }
-    })
+    axios.post(`/api/users_login/${username}/${password}`)
       .then(response => {
-        console.log('response data', response.data);
-        if (response.data.username === this.state.username && response.data.password_hash === this.state.password) {
+        console.log('response data', response);
+        if (response.status === 204) {
           console.log('logged in');
-          this.setState({
-            current_user: true,
-            over_19: true,
-            id: response.data.id,
-            username: response.data.username,
-            email: response.data.email,
-          })
-          this.props.currentUser(this.state.id, this.state.current_user);
+          axios.get(`/api/users_by_username/${username}`)
+            .then(response => {
+              console.log('response data', response.data);
+              this.setState({
+                id: response.data.id,
+                current_user: true});
+            })
+          // this.setState({
+          //   current_user: true,
+          //   over_19: true,
+          //   id: response.data.id,
+          //   username: response.data.username,
+          //   email: response.data.email,
+          // })
+          // this.props.currentUser(this.state.id, this.state.current_user);
         } else {
           console.log('not a registered user, cannot log in')
         }
       });
+    
   }
 
   render() {
