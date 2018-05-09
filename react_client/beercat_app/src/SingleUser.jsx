@@ -46,6 +46,7 @@ export default class SingleUser extends Component {
 
     return (
       <div>
+        <img className="avatar" src={`https://api.adorable.io/avatars/200/${this.state.username}.png`} style={{borderRadius: 10}} alt="avatar"/>
         <h2>{ `Welcome to Beer Cat, ${ this.state.username === null ? `please sign up` : this.state.username} !` }</h2>
         <ul>
           <li>Name: {this.state.name}</li>

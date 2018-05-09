@@ -18,34 +18,39 @@ export default class Login extends Component {
       };
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.showModal = this.showModal.bind(this);
-    this.hideModal = this.hideModal.bind(this);
   }
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value});
   }
 
-  showModal = () => {
-    this.setState({ show: true });
-  };
-
-  hideModal = () => {
-    this.setState({ show: false });
-  };
-
   onSubmit(e) {
     e.preventDefault();
+    const form = e.target
+    const password = form.password.value;
+    const username = form.username.value;
     console.log('Button was clicked'); 
-    console.log('username', this.state.username);
-    console.log('password', this.state.password);
+    console.log('username', username);
+    console.log('password', password);
     console.log('logging user in');
-    axios.get(`/api/users_by_username/${this.state.username}`)
+    axios.get('/api/users_login/', {
+      params: {
+        username: username,
+        password: password
+      }
+    })
       .then(response => {
         console.log('response data', response.data);
         if (response.data.username === this.state.username && response.data.password_hash === this.state.password) {
           console.log('logged in');
-          window.location = `/user/${response.data.id}`
+          this.setState({
+            current_user: true,
+            over_19: true,
+            id: response.data.id,
+            username: response.data.username,
+            email: response.data.email,
+          })
+          this.props.currentUser(this.state.id, this.state.current_user);
         } else {
           console.log('not a registered user, cannot log in')
         }
@@ -53,11 +58,13 @@ export default class Login extends Component {
   }
 
   render() {
-
+    if(this.state.current_user){
+      return <Redirect to={`/user/${this.state.id}`}/>
+    }
     return (
       <div>
         <h2>Login to Beer Cat</h2>
-        <form onSubmit={this.onSubmit} className="form-inline">
+        <form onSubmit={this.onSubmit} className="form-stack">
         <label>Username:</label>
         <input className="username"
           name="username"

@@ -30,6 +30,7 @@ class App extends Component {
       user_tours:[],
       users: [],
     };
+    this.currentUser = this.currentUser.bind(this);
   }
 
   componentDidMount() {
@@ -103,13 +104,13 @@ class App extends Component {
                   return <Redirect to='/over19'/>
                 }
                 return <div>
-                    <Navigation/>
+                    <Navigation currentUser={this.state.current_user} userID={this.state.id}/>
                     <hr/>
                     <Switch>
                       <Route exact path="/" component={TourList} />
                       <Route path="/about" component={About} />
-                      <Route path="/signup" component={Signup} />
-                      <Route path="/login" component={Login} />
+                      <Route path="/signup" component={() => <Signup currentUser={this.currentUser}/>}/>
+                      <Route path="/login" component={() => <Login currentUser={this.currentUser}/>}/>
                       <Redirect from='/logout' to='/tours'/>
                       <Route exact path="/breweries" component={BreweryList} />
                       <Route path="/breweries/:id" component={SingleBrewery} />
