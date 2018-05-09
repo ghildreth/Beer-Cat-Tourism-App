@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { Component } from 'react'
 import { InfoWindow } from 'react-google-maps'
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";

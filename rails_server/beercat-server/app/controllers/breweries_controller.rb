@@ -12,7 +12,7 @@ class BreweriesController < ApplicationController
 
   def show
     @brewery = Brewery.find(params[:id])
-    render json: @brewery
+    render json: @brewery, include: :tours
   end
 
   # private

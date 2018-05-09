@@ -39,7 +39,7 @@
          <h5>{tour.city}</h5>
          <h5>{tour.duration} hrs</h5>
          <p>{tour.description}</p><br/>
-         <Map />
+         <Map places={ this.state.tour.breweries } />
        </span>
        <a href="/tours">Back</a>
      </div>
