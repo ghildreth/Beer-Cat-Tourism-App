@@ -590,7 +590,7 @@ TourBrewery.create!({
   tour_id: 1,
   brewery_id: 3,
   brewery_order: 3
-
+})
 
 TourBrewery.create!({
   tour_id: 3,
