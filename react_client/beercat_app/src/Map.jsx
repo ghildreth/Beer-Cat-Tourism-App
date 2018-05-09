@@ -130,13 +130,9 @@ getMapBounds() {
   this.yMapBounds.max = yMapBounds.b
 }
 
-// componentDidMount() {
-//   const { match: {params} } = this.props
-// }
 
   render() {
-    // console.log('params', match)
-    const { lat, lng, tour, tb } = this.state;
+    const { lat, lng } = this.state;
     const { places } = this.props;
 
     return (
