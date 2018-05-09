@@ -403,13 +403,13 @@ TourBrewery.create!({
 TourBrewery.create!({
   tour_id: 2,
   brewery_id: 5,
-  brewery_order: 1
+  brewery_order: 2
 })
 
 TourBrewery.create!({
   tour_id: 1,
   brewery_id: 3,
-  brewery_order: 1
+  brewery_order: 3
 })
 ## Users
 
