@@ -105,7 +105,6 @@ class App extends Component {
                 }
                 return <div>
                     <Navigation currentUser={this.state.current_user} userID={this.state.id}/>
-                    <hr/>
                     <Switch>
                       <Route exact path="/" component={TourList} />
                       <Route path="/about" component={About} />

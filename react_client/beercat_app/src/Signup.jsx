@@ -45,7 +45,7 @@ export default class Login extends Component {
     const password_confirmation = form.password_confirmation.value;
     console.log('Checking password match');
     console.log('password', password);
-    console.log('confirmation', password_confirmation)
+    console.log('confirmation', password_confirmation);
     if (password === password_confirmation) {  
       console.log('passwords match!');
       axios.post('/api/users', {user: {
@@ -111,6 +111,7 @@ export default class Login extends Component {
           type="text"
           placeholder="password_confirmation"
           onChange={this.handleChange}/><br/>
+        
 
         {/* <Quiz handleChange={this.handleChange}
               show={this.state.show}
