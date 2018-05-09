@@ -25,6 +25,9 @@ Brewery.create(name: "Mouse Hole", city: 'Vancouver', address: '615 Cheese Stree
 Brewery.create(name: 'The Honeycomb', city: 'Vancouver', address: '435 The Farm', description: "Where the bees come to pollinate. Take a break from being a busy worker bee and drink some nectar.", latitude: 49.282684, longitude: -123.138617)
 Brewery.create(name: 'Star Wars Cantina', city: "Pirate City", address:'Ep. IV', description: 'Her name was Leia - She was a princess! With a danish on each ear and Darth Vader drawing near...', latitude: 49.2787766, longitude: -123.1160782)
 Brewery.create(name: 'Blue Mandolin', city: 'Vancouver', address: '213 Humming Avenue', description: "Relaxing pints and tasty tunes tucked away in Vancouver's industrial district", latitude: 49.267229, longitude: -123.104256)
+Brewery.create(name: 'Exposed Brickwork', city: 'Vancouver', address: '498 Gastown', description: "All beer served with a side of Avocado Toast and a 63 degree egg.", latitude: 49.284065, longitude: -123.107223)
+Brewery.create(name: 'Programmer Pick-Up', city: 'Vancouver', address: 'The Steam Cock', description: "Tinder for programmers.", latitude: 49.2837637, longitude: -123.1143696)
+
 
 ## BEERS
 
@@ -356,6 +359,150 @@ Beer.create!({
   score_sour: false,
   seasonal: false
 })
+
+Beer.create!({
+  brewery_id: 8,
+  name:  'You can Function my C',
+  description: "",
+  style: 'IPA',
+  score_ABV: 6.2,
+  score_SRM: 7,
+  score_IBU: 48,
+  score_adventurous: true,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 8,
+  name:  'Sudo Bang Bang',
+  description: "",
+  style: 'Sour',
+  score_ABV: 4.0,
+  score_SRM: 2.5,
+  score_IBU: 11,
+  score_adventurous: false,
+  score_sour: true,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 8,
+  name:  'Destroy your box',
+  description: "",
+  style: 'Lager',
+  score_ABV: 2.5,
+  score_SRM: 3,
+  score_IBU: 23,
+  score_adventurous: true,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 8,
+  name: "I'd like to fork your repo",
+  description: "",
+  style: 'ISA',
+  score_ABV: 4.3,
+  score_SRM: 3.5,
+  score_IBU: 35,
+  score_adventurous: true,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 8,
+  name:  'You make my Stack Overflow',
+  description: "",
+  style: 'Stout',
+  score_ABV: 4.5,
+  score_SRM: 24,
+  score_IBU: 30,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 8,
+  name:  'Reset head --hard',
+  description: "",
+  style: 'Lager',
+  score_ABV: 3,
+  score_SRM: 2,
+  score_IBU: 30,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 7,
+  name:  'Deconstruced IPA',
+  description: "You'll have to brew it yourself but it's well worth the wait",
+  style: 'IPA',
+  score_ABV: 7.2,
+  score_SRM: 8,
+  score_IBU: 50,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 7,
+  name:  'Vegan Sour',
+  description: "Gluten-free, Organic air",
+  style: 'Sour',
+  score_ABV: 4.5,
+  score_SRM: 3,
+  score_IBU: 10,
+  score_adventurous: false,
+  score_sour: true,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 7,
+  name:  'Turmeric and Ginger Lager',
+  description: "For the health concious",
+  style: 'Lager',
+  score_ABV: 3,
+  score_SRM: 2,
+  score_IBU: 25,
+  score_adventurous: true,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 7,
+  name:  'Kombucha Yoga Session',
+  description: "Can only be consumed while in Downward Dog.",
+  style: 'ISA',
+  score_ABV: 4.4,
+  score_SRM: 4,
+  score_IBU: 40,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 7,
+  name:  'Cardigan Stout',
+  description: "Will keep you warm and fuzzy",
+  style: 'Stout',
+  score_ABV: 5,
+  score_SRM: 25,
+  score_IBU: 29,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
 ## Tours
 
 puts "Creating Tours ..."
@@ -376,6 +523,24 @@ Tour.create!({
   description: "Amazing Vancouver nightlife.",
   tips: "Don't get lost",
   rating: 2
+})
+
+Tour.create!({
+  name: "Cat Napping",
+  city: "Vancouver",
+  duration: 2,
+  description: "Low key chilled night.",
+  tips: "Try not to fall asleep",
+  rating: 1
+})
+
+Tour.create!({
+  name: "Hisssstory Tour",
+  city: "Vancouver",
+  duration: 4,
+  description: "A walk through some of Vancouver's historical spots.",
+  tips: "Make sure to stop and take in the historical sights along the way.",
+  rating: 2.5
 })
 
 ## TourBreweries
@@ -409,8 +574,33 @@ TourBrewery.create!({
 TourBrewery.create!({
   tour_id: 1,
   brewery_id: 3,
+  brewery_order: 3
+})
+
+TourBrewery.create!({
+  tour_id: 3,
+  brewery_id: 6,
   brewery_order: 1
 })
+
+TourBrewery.create!({
+  tour_id: 3,
+  brewery_id: 5,
+  brewery_order: 2
+})
+
+TourBrewery.create!({
+  tour_id: 3,
+  brewery_id: 4,
+  brewery_order: 3
+})
+
+TourBrewery.create!({
+  tour_id: 3,
+  brewery_id: 8,
+  brewery_order: 4
+})
+
 ## Users
 
 # puts "Creating Users ..."
