@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_07_233221) do
+ActiveRecord::Schema.define(version: 2018_05_08_213816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,7 +80,6 @@ ActiveRecord::Schema.define(version: 2018_05_07_233221) do
     t.string "name"
     t.string "email"
     t.string "username"
-    t.string "password_hash"
     t.boolean "preference_ABV"
     t.boolean "preference_SRM"
     t.boolean "preference_IBU"

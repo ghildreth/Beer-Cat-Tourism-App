@@ -1,26 +1,41 @@
 class UsersController < ApplicationController
   def new
-    @user = User.new
   end
   
   def index
-    @users = User.all
-    render json: @users
+    users = User.all
+    render json: users
   end
 
   def create
-    @user = User.create(user_params)
+    user = User.new(user_params)
+    if user.save
+      puts "saved!"
+    else
+      puts user.errors.full_messages
+    end
   end
 
   def show
-    @user = User.find(params[:id])
-    render json: @user
+    user = User.find(params[:id])
+    render json: user
   end
 
   def by_username
-    @username = params[:username]
-    @user = User.find_by(username: @username)
-    render json: @user
+    username = params[:username]
+    user = User.find_by(username: username)
+    render json: user
+  end
+
+  def login
+    username = params[:username]
+    password = params[:password]
+    user = User.find_by(username: username)
+    if user.authenticate(password)
+      puts "matches"
+    else
+      puts "doesn't match"
+    end
   end
 
   private

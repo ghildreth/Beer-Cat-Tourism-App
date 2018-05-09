@@ -24,6 +24,7 @@ Brewery.create(name: "Cat's Meow", city: 'Vancouver', address: '237 That Street'
 Brewery.create(name: "Mouse Hole", city: 'Vancouver', address: '615 Cheese Street', description: "Tiny hole in the wall watering hole,", latitude: 49.2691602, longitude: -123.1051512)
 Brewery.create(name: 'The Honeycomb', city: 'Vancouver', address: '435 The Farm', description: "Where the bees come to pollinate. Take a break from being a busy worker bee and drink some nectar.", latitude: 49.282684, longitude: -123.138617)
 Brewery.create(name: 'Star Wars Cantina', city: "Pirate City", address:'Ep. IV', description: 'Her name was Leia - She was a princess! With a danish on each ear and Darth Vader drawing near...', latitude: 49.2787766, longitude: -123.1160782)
+Brewery.create(name: 'Blue Mandolin', city: 'Vancouver', address: '213 Humming Avenue', description: "Relaxing pints and tasty tunes tucked away in Vancouver's industrial district", latitude: 49.267229, longitude: -123.104256)
 
 ## BEERS
 
@@ -250,7 +251,111 @@ Beer.create!({
   seasonal: true
 })
 
+## BREWERY 5
 
+Beer.create!({
+  brewery_id: 5,
+  name:  'Treble Clef Golden Ale',
+  description: "Refeshing and crisp ale best enjoyed on a sunny day with good friends.",
+  style: 'Golden Ale',
+  score_ABV: 5.0,
+  score_SRM: 3,
+  score_IBU: 21,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 5,
+  name:  'Jam Session',
+  description: "Deep gold with citrus highlights. Tangerine aroma with subtle hints of strawberry.",
+  style: 'India Session Belgian Ale',
+  score_ABV: 4.0,
+  score_SRM: 6,
+  score_IBU: 32,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 5,
+  name:  'Ba-dum tsssh!',
+  description: "Light copper color with assertive hops.",
+  style: 'Pale Ale',
+  score_ABV: 5.2 ,
+  score_SRM: 9,
+  score_IBU: 50,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 5,
+  name:  'Hazy Nights IPA',
+  description: "A dreamy mix of hops to enlighten your spirits after a hard day's work.",
+  style: 'Hazy IPA',
+  score_ABV: 7.4 ,
+  score_SRM: 8,
+  score_IBU: 50,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 5,
+  name:  'Pink Floyd Raspberry',
+  description: "You'll wish you were here all day enjoying this session ale filled with summer vibes and local raspberry puree.",
+  style: 'Session Ale',
+  score_ABV: 4.7,
+  score_SRM: 6,
+  score_IBU: 17,
+  score_adventurous: true,
+  score_sour: false,
+  seasonal: true
+})
+
+Beer.create!({
+  brewery_id: 5,
+  name:  'Festival Saison',
+  description: "Pucker up and enjoy this tart saison with a fresh citrus floral aroma.",
+  style: 'Sour Saison',
+  score_ABV: 4.7,
+  score_SRM: 4,
+  score_IBU: 21,
+  score_adventurous: true,
+  score_sour: true,
+  seasonal: true
+})
+
+Beer.create!({
+  brewery_id: 5,
+  name:  'Groupie',
+  description: "This crisp, clean pilsner is sure to attract a crowd and goes down easy.",
+  style: 'Pilsner',
+  score_ABV: 4.8,
+  score_SRM: 2,
+  score_IBU: 18,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 5,
+  name:  'Private Jet',
+  description: "Fly through this easy to drink saison in first class. Watch out it packs a punch.",
+  style: 'Saison',
+  score_ABV: 6.2,
+  score_SRM: 5.6,
+  score_IBU: 21,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
 ## Tours
 
 puts "Creating Tours ..."

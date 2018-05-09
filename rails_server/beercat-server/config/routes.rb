@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :beers
     resources :tours
     get '/users_by_username/:username', to: 'users#by_username'
+    post '/users_login/:username/:password', to: 'users#login'
     resources :users
     resources :user_tours
     resources :tour_breweries
