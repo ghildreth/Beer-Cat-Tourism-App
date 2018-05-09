@@ -49,7 +49,7 @@ class App extends Component {
       this.setState({tours: response.data});
       console.log('tour state', this.state.tours)
     })
-    
+
     axios.get('/api/tour_breweries')
     .then(response => {
       console.log('Tour Breweries Response', response)
@@ -123,7 +123,7 @@ class App extends Component {
                   </div>
                 return <Tours/>
               }
-            } />            
+            } />
           </Switch>
           </div>
         </div>

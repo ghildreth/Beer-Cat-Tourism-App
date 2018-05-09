@@ -6,6 +6,15 @@ import axios from 'axios'
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 
 
+const tour = {
+  id: 12,
+  breweries: [
+    { id: 1, name: 'Whatever' },
+    { id: 2, name: 'Other' }
+  ]
+}
+
+
 const TourMap = props => {
   return (
   <GoogleMap
@@ -16,7 +25,8 @@ const TourMap = props => {
     defaultCenter={props.center}
     defaultZoom={props.zoom}>
     {
-      props.places && props.places.map(place => (
+
+       props.places.map(place => (
         <PinMarker
                     key={place.id}
                     id={place.id}
@@ -54,7 +64,6 @@ export default class Map extends Component {
   handleMapChanged() {
     this.getMapBounds()
     this.setMapCenterPoint()
-    this.fetchPlacesFromApi()
   }
 
   handleMapMounted(map) {
@@ -76,15 +85,20 @@ export default class Map extends Component {
     })
   }
 
-fetchPlacesFromApi() {
+  //   axios.get(`/api/tour_breweries`)
+  // .then(({data: tb }) => {
+  //   this.setState({ tb })
+  // console.log('this is what u want', tb)
 
-  axios.get(`/api/breweries`)
-  .then(({data: places }) => {
-    this.setState({ places })
-  console.log('this is what u want', places)
+  // })
 
-  })
-}
+  //   axios.get(`/api/tours`)
+  // .then(({data: tour }) => {
+  //   this.setState({ tour })
+  // console.log('this is what u want', tour)
+
+  // })
+
 
   // const places = [
   // {
@@ -116,8 +130,15 @@ getMapBounds() {
   this.yMapBounds.max = yMapBounds.b
 }
 
+// componentDidMount() {
+//   const { match: {params} } = this.props
+// }
+
   render() {
-    const { lat, lng, places } = this.state;
+    // console.log('params', match)
+    const { lat, lng, tour, tb } = this.state;
+    const { places } = this.props;
+
     return (
       <div style={{ width: '750px', height: '750px' }}>
         <ul>
