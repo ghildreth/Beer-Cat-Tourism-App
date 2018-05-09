@@ -47,7 +47,7 @@ class SingleBrewery extends Component {
                                 <h4>{beer.description}</h4>
                                 <h4>Style: {beer.style}</h4>
                                 <h4>ABV: {beer.score_ABV}</h4>
-                                <h4>SRM: {beer.score_IBU}</h4>
+                                <h4>SRM: {beer.score_SRM}</h4>
                                 <h4>IBU: {beer.score_IBU}</h4>
                                 </li>
                                 ))
