@@ -21,7 +21,7 @@ puts "Creating Breweries ..."
 
 Brewery.create(name: 'Brewery Parallel 49&3/4', city: 'Vancouver', address: '1234 Fake Street', description: "This is the descriptiono of the brewery, it's the best brewery ever.", latitude: 49.283834, longitude: -123.0665496)
 Brewery.create(name: "Cat's Meow", city: 'Vancouver', address: '237 That Street', description: "You can get beer here. It's tasty.", latitude: 49.2691407, longitude: -123.1051664)
-Brewery.create(name: "Mouse Hole", city: 'Vancouver', address: '615 Cheese Street', description: "Tiny hole in the wall watering hole,", latitude: 49.2691602, longitude: -123.1051512)
+Brewery.create(name: "Mouse Hole", city: 'Vancouver', address: '615 Cheese Street', description: "Tiny hole in the wall watering hole,", latitude: 49.2827, longitude: -123.1207)
 Brewery.create(name: 'The Honeycomb', city: 'Vancouver', address: '435 The Farm', description: "Where the bees come to pollinate. Take a break from being a busy worker bee and drink some nectar.", latitude: 49.282684, longitude: -123.138617)
 Brewery.create(name: 'Star Wars Cantina', city: "Pirate City", address:'Ep. IV', description: 'Her name was Leia - She was a princess! With a danish on each ear and Darth Vader drawing near...', latitude: 49.2787766, longitude: -123.1160782)
 Brewery.create(name: 'Blue Mandolin', city: 'Vancouver', address: '213 Humming Avenue', description: "Relaxing pints and tasty tunes tucked away in Vancouver's industrial district", latitude: 49.267229, longitude: -123.104256)
@@ -611,7 +611,7 @@ TourBrewery.create!({
 })
 
 TourBrewery.create!({
-  tour_id: 3,
+  tour_id: 4,
   brewery_id: 8,
   brewery_order: 4
 })
