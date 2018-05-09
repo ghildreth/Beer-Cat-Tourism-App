@@ -8,7 +8,8 @@ class SingleBrewery extends Component {
 
   state = {
     brewery: null,
-    beers: null
+    beers: null,
+    open: false
   }
 
   componentDidMount() {
@@ -28,35 +29,41 @@ class SingleBrewery extends Component {
     const { beers } = this.state
 
 
-
     console.log('BEER', { beers })
     if (brewery === null) {
         return <div>Loading ... </div>;
       } else {
         return (
           <div>
-             <span key={brewery.id}>
-               <h1>{brewery.name}</h1>
-               <h4>City: {brewery.city}</h4>
-               <h4>Address: {brewery.address}</h4>
-               <h4>Description: {brewery.description}</h4>
-               <ul>
+            <h1>{brewery.name}</h1>
+            <div className="brewery-tombstone">
+              <span key={brewery.id}>
+                <h4>City: {brewery.city}</h4>
+                <h4>Address: {brewery.address}</h4>
+                <h4>Description: {brewery.description}</h4>
+                <a href="/tours">Back</a>
+              </span>
+            </div>   
+            <div className="beer-list">
+              <h4>What's on Tap?</h4>
+              <span>
                 { beers ? (beers.filter(beer => beer.brewery_id === brewery.id).map(beer => (
-                                <li key={beer.id}>
-                                <h2>{beer.name}</h2>
-                                <h4>{beer.description}</h4>
-                                <h4>Style: {beer.style}</h4>
-                                <h4>ABV: {beer.score_ABV}</h4>
-                                <h4>SRM: {beer.score_IBU}</h4>
-                                <h4>IBU: {beer.score_IBU}</h4>
-                                </li>
+                    
+                    <div className="individual-beer" key={beer.id}>
+                    <span><strong>{beer.name}</strong></span><br/>
+                    <span>{beer.description}</span><br/>
+                    <span>Style: {beer.style}</span><br/>
+                    <span>ABV: {beer.score_ABV}</span><br/>
+                    <span>SRM: {beer.score_IBU}</span><br/>
+                    <span>IBU: {beer.score_IBU}</span><br/>
+                    </div>
                                 ))
                            ) : (
                 <div>Loading...</div>
               )}
-              </ul>
-             </span>
-             <a href="/breweries">Back</a>
+              </span>
+             </div>
+             
           </div>
       )
     }
