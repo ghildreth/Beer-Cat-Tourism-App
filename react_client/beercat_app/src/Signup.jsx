@@ -1,23 +1,30 @@
-/* eslint-disable */
+ /* eslint-disable */
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import Quiz  from './Quiz';
+import Quiz  from './Quiz'
 import axios from 'axios';
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        show: false,
-        modal_step: 1,
         current_user: false,
-        id: '',
+        over_19: true,
+        name: '',
+        username: '',
+        email: '',
+        password: '',
+        password_confirmation: '',
+        preference_ABV: true,
+        preference_SRM: true,
+        preference_IBU: true,
+        preference_adventurous: true,
+        preference_sour: true,
+        show: false,
+        modal_step: 1
       };
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.showModal = this.showModal.bind(this);
-    this.hideModal = this.hideModal.bind(this);
-    this.handleNextStep = this.handleNextStep.bind(this);
   }
 
   handleChange(e) {
@@ -32,38 +39,34 @@ export default class Login extends Component {
     this.setState({ show: false });
   };
 
-  handleNextStep = (step) => {
-    this.setState({ modal_step: step});
-  };
+  // handleNextStep = (step) => {
+  //   this.setState({ modal_step: step});
+
+  // };
 
 
   onSubmit(e) {
-    e.preventDefault();
-    console.log('Button was clicked'); 
-    const form = e.target;
-    const password = form.password.value;
-    const password_confirmation = form.password_confirmation.value;
+
+    console.log('THIS IS EEEEE: ', e);
+    console.log('Button was clicked');
     console.log('Checking password match');
-    console.log('password', password);
-    console.log('confirmation', password_confirmation);
-    if (password === password_confirmation) {  
-      console.log('passwords match!');
+    if (e.password === e.passwordConfirmation) {
       axios.post('/api/users', {user: {
-        name: form.name.value,
-        email: form.email.value,
-        username: form.username.value,
-        password: form.password.value,
-        password_confirmation: form.password_confirmation.value,
-        preference_ABV: true,
-        preference_SRM: true,
-        preference_IBU: true,
-        preference_adventurous: true,
-        preference_sour: true
+        name: e.name,
+        email: e.email,
+        username: e.userName,
+        password: e.password,
+        password_confirmation: e.passwordConfirmation,
+        preference_ABV: e.preference_ABV,
+        preference_SRM: e.preference_SRM,
+        preference_IBU: e.preference_IBU,
+        preference_adventurous: e.preference_adventurous,
+        preference_sour: e.preference_sour
       }
       })
+
       .then(function (response) {
       console.log(response);
-      // const user_status = response.config.data.user.id
       // window.location = '/tours'
       });
     } else {
@@ -72,56 +75,16 @@ export default class Login extends Component {
   }
 
   render() {
-    // console.log('MODAL STEP: ', this.state.modal_step)
-    if(this.state.current_user){
-      return <Redirect to={`/user/${this.state.id}`}/>
-    }
+    console.log('MODAL STEP: ', this.state.modal_step)
     return (
       <div>
         <h2>Signup for BeerCat</h2>
         <h5>Tell us a bit about you.</h5>
-        <form onSubmit={this.onSubmit} className="form-stack">
-        <label>Full Name:</label>
-        <input className="name"
-          name="name"
-          type="text"
-          onChange={this.handleChange}
-          placeholder="Name"/><br/>
-        <label>Email:</label>
-        <input className="email"
-          name="email"
-          type="text"
-          onChange={this.handleChange}
-          placeholder="Email"/><br/>
-        <label>Username:</label>
-        <input className="username"
-          name="username"
-          type="text"
-          onChange={this.handleChange}
-          placeholder="Username"/><br/>
-        <label>Password:</label>
-        <input className="password"
-          name="password"
-          type="text"
-          onChange={this.handleChange}
-          placeholder="Password"/><br/>
-        <label>Password Confirmation:</label>
-        <input className="password_confirmation"
-          name="password_confirmation"
-          type="text"
-          placeholder="password_confirmation"
-          onChange={this.handleChange}/><br/>
-        
+        <button type="button" onClick={this.showModal}>Get Started</button>
+        {/*<form onSubmit={this.onSubmit} className="form-inline">*/}
+        <Quiz onSubmit={this.onSubmit} handleChange={this.handleChange} className="form-inline"/>
 
-        {/* <Quiz handleChange={this.handleChange}
-              show={this.state.show}
-              handleClose={this.hideModal}
-              modalStep={this.state.modal_step}
-              handleNextStep={this.handleNextStep}/>
-        <button type="button" onClick={this.showModal}>SHOW MODAL</button> */}
-        <input type="submit" value="Meow." /><br/>
-
-        </form>
+        {/*</form>*/}
       </div>
     );
   }
