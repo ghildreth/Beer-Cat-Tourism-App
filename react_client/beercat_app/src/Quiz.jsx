@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Form, Input, Button, Radio } from 'antd';
+import { Form, Input, Button, Radio, Pagination } from 'antd';
 
 const FormItem = Form.Item;
 
@@ -18,12 +18,14 @@ class Quiz extends React.Component {
         this.props.onSubmit(values)
       }
     });
+
   }
 
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
       <div>
+      {/*<Pagination>*/}
         <Form onSubmit={this.handleSubmit}>
           <FormItem label="Full Name">
             {getFieldDecorator('name', {
@@ -114,6 +116,7 @@ class Quiz extends React.Component {
             <input value="submit" type="submit"/>
           </FormItem>
         </Form>
+        {/*</Pagination>*/}
       </div>
     );
   }
