@@ -1,19 +1,9 @@
 /* eslint-disable */
 import React, { Component } from 'react';
-import { withGoogleMap, GoogleMap } from 'react-google-maps';
+import { withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer } from 'react-google-maps';
 import { PinMarker } from './PinMarker'
 import axios from 'axios'
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
-
-
-const tour = {
-  id: 12,
-  breweries: [
-    { id: 1, name: 'Whatever' },
-    { id: 2, name: 'Other' }
-  ]
-}
-
 
 const TourMap = props => {
   return (
@@ -24,10 +14,12 @@ const TourMap = props => {
     onBoundsChanged={props.handleMapFullyLoaded}
     defaultCenter={props.center}
     defaultZoom={props.zoom}>
+    <DirectionsRenderer directions={props.directions} />
     {
 
        props.places.map(place => (
         <PinMarker
+
                     key={place.id}
                     id={place.id}
                     city={place.city}
@@ -37,6 +29,7 @@ const TourMap = props => {
                     logo={place.logo_image_url}
                     description={ place.description }
                     name={ place.name } />
+
         ))
     }
   </GoogleMap>
@@ -85,37 +78,8 @@ export default class Map extends Component {
     })
   }
 
-  //   axios.get(`/api/tour_breweries`)
-  // .then(({data: tb }) => {
-  //   this.setState({ tb })
-  // console.log('this is what u want', tb)
-
-  // })
-
-  //   axios.get(`/api/tours`)
-  // .then(({data: tour }) => {
-  //   this.setState({ tour })
-  // console.log('this is what u want', tour)
-
-  // })
 
 
-  // const places = [
-  // {
-  //   id: 1,
-  //   lat: 49.2827,
-  //   lng: -123.1207,
-  //   description: 'description',
-  //   name: 'BrewHaus'
-  // },
-  //   {
-  //   id: 2,
-  //   lat: 49.5827,
-  //   lng: -123.2207,
-  //   description: 'second',
-  //   name: 'Taphouse'
-  // }
-  // ];//<PinMarker lat={49.2827} lng={-123.1207} description={'description'} name={'BrewHaus'} />
 
 
 getMapBounds() {
@@ -145,6 +109,7 @@ getMapBounds() {
           <li>yMapBounds.min: {this.yMapBounds.min}</li>
           <li>yMapBounds.max: {this.yMapBounds.max}</li>
         </ul>
+
         <WrappedTourMap
           onMapMounted={this.handleMapMounted.bind(this)}
           handleMapChanged={this.handleMapChanged.bind(this)}
@@ -154,7 +119,9 @@ getMapBounds() {
           zoom={this.zoom}
           containerElement={ <div style={{height: '100%'}}/> }
           mapElement={ <div style={{height: '100%'}}/> }
+
         />
+
       </div>
     );
   }
