@@ -1,55 +1,40 @@
  /* eslint-disable */
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import Quiz  from './Quiz'
+import Quiz  from './Quiz';
+import { Modal, Button } from 'antd';
+import 'antd/lib/modal/style/css';
 import axios from 'axios';
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        current_user: false,
-        over_19: true,
-        name: '',
-        username: '',
-        email: '',
-        password: '',
-        password_confirmation: '',
-        preference_ABV: true,
-        preference_SRM: true,
-        preference_IBU: true,
-        preference_adventurous: true,
-        preference_sour: true,
-        show: false,
-        modal_step: 1
+        loading: false,
+        visible: false
       };
-    this.handleChange = this.handleChange.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({ [e.target.name]: e.target.value});
+  showModal = () => {
+      this.setState({
+        visible: true,
+      });
+    }
+
+  handleOk = () => {
+    this.setState({ loading: true });
+    setTimeout(() => {
+      this.setState({ loading: false, visible: false });
+    }, 1000);
   }
 
-  showModal = () => {
-    this.setState({ show: true });
-  };
-
-  hideModal = () => {
-    this.setState({ show: false });
-  };
-
-  // handleNextStep = (step) => {
-  //   this.setState({ modal_step: step});
-
-  // };
-
-
   onSubmit(e) {
-
     console.log('THIS IS EEEEE: ', e);
     console.log('Button was clicked');
     console.log('Checking password match');
+
     if (e.password === e.passwordConfirmation) {
       axios.post('/api/users', {user: {
         name: e.name,
@@ -63,10 +48,12 @@ export default class Login extends Component {
         preference_adventurous: e.preference_adventurous,
         preference_sour: e.preference_sour
       }
+
       })
 
-      .then(function (response) {
+      .then( (response) => {
       console.log(response);
+      this.handleOk();
       // window.location = '/tours'
       });
     } else {
@@ -75,16 +62,17 @@ export default class Login extends Component {
   }
 
   render() {
+    const { visible, loading } = this.state;
     console.log('MODAL STEP: ', this.state.modal_step)
     return (
       <div>
         <h2>Signup for BeerCat</h2>
         <h5>Tell us a bit about you.</h5>
-        <button type="button" onClick={this.showModal}>Get Started</button>
-        {/*<form onSubmit={this.onSubmit} className="form-inline">*/}
-        <Quiz onSubmit={this.onSubmit} handleChange={this.handleChange} className="form-inline"/>
-
-        {/*</form>*/}
+        <Button type="primary" onClick={this.showModal}>Open</Button>
+        <Modal  visible={visible}
+                title="Tell me more about you...">
+          <Quiz onSubmit={this.onSubmit} className="form-inline"/>
+        </Modal>
       </div>
     );
   }
