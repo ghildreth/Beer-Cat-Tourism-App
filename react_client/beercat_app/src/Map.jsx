@@ -39,7 +39,7 @@ const TourMap = props => {
     onBoundsChanged={props.handleMapFullyLoaded}
     defaultCenter={props.center}
     defaultZoom={props.zoom}
-    waypoints={[{ lat: 49.283834, lng: -123.0665496 }, { lat: 49.2691407, lng: -123.1051664 }, { lat: 41.8507300, lng: -87.66 }]}>
+    >
 
     {props.directions && <DirectionsRenderer directions={props.directions} />}
     {
@@ -126,16 +126,37 @@ componentDidMount() {
   console.log('mounting from the ')
   const DirectionsService = makeDirectionService(new google.maps.DirectionsService());
   console.log('CDM', this.props.waypoints);
-  const point1 = new google.maps.LatLng( 49.283834, -123.0665496);
-  const point2 = new google.maps.LatLng( 49.2691407, -123.1051664);
-  const wps = [{location: point1}, {location: point2}]
-  const org = new google.maps.LatLng( 49.283834, -123.0665496);
-  const des = new google.maps.LatLng(49.2691407, -123.1051664);
+  // const point1 = new google.maps.LatLng( 49.283834, -123.0665496);
+  // const point2 = new google.maps.LatLng( 49.2691407, -123.1051664);
+  // const point3 = new google.maps.LatLng( 49.2827,-123.1207)
+  // // how do i automate adding coordinates to the wps
+  // const wps = [{location: point1}, {location: point2}, {location: point3}]
+  // const org = new google.maps.LatLng( 49.283834, -123.0665496);
+  // const des = new google.maps.LatLng(49.2691407, -123.1051664);
+  console.log('HERE: ', this.props.places)
+
+  this.props.places.map(place => {
+    console.log('check me out', place.latitude)
+  })
+  console.log('does zero work', this.props.places[0])
+  const coords = this.props.places.map(({latitude, longitude}) => {
+    return new google.maps.LatLng(latitude, longitude);
+  });
+  const origin = coords[0];
+  const destination = coords[coords.length - 1];
+  const waypoints = coords.slice(1, coords.length - 1)
+    .map((location) => ({location, stopover: true}))
+
+console.log('realOrigin', this.props.places[0].latitude, this.props.places[0].longitude)
+console.log('realDesination', this.props.places[this.props.places.length - 1].latitude, this.props.places[this.props.places.length - 1].longitude)
+const firstPlace = new google.maps.LatLng(this.props.places[0].latitude, this.props.places[0].longitude);
+const lastPlace = new google.maps.LatLng(this.props.places[this.props.places.length - 1].latitude, this.props.places[this.props.places.length - 1].longitude);
+// for i loop through the this.props.places to generate the nth amount of locations on the map
 
   DirectionsService.route({
-    origin: org,
-    destination:  des,
-    waypoints: wps,
+    origin,
+    destination,
+    waypoints,
     travelMode: google.maps.TravelMode.WALKING,
   }).then((result) => {
     console.log('Directions', result)
@@ -173,7 +194,6 @@ componentDidMount() {
           zoom={this.zoom}
           containerElement={ <div style={{height: '100%'}}/> }
           mapElement={ <div style={{height: '100%'}}/> }
-          waypoints={[{ lat: 49.283834, lng: -123.0665496 }, { lat: 49.2691407, lng: -123.1051664 }, { lat: 41.8507300, lng: -87.66 }]}
           directions={this.state.directions}
         />
       </div>
