@@ -60,3 +60,26 @@
   width: 30%;
   border-radius: 1em;
 }
+
+.tours-all {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tours-individualtour {
+  border: 1px solid;
+  border-radius: 1em;
+  width: 250px;
+  height: 250px;
+  margin: 1em;
+}
+
+.tours-individualtourtitle {
+  height: 100px;
+  padding: 1em 0em 0em 0em;
+}
+
+.tours-individualtourdetails {
+  text-align: left;
+  padding: 0em 0em 0em 1em;
+}

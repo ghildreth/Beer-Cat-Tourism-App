@@ -33,6 +33,7 @@ export default class SingleUser extends Component {
           username: response.data.username,
           name: response.data.name,
           email: response.data.email,
+          preference_ABV: response.data.preference_ABV,
           preference_SRM: response.data.preference_SRM,
           preference_IBU: response.data.preference_IBU,
           preference_adventurous: response.data.preference_adventurous,

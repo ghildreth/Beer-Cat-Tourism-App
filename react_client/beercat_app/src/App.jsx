@@ -1,6 +1,8 @@
 /* eslint-disable */
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+import axios from 'axios';
+import './App.css';
 import About from './About';
 import SingleBrewery from './SingleBrewery.jsx';
 import BreweryList from './BreweryList.jsx';
@@ -9,18 +11,18 @@ import BeerList from './BeerList.jsx';
 import Over19 from './pages/Over19';
 import Navigation from './Navigation';
 import TourList from './TourList';
-import axios from 'axios';
 import Signup from './Signup';
 import Login from './Login';
 import SingleTour from './SingleTour';
 import SingleUser from './SingleUser';
-import './App.css';
+import Under19 from './Sorry';
+
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      over_19: true,
+      over19: localStorage.getItem('over19'),
       current_user: false,
       id: '',
       beers: [],
@@ -79,54 +81,65 @@ class App extends Component {
     });
   }
 
+  onLogin = async(email, password) => {
+    const response = await axios.post('/sessions', { user: { email, password } });
+    return response.data;
+  }
+
+  confirmedUserOver19 = () => {
+    localStorage.setItem('over19', true);
+    this.setState({over19: true});
+  }
+  
   render() {
     return (
-        <div className="App">
-          <div className="container">
-
+      <div className="App">
+        <div className="container">
           <Switch>
-            <Route path='/over19' render={
-              () => {
-                return this.state.over_19 ?
-                  <Redirect to='/'/> :
-                  <Over19 agree={() => {
-                      this.setState({over_19: true});
-                    }}
-                    disagree={() => {
-                      window.location = 'https://www.ytv.com/';
-                    }}/>
-              }
-            }/>
-
-            <Route path="/" render={
-              () => {
-                if(!this.state.over_19){
-                  return <Redirect to='/over19'/>
-                }
-                return <div>
-                    <Navigation currentUser={this.state.current_user} userID={this.state.id}/>
-                    <Switch>
-                      <Route exact path="/" component={TourList} />
-                      <Route path="/about" component={About} />
-                      <Route path="/signup" component={() => <Signup currentUser={this.currentUser}/>}/>
-                      <Route path="/login" component={() => <Login currentUser={this.currentUser}/>}/>
-                      <Redirect from='/logout' to='/tours'/>
-                      <Route exact path="/breweries" component={BreweryList} />
-                      <Route path="/breweries/:id" component={SingleBrewery} />
-                      <Route exact path="/beers" component={BeerList} />
-                      <Route path="/beers/:id" component={SingleBeer} />
-                      <Route exact path="/tours" component={TourList} />
-                      <Route path="/tours/:id" component={SingleTour} />
-                      <Route path="/user/:id" component={SingleUser}/>
-
-                    </Switch>
+            <Route path='/over19' render={() => {
+                return (
+                  <div>
+                    <h1>Are you over 19?</h1>
+                    <button type="button" class="btn btn-secondary"><Link to='/yes'>Yep.</Link></button>
+                    <button type="button" class="btn btn-light"><Link to='/sorry'>Nope.</Link></button>
                   </div>
-                return <Tours/>
+                )
+            }}/>
+            <Route path='/yes' render={() => {
+              this.confirmedUserOver19();
+              return <Redirect to='/'/>
+            }}/>
+            <Route path="/sorry" component={Under19}/>
+            <Route path="/" render={() => {
+              if(!this.state.over19){
+                return <Redirect to='/over19'/>
               }
-            } />
+              return (
+                <div>
+                  <div className="banner"></div>
+                  <Navigation currentUser={this.state.current_user} userID={this.state.id}/>
+                  <Switch>
+                    <Route exact path="/" component={TourList} />
+                    <Route path="/about" component={About} />
+                    <Route path="/signup" component={() => <Signup currentUser={this.currentUser}/>}/>
+                    <Route path="/login" render={({history}) => {
+                      return <Login onLogin={this.onLogin} history={history}/>
+                    }}/>
+                    <Redirect from='/logout' to='/tours'/>
+                    <Route exact path="/breweries" component={BreweryList} />
+                    <Route path="/breweries/:id" component={SingleBrewery} />
+                    <Route exact path="/beers" component={BeerList} />
+                    <Route path="/beers/:id" component={SingleBeer} />
+                    <Route exact path="/tours" component={TourList} />
+                    <Route path="/tours/:id" component={SingleTour} />
+                    <Route path="/user/:id" component={SingleUser}/>
+                  </Switch>
+                </div>
+              )
+            }} />
           </Switch>
-          </div>
         </div>
+      </div>
     );
   }
 }
