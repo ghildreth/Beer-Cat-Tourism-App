@@ -36,7 +36,7 @@ export default class Login extends Component {
     axios.post(`/api/users_login/${username}/${password}`)
       .then(response => {
         console.log('response data', response);
-        if (response.status === 204) {
+        if (response.status === 200) {
           console.log('logged in');
           axios.get(`/api/users_by_username/${username}`)
             .then(response => {

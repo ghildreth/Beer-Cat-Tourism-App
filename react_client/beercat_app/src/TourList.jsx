@@ -21,17 +21,22 @@ export default class TourList extends Component {
   render() {
     const { tours } = this.state
     return (
-      <div>
-      <ul>
+      <div className="tours-all">
       {tours ? (tours.map(tour => (
-        <li key={tour.id}>
-          <Link to={`/tours/${tour.id}`}>{tour.name}</Link>
-        </li>
+        <div key={tour.id} className="tours-individualtour">
+          <div className="tours-individualtourtitle">
+            <h3><Link to={`/tours/${tour.id}`}>{tour.name}</Link></h3>
+          </div>
+          <div className="tours-individualtourdetails">
+            <h5>City: {tour.city}</h5>
+            <h5>Duration: {tour.duration} hrs</h5>
+            <h5>Description: {tour.description}</h5>
+          </div>
+        </div>
         ))
       ) : (
       <div>Loading...</div>
       )}
-      </ul>
       </div>
       )
   }

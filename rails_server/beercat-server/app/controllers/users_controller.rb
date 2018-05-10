@@ -33,8 +33,10 @@ class UsersController < ApplicationController
     user = User.find_by(username: username)
     if user.authenticate(password)
       puts "matches"
+      render json: user
     else
       puts "doesn't match"
+      render status: 401, json: nil
     end
   end
 
