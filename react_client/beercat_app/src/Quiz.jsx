@@ -1,129 +1,107 @@
 /* eslint-disable */
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Form, Input, Button, Radio, Pagination } from 'antd';
+import { Button, Radio } from 'antd';
+import './styles/quiz_modal.css'
 
-const FormItem = Form.Item;
 
 class Quiz extends React.Component {
   constructor(props) {
     super(props)
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleSubmit (e) {
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        this.props.onSubmit(values)
-      }
-    });
+  // handleSubmit (e) {
+  //   e.preventDefault();
+  //   this.props.form.validateFields((err, values) => {
+  //     if (!err) {
+  //       this.props.onSubmit(values)
+  //     }
+  //   });
+  // }
 
-  }
+  // componentDidMount() {
+  //   setTimeout(() => {
+  //     this.input.focus();
+  //   });
+  // }
 
   render() {
-    const { getFieldDecorator } = this.props.form;
+    const handleNextQuestion = this.props.handleNextQuestion;
+    const modalStep = this.props.modalStep;
+    console.log("IS THIS MODAL STEP????", modalStep)
     return (
       <div>
-      {/*<Pagination>*/}
-        <Form onSubmit={this.handleSubmit}>
-          <FormItem label="Full Name">
-            {getFieldDecorator('name', {
-              rules: [{ required: true, message: 'Please input your full name.' }],
-              })
-              (<Input placeholder="Full Name" />)
-            }
-          </FormItem>
-          <FormItem label="Email">
-            {getFieldDecorator('email', {
-              rules: [{ required: true, message: 'Please input your email.' }],
-              })
-              (<Input placeholder="Email" />)
-            }
-          </FormItem>
-          <FormItem label="User Name">
-            {getFieldDecorator('userName', {
-              rules: [{ required: true, message: 'Please input your username.' }],
-              })
-              (<Input placeholder="User Name" />)
-            }
-          </FormItem>
-          <FormItem label="Password">
-            {getFieldDecorator('password', {
-              rules: [{ required: true, message: 'Please input your password.' }],
-              })
-              (<Input placeholder="Password" />)
-            }
-          </FormItem>
-          <FormItem label="Password Confirmation">
-            {getFieldDecorator('passwordConfirmation', {
-              rules: [{ required: true, message: 'Please input your password confirmation.' }],
-              })
-            (<Input placeholder="Password Confirmation" />)
-            }
-          </FormItem>
-          <FormItem label="How strong do you like your beer?">
-            {getFieldDecorator('preference_ABV', {
-              rules: [{ required: true, message: 'Please input your ABV preference.' }],
-              })
-              (<Radio.Group>
-                <Radio.Button value= { false } >5% and lower</Radio.Button>
-                <Radio.Button value= { true } >5% and higher</Radio.Button>
-              </Radio.Group>)
-            }
-          </FormItem>
-          <FormItem label="What color beer do you prefer?">
-            {getFieldDecorator('preference_SRM', {
-              rules: [{ required: true, message: 'Please input your SRM preference.' }],
-            })
-            (<Radio.Group >
-              <Radio.Button value= { false } >Dark</Radio.Button>
-              <Radio.Button value= { true } >True</Radio.Button>
-            </Radio.Group>)
-            }
-          </FormItem>
-          <FormItem label="How about bitter beer?">
-            {getFieldDecorator('preference_IBU', {
-              rules: [{ required: true, message: 'Please input your IBU preference.' }],
-            })
-            (<Radio.Group >
-              <Radio.Button value= { false } >Nope!</Radio.Button>
-              <Radio.Button value= { true } >Yup!</Radio.Button>
-            </Radio.Group>)
-            }
-          </FormItem>
-          <FormItem label="Are you an adventurous drinker?">
-            {getFieldDecorator('preference_adventurous', {
-             rules: [{ required: true, message: 'Please input your adventurous preference.' }],
-            })
-            (<Radio.Group >
-              <Radio.Button value= { false } >Ummmmmm I'll pass</Radio.Button>
-              <Radio.Button value= { true } >Oh yeah! Love those crazy combinations.</Radio.Button>
-            </Radio.Group>)
-            }
-          </FormItem>
-          <FormItem label="Do you like sours?">
-            {getFieldDecorator('preference_sour', {
-              rules: [{ required: true, message: 'Please input your sour preference.' }],
-            })
-            (<Radio.Group>
-              <Radio.Button value= { false } >Ewwww</Radio.Button>
-              <Radio.Button value= { true } >Like a lemon</Radio.Button>
-            </Radio.Group>)
-            }
-          </FormItem>
-          <FormItem>
-            <input value="submit" type="submit"/>
-          </FormItem>
-        </Form>
-        {/*</Pagination>*/}
+        <form onSubmit={this.props.onSubmit} className="form-group" >
+
+          <div className={`${modalStep === 1 ? "display-block" : "display-none"}`}>
+            <label>Full Name</label>
+            <input name="name" className="form-control" placeholder="Full Name" autoFocus />
+            <button type="button" className="btn btn-primary" onClick={() => handleNextQuestion(2)}>Next</button>
+          </div>
+
+          <div className={`${modalStep === 2 ? "display-block" : "display-none"}`}>
+            <label >Email</label>
+            <input name="email" className="form-control" placeholder="Email" autoFocus />
+            <button type="button"  className="btn btn-primary" onClick={() => handleNextQuestion(3)}>Next</button>
+          </div>
+
+          <div className={`${modalStep === 3 ? "display-block" : "display-none"}`}>
+            <label>User Name</label>
+            <input name="userName" className="form-control" placeholder="User Name" autoFocus />
+            <button type="button"  className="btn btn-primary" onClick={() => handleNextQuestion(4)}>Next</button>
+          </div>
+
+          <div className={`${modalStep === 4 ? "display-block" : "display-none"}`}>
+            <label>Password</label>
+            <input name="password" className="form-control" placeholder="Password" />
+            <button type="button"  className="btn btn-primary" onClick={() => handleNextQuestion(5)}>Next</button>
+          </div>
+
+          <div className={`${modalStep === 5 ? "display-block" : "display-none"}`}>
+            <label>Password Confirmation</label>
+            <input name="passwordConfirmation" className="form-control" placeholder="Password Confirmation" />
+            <button type="button"  className="btn btn-primary" onClick={() => handleNextQuestion(6)}>Next</button>
+          </div>
+
+          <div className={`${modalStep === 6 ? "display-block" : "display-none"}`}>
+            <label>How strong do you like your beer?</label><br/>
+            <input type="radio" name="preference_ABV" id="abv_choice1" value="false"/>5% and lower<br/>
+            <input type="radio" name="preference_ABV" id="abv_choice2" value= "true" />5% and higher<br/>
+            <button type="button"  className="btn btn-primary" onClick={() => handleNextQuestion(7)}>Next</button>
+          </div>
+
+          <div className={`${modalStep === 7 ? "display-block" : "display-none"}`}>
+            <label>What color beer do you prefer?</label><br/>
+            <input type="radio" name="preference_SRM" id="srm_choice1" value= "false" />Dark<br/>
+            <input type="radio" name="preference_SRM" id="srm_choice2" value= "true" />True<br/>
+            <button type="button"  className="btn btn-primary" onClick={() => handleNextQuestion(8)}>Next</button>
+          </div>
+
+          <div className={`${modalStep === 8 ? "display-block" : "display-none"}`}>
+            <label>How about bitter beer?</label><br/>
+            <input type="radio" name="preference_IBU" id="ibu_choice1" value= "false" />Nope!<br/>
+            <input type="radio" name="preference_IBU" id="ibu_choice2" value= "true" />Yup!<br/>
+            <button type="button"  className="btn btn-primary" onClick={() => handleNextQuestion(9)}>Next</button>
+          </div>
+
+          <div className={`${modalStep === 9 ? "display-block" : "display-none"}`}>
+            <label>Are you an adventurous drinker?</label><br/>
+            <input type="radio" name="preference_adventurous" id="adventurous_choice1" value= "false" />Ummmmmm I'll pass<br/>
+            <input type="radio" name="preference_adventurous" id="adventurous_choice2" value= "true" />Oh yeah! Love those crazy combinations.<br/>
+            <button type="button"  className="btn btn-primary" onClick={() => handleNextQuestion(10)}>Next</button>
+          </div>
+
+          <div className={`${modalStep === 10 ? "display-block" : "display-none"}`}>
+            <label>Do you like sours?</label><br/>
+            <input type="radio" name="preference_sour" id="sour_choice1" value= "false" />Ewwww<br/>
+            <input type="radio" name="preference_sour" id="sour_choice2" value= "true" />Like a lemon<br/>
+            <input className="btn btn-primary" value="submit" type="submit"/>
+          </div>
+        </form>
       </div>
     );
   }
 
 }
 
-const WrappedFormLayout = Form.create()(Quiz);
-
-
-export default WrappedFormLayout
+export default Quiz
