@@ -32,7 +32,7 @@ header {
 }
 
 .logo {
-  
+
   width: 200px;
   height: 155px;
   margin: auto;
@@ -113,3 +113,21 @@ img.icon {
   width: 24px;
   padding: .2em;
 }
+
+
+.example-component {
+  width: 200px;
+  height: 150px;
+  background-color: white;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+.example-component.show {
+  opacity: 1;
+  visibility: visible;
+}
+
