@@ -31,6 +31,7 @@ export default class SingleUser extends Component {
         console.log('response', response.data)
         this.setState({
           username: response.data.username,
+          id: response.data.id,
           name: response.data.name,
           email: response.data.email,
           preference_ABV: response.data.preference_ABV,
@@ -54,7 +55,7 @@ export default class SingleUser extends Component {
           <li>Email: {this.state.email}</li>
           <li>{ `ABV Preference: ${this.state.preference_ABV === true ? `keep it light` : `fuck me up, fam`}`}</li>
         </ul>
-        <UserTours/>
+        <UserTours user_id={this.state.id}/>
       </div>
     );
   }
