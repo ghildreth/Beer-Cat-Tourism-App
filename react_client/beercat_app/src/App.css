@@ -73,8 +73,14 @@ header {
 .beer-list {
   float: right;
   border: 1px solid black;
-  width: 30%;
+  padding-top: 4rem;
+  height: 20rem;
+  width: 44%;
   border-radius: 1em;
+}
+
+div.slider {
+  height: 9rem;
 }
 
 .tours-all {
@@ -114,20 +120,4 @@ img.icon {
   padding: .2em;
 }
 
-
-.example-component {
-  width: 200px;
-  height: 150px;
-  background-color: white;
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
-  opacity: 0;
-  visibility: hidden;
-}
-.example-component.show {
-  opacity: 1;
-  visibility: visible;
-}
 
