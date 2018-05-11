@@ -46,8 +46,8 @@ class SingleBrewery extends Component {
         preference_ABV: true,
         preference_SRM: false,
         preference_IBU: true,
-        preference_adventurous: false,
-        preference_sour: false,
+        preference_adventurous: true,
+        preference_sour: true,
       } }),
       axios.get(`/api/beers/`)
     ])
@@ -90,7 +90,7 @@ class SingleBrewery extends Component {
                     <span>You will like this beer: {beer.userPreference}%</span><br/>
                     <span>Style: {beer.style}</span><br/>
                     <span>ABV: {beer.score_ABV}</span><br/>
-                    <span>SRM: {beer.score_IBU}</span><br/>
+                    <span>SRM: {beer.score_SRM}</span><br/>
                     <span>IBU: {beer.score_IBU}</span><br/>
                     </div>
                                 ))

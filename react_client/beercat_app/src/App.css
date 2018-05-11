@@ -91,3 +91,9 @@
 }
 /* END OF QUIZ CSS */
 
+/* Paw Print CSS */
+img.icon {
+  height: 24px;
+  width: 24px;
+  padding: .2em;
+}
