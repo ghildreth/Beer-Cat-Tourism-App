@@ -4,6 +4,7 @@
  import TourList from './TourList';
  import Map from "./Map.jsx";
  import axios from 'axios';
+ import Rating from 'react-rating';
 
  export default class SingleTour extends Component {
    constructor(props){
@@ -25,8 +26,6 @@
    render() {
  // tour is my state
    const { tour } = this.state;
-
-
    if(tour === null) {
      return <div>Loading...</div>
 
@@ -38,6 +37,8 @@
          <h2>{tour.name}</h2>
          <h5>{tour.city}</h5>
          <h5>{tour.duration} hrs</h5>
+         <h5>Tour Rating: {tour.rating} </h5>
+        <Rating initialRating={tour.rating} emptySymbol={<img src="../assets_paw/black_paw_print.png" className="icon" />} fullSymbol={<img src="../assets_paw/blue_paw_print.png" className="icon" />} />
          <p>{tour.description}</p><br/>
          <Map places={ this.state.tour.breweries } />
        </span>
