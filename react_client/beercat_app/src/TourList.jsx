@@ -28,9 +28,9 @@ export default class TourList extends Component {
             <h3><Link to={`/tours/${tour.id}`}>{tour.name}</Link></h3>
           </div>
           <div className="tours-individualtourdetails">
-            <h5>City: {tour.city}</h5>
-            <h5>Duration: {tour.duration} hrs</h5>
-            <h5>Description: {tour.description}</h5>
+            <p><strong>City:</strong> {tour.city}</p>
+            <p><strong>Duration:</strong> {tour.duration} hrs</p>
+            <p><strong>Description:</strong><br/> {tour.description}</p>
           </div>
         </div>
         ))

@@ -1,58 +1,37 @@
 /* eslint-disable */
 import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import SingleUser from './SingleUser';
 import axios from 'axios';
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        show: false,
+        show: true,
         current_user: false,
-        over_19: true,
         id: '',
-        username: '',
-        email: '',
-        password: '',
       };
-    this.handleChange = this.handleChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-  }
-
-  handleChange(e) {
-    this.setState({ [e.target.name]: e.target.value});
+      this.onSubmit = this.onSubmit.bind(this);
   }
 
   onSubmit(e) {
     e.preventDefault();
     const form = e.target
+    const email = form.email.value;
     const password = form.password.value;
-    const username = form.username.value;
     console.log('Button was clicked'); 
-    console.log('username', username);
+    console.log('username', email);
     console.log('password', password);
     console.log('logging user in');
-    axios.post(`/api/users_login/${username}/${password}`)
+    axios.post('/api/sessions/', {user: { email, password }})
       .then(response => {
         console.log('response data', response);
-        if (response.status === 200) {
+        if (response.status === 201) {
           console.log('logged in');
-          axios.get(`/api/users_by_username/${username}`)
-            .then(response => {
-              console.log('response data', response.data);
-              this.setState({
-                id: response.data.id,
-                current_user: true});
-            })
-          // this.setState({
-          //   current_user: true,
-          //   over_19: true,
-          //   id: response.data.id,
-          //   username: response.data.username,
-          //   email: response.data.email,
-          // })
-          // this.props.currentUser(this.state.id, this.state.current_user);
+          this.setState({
+            id: response.data.id,
+            current_user: true})
+          this.props.currentUser(this.state.current_user, this.state.id)
         } else {
           console.log('not a registered user, cannot log in')
         }
@@ -68,17 +47,15 @@ export default class Login extends Component {
       <div>
         <h2>Login to Beer Cat</h2>
         <form onSubmit={this.onSubmit} className="form-stack">
-        <label>Username:</label>
-        <input className="username"
-          name="username"
-          type="text"
-          onChange={this.handleChange}
-          placeholder="Username"/><br/>
+        <label>Email:</label>
+        <input className="email"
+          name="email"
+          type="email"
+          placeholder="Email"/><br/>
         <label>Password:</label>
         <input className="password"
           name="password"
           type="text"
-          onChange={this.handleChange}
           placeholder="Password"/><br/>
         <input type="submit" value="Login right meow." />
         </form>

@@ -8,7 +8,6 @@ import SingleBrewery from './SingleBrewery.jsx';
 import BreweryList from './BreweryList.jsx';
 import SingleBeer from './SingleBeer.jsx';
 import BeerList from './BeerList.jsx';
-import Over19 from './pages/Over19';
 import Navigation from './Navigation';
 import TourList from './TourList';
 import Signup from './Signup';
@@ -23,7 +22,7 @@ class App extends Component {
     super(props);
     this.state = {
       over19: localStorage.getItem('over19'),
-      current_user: false,
+      current_user: localStorage.getItem('current_user'),
       id: '',
       beers: [],
       breweries: [],
@@ -32,10 +31,11 @@ class App extends Component {
       user_tours:[],
       users: [],
     };
-    this.currentUser = this.currentUser.bind(this);
+
   }
 
   componentDidMount() {
+    
     axios.get('/api/breweries')
     .then(response => {
       console.log('Breweries Response', response)
@@ -74,16 +74,21 @@ class App extends Component {
     .catch(error => console.log(error))
   }
 
-  currentUser(id, status) {
-    this.setState({
-      id: id,
-      current_user: status,
-    });
+  currentUser = (status, id) => {
+    this.setState({id: id, current_user: status,});
+    localStorage.setItem('current_user', true);
+    this.setState({current_user: true});
   }
 
-  onLogin = async(email, password) => {
-    const response = await axios.post('/sessions', { user: { email, password } });
-    return response.data;
+  // onLogin = async (email, password) => {
+  //   await logIn(email, password);
+  //   localStorage.setItem('current_user', true);
+  //   this.setState({current_user: true});
+  // }
+
+  logout = () => {
+    localStorage.removeItem('current_user');
+    this.setState({current_user: false});
   }
 
   confirmedUserOver19 = () => {
@@ -99,9 +104,10 @@ class App extends Component {
             <Route path='/over19' render={() => {
                 return (
                   <div>
-                    <h1>Are you over 19?</h1>
-                    <button type="button" class="btn btn-secondary"><Link to='/yes'>Yep.</Link></button>
-                    <button type="button" class="btn btn-light"><Link to='/sorry'>Nope.</Link></button>
+                    <img className="over19" src={process.env.PUBLIC_URL + '/assets_logo/BeerCatMain.png'} alt="avatar"/>
+                    <h1>Are you over the legal drinking age where you reside?</h1>
+                    <button type="button" class="btn btn-secondary"><Link to='/yes'>Cat.</Link></button>
+                    <button type="button" class="btn btn-light"><Link to='/sorry'>Kitten.</Link></button>
                   </div>
                 )
             }}/>
@@ -123,9 +129,12 @@ class App extends Component {
                     <Route path="/about" component={About} />
                     <Route path="/signup" component={() => <Signup currentUser={this.currentUser}/>}/>
                     <Route path="/login" render={({history}) => {
-                      return <Login onLogin={this.onLogin} history={history}/>
+                      return <Login currentUser={this.currentUser} history={history}/>
                     }}/>
-                    <Redirect from='/logout' to='/tours'/>
+                    <Route path='/logout' render={() => {
+                      this.logout();
+                      return <Redirect to='/'/>
+                    }}/>
                     <Route exact path="/breweries" component={BreweryList} />
                     <Route path="/breweries/:id" component={SingleBrewery} />
                     <Route exact path="/beers" component={BeerList} />
