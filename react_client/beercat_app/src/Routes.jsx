@@ -1,12 +1,10 @@
-/* global google */
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+/* eslint-disable */
+import React, { Component } from 'react';
+import { withGoogleMap, GoogleMap, DirectionsRenderer, withScriptsjs, Polyline } from 'react-google-maps';
+import { PinMarker } from './PinMarker'
+import axios from 'axios'
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 
-import { compose, withProps, lifecycle } from 'recompose';
-import { withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer } from 'react-google-maps';
 
 function makeDirectionService(ds) {
   function route(stuff) {
@@ -25,48 +23,164 @@ function makeDirectionService(ds) {
   };
 }
 
-function buddy(array, agg = []) {
-  if (array.length < 2) return agg;
-  const [first, second, ...rest] = array;
-  return buddy([second, ...rest], [...agg, [first, second]]);
-}
-const MapWithADirectionsRenderer = compose(
-  withProps({
-    googleMapURL: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places',
-    loadingElement: <div style={{ height: '100%' }} />,
-    containerElement: <div style={{ height: '400px' }} />,
-    mapElement: <div style={{ height: '100%' }} />,
-  }),
-  withScriptjs,
-  withGoogleMap,
-  lifecycle({
-    componentDidMount() {
-      const DirectionsService = makeDirectionService(new google.maps.DirectionsService());
-      console.log('CDM', this.props.waypoints);
+const TourMap = props => {
+  return (
+    <GoogleMap
+      ref={props.onMapMounted}
+      onZoomChanged={props.handleMapChanged}
+      onDragEnd={props.handleMapChanged}
+      onBoundsChanged={props.handleMapFullyLoaded}
+      defaultCenter={props.center}
+      defaultZoom={props.zoom}
+    >
 
-      DirectionsService.route({
-        origin: this.props.waypoints[0],
-        destination: this.props.waypoints[this.props.waypoints.length - 1],
-        waypoints: this.props.waypoints.slice(1, this.props.waypoints.length - 1).map(location => ({ location, stopover: true })),
-        travelMode: google.maps.TravelMode.DRIVING,
-      }).then((result) => {
-        this.setState({
-          directions: result,
-        });
-      }).catch((result) => {
-        console.error(`error fetching directions ${result}`);
-      });
-    },
-  }),
-)(props =>
-  (<GoogleMap
-    defaultZoom={7}
-    defaultCenter={new google.maps.LatLng(41.8507300, -87.6512600)}
-  >
     {props.directions && <DirectionsRenderer directions={props.directions} />}
-  </GoogleMap>),
-);
-ReactDOM.render(<MapWithADirectionsRenderer waypoints={[{ lat: 41.8507300, lng: -87.6512600 }, { lat: 41.8525800, lng: -87.6514100 }, { lat: 41.8507300, lng: -87.66 }]} />
+    {
+      props.places.map(place => (
+        <PinMarker
+          key={place.id}
+          id={place.id}
+          city={place.city}xMapBounds
+          address={place.address}
+          lat={place.latitude}
+          lng={place.longitude}
+          logo={place.logo_image_url}
+          description={ place.description }
+          name={ place.name }
+        />
+      ))
+     }
+     {
+      // this adds a polyline to the map
+       // props.directions ? props.directions.routes.map(route => <Polyline path={route.overview_path} />) : null
+     }
+    </GoogleMap>
+  )
+}
+const WrappedTourMap = withGoogleMap(TourMap);
 
-  , document.getElementById('root'));
-registerServiceWorker();
+export default class Routes extends Component {
+  constructor(props) {
+    super(props);
+
+    this.xMapBounds = { min: null, max: null }
+    this.yMapBounds = { min: null, max: null }
+
+    this.mapFullyLoaded = false
+    this.zoom = 12;
+
+    this.state = {
+      places: [],
+      lat: 49.2827,
+      lng: -123.1207,
+      waypoints: [49.2827, 123.1207]
+    };
+  }
+
+  handleMapChanged() {
+    this.getMapBounds()
+    this.setMapCenterPoint()
+  }
+
+  handleMapMounted(map) {
+    this.map = map
+  }
+
+  handleMapFullyLoaded() {
+    if (this.mapFullyLoaded)
+      return
+
+    this.mapFullyLoaded = true
+    this.handleMapChanged()
+  }
+
+  setMapCenterPoint() {
+    this.setState({
+      lat: this.map.getCenter().lat(),
+      lng: this.map.getCenter().lng()
+    })
+  }
+
+getMapBounds() {
+  let mapBounds = this.map.getBounds()
+  let xMapBounds = mapBounds.b
+  let yMapBounds = mapBounds.f
+
+  this.xMapBounds.min = xMapBounds.b
+  this.xMapBounds.max = xMapBounds.f
+
+  this.yMapBounds.min = yMapBounds.f
+  this.yMapBounds.max = yMapBounds.b
+}
+
+componentDidMount() {
+
+
+  const DirectionsService = makeDirectionService(new google.maps.DirectionsService());
+  this.props.places.map(place => {
+    console.log('check me out', place.latitude)
+  })
+  console.log('does zero work', this.props.places[0])
+  const coords = this.props.places.map(({latitude, longitude}) => {
+    return new google.maps.LatLng(latitude, longitude);
+  });
+  const origin = coords[0];
+  const destination = coords[coords.length - 1];
+  const waypoints = coords.slice(1, coords.length - 1)
+    .map((location) => ({location, stopover: true}))
+
+console.log('realOrigin', this.props.places[0].latitude, this.props.places[0].longitude)
+console.log('realDesination', this.props.places[this.props.places.length - 1].latitude, this.props.places[this.props.places.length - 1].longitude)
+const firstPlace = new google.maps.LatLng(this.props.places[0].latitude, this.props.places[0].longitude);
+const lastPlace = new google.maps.LatLng(this.props.places[this.props.places.length - 1].latitude, this.props.places[this.props.places.length - 1].longitude);
+// for i loop through the this.props.places to generate the nth amount of locations on the map
+
+  DirectionsService.route({
+    origin,
+    destination,
+    waypoints,
+    travelMode: google.maps.TravelMode.WALKING,
+  }).then((result) => {
+    console.log('Directions', result)
+    this.setState({
+      directions: result,
+    });
+  }).catch((result) => {
+    console.error(`error fetching directions ${result}`);
+  });
+}
+
+
+
+  render() {
+    const { lat, lng } = this.state;
+    const { places } = this.props;
+    // const waypoints = this.props.places[0].latitude;
+// console.log('way points', waypoints)
+    return (
+
+      <div style={{ width: '750px', height: '750px' }}>
+        <ul>
+          <li>lng: {lng}</li>
+          <li>lat: {lat}</li>
+          <li>xMapBounds.min: {this.xMapBounds.min}</li>
+          <li>xMapBounds.max: {this.xMapBounds.max}</li>
+          <li>yMapBounds.min: {this.yMapBounds.min}</li>
+          <li>yMapBounds.max: {this.yMapBounds.max}</li>
+
+        </ul>
+        <WrappedTourMap
+          onMapMounted={this.handleMapMounted.bind(this)}
+          handleMapChanged={this.handleMapChanged.bind(this)}
+          handleMapFullyLoaded={this.handleMapFullyLoaded.bind(this)}
+          center={{ lat, lng }}
+          places={ places }
+          zoom={this.zoom}
+          containerElement={ <div style={{height: '100%'}}/> }
+          mapElement={ <div style={{height: '100%'}}/> }
+          directions={this.state.directions}
+        />
+      </div>
+    );
+  }
+}
