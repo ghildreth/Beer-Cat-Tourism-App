@@ -2,6 +2,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+
 const Navigation = ({currentUser, userID}) => {
   let links = currentUser ?  (<React.Fragment>
         <div className="nav-item"><Link to={`/user/${userID}`} className="nav-a">My Profile</Link></div>
@@ -18,7 +19,7 @@ const Navigation = ({currentUser, userID}) => {
       <div className="nav">
         <div className="nav-item"><Link to='/about' className="nav-a">About</Link></div>
         <div className="nav-item"><Link to='/' className="nav-a">Tours</Link></div>
-        <div><Link to='/tours'><img className="nav-item logo" src="https://orig00.deviantart.net/8f65/f/2010/204/e/f/beer_cat_by_rongs1234.jpg" alt="avatar"/></Link></div>
+        <div><Link to='/tours'><img className="nav-item logo" src={process.env.PUBLIC_URL + '/assets_logo/BeerCat.png'} alt="avatar"/></Link></div>
         {links}
       </div>
     </nav>

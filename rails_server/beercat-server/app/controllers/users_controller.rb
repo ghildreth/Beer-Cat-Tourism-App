@@ -10,9 +10,10 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      puts "saved!"
+      session[:user_id] = user.id
+      render status: 201, json: user
     else
-      puts user.errors.full_messages
+      render status: 403, json: user.errors.full_messages
     end
   end
 

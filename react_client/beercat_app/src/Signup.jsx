@@ -11,9 +11,11 @@ export default class Login extends Component {
     super(props);
       this.state = {
         loading: false,
-        visible: false
+        visible: true,
+        username: '',
+        id: '',
+        current_user: '',
       };
-    // this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
@@ -31,11 +33,11 @@ export default class Login extends Component {
   }
 
   onSubmit(e) {
-    console.log('THIS IS EEEEE: ', e);
     console.log('Button was clicked');
     console.log('Checking password match');
-
+    console.log('event', e)
     if (e.password === e.passwordConfirmation) {
+      this.setState({username: e.userName})
       axios.post('/api/users', {user: {
         name: e.name,
         email: e.email,
@@ -47,30 +49,32 @@ export default class Login extends Component {
         preference_IBU: e.preference_IBU,
         preference_adventurous: e.preference_adventurous,
         preference_sour: e.preference_sour
-      }
-
+        }
       })
-
       .then( (response) => {
-      console.log(response);
-      this.handleOk();
-      // window.location = '/tours'
-      });
+        console.log('after-post response', response)
+        if (response.status === 201) {
+          console.log('logged in');
+          this.setState({
+            id: response.data.id,
+            current_user: true})
+          this.props.currentUser(this.state.current_user, this.state.id)
+          }
+      })
     } else {
       console.log("Password doesn't match");
     }
   }
 
   render() {
+    if(this.state.current_user){
+      return <Redirect to={`/user/${this.state.id}`}/>
+    }
     const { visible, loading } = this.state;
-    console.log('MODAL STEP: ', this.state.modal_step)
     return (
       <div>
-        <h2>Signup for BeerCat</h2>
-        <h5>Tell us a bit about you.</h5>
-        <Button type="primary" onClick={this.showModal}>Open</Button>
         <Modal  visible={visible}
-                title="Tell me more about you...">
+                title="Tell us more about you...">
           <Quiz onSubmit={this.onSubmit} className="form-inline"/>
         </Modal>
       </div>
