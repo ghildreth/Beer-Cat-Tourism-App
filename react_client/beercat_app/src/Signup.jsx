@@ -10,11 +10,13 @@ export default class Login extends Component {
   constructor(props) {
     super(props);
       this.state = {
+
         loading: false,
         visible: true,
         username: '',
         id: '',
         current_user: '',
+        modal_step: 1
       };
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -25,42 +27,53 @@ export default class Login extends Component {
       });
     }
 
-  handleOk = () => {
+  handleOk = (e) => {
     this.setState({ loading: true });
     setTimeout(() => {
       this.setState({ loading: false, visible: false });
     }, 1000);
   }
 
+  handleNextQuestion = (question) => {
+    this.setState({ modal_step: question })
+  }
+
   onSubmit(e) {
+    e.preventDefault();
+    const form = e.target.elements
     console.log('Button was clicked');
     console.log('Checking password match');
-    console.log('event', e)
-    if (e.password === e.passwordConfirmation) {
-      this.setState({username: e.userName})
-      axios.post('/api/users', {user: {
-        name: e.name,
-        email: e.email,
-        username: e.userName,
-        password: e.password,
-        password_confirmation: e.passwordConfirmation,
-        preference_ABV: e.preference_ABV,
-        preference_SRM: e.preference_SRM,
-        preference_IBU: e.preference_IBU,
-        preference_adventurous: e.preference_adventurous,
-        preference_sour: e.preference_sour
+    console.log('ABV', typeof form.preference_ABV.value);
+    console.log('SRM', typeof form.preference_SRM.value);
+
+    if (form.password.value === form.passwordConfirmation.value) {
+      console.log("pws matched, fire ze missiles")
+      console.log('ABV VALUE', form.preference_ABV.value)
+      axios.post('/api/users', {
+        user: {
+          name: form.name.value,
+          email: form.email.value,
+          username: form.userName.value,
+          password: form.password.value,
+          password_confirmation: form.passwordConfirmation.value,
+          preference_ABV: form.preference_ABV.value === 'true',
+          preference_SRM: form.preference_SRM.value === 'true',
+          preference_IBU: form.preference_IBU.value === 'true',
+          preference_adventurous: form.preference_adventurous.value === 'true',
+          preference_sour: form.preference_sour.value === 'true',
         }
       })
       .then( (response) => {
         console.log('after-post response', response)
+        this.handleOk(e);
         if (response.status === 201) {
           console.log('logged in');
           this.setState({
             id: response.data.id,
             current_user: true})
           this.props.currentUser(this.state.current_user, this.state.id)
-          }
-      })
+        }
+      });
     } else {
       console.log("Password doesn't match");
     }
@@ -75,9 +88,9 @@ export default class Login extends Component {
       <div>
         <Modal  visible={visible}
                 title="Tell us more about you...">
-          <Quiz onSubmit={this.onSubmit} className="form-inline"/>
+          <Quiz onSubmit={this.onSubmit} className="form-inline" modalStep={ this.state.modal_step } handleNextQuestion={ this.handleNextQuestion } />
         </Modal>
       </div>
     );
-  }
+  } 
 }
