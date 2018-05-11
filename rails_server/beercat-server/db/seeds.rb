@@ -617,9 +617,32 @@ TourBrewery.create!({
 })
 
 ## Users
-
 # puts "Creating Users ..."
 
+User.create!({
+  name: "Sadie",
+  email: "sadiefreeman@gmail.com",
+  username: "Sadie4",
+  preference_ABV: true,
+  preference_SRM: false,
+  preference_IBU: true,
+  preference_adventurous: true,
+  preference_sour: false,
+  password_digest: "1234"
+})
 
+UserTour.create!({
+  user_id: 1,
+  tour_id: 4,
+  description: "THIS IS MY TOUR",
+  rating: 4,
+})
+
+UserTour.create!({
+  user_id: 1,
+  tour_id: 3,
+  description: "THIS IS MY SECOND TOUR",
+  rating: 3,
+})
 
 puts "DONE!"
