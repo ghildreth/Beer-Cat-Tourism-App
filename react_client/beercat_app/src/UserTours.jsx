@@ -83,7 +83,10 @@ class UserTours extends Component {
             </div>
             ))
           ) : (
-          <div>Loading...</div>
+          <div>
+            Hey kitty, it looks like you haven't pounced on any tours!<br/>
+            Check them out here: <a href="/tours">Tours</a>
+           </div>
           )}
       </div>
       )
