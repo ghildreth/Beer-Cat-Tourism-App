@@ -10,7 +10,6 @@ export default class Login extends Component {
   constructor(props) {
     super(props);
       this.state = {
-
         loading: false,
         visible: true,
         username: '',
@@ -26,13 +25,6 @@ export default class Login extends Component {
         visible: true,
       });
     }
-
-  handleOk = (e) => {
-    this.setState({ loading: true });
-    setTimeout(() => {
-      this.setState({ loading: false, visible: false });
-    }, 1000);
-  }
 
   handleNextQuestion = (question) => {
     this.setState({ modal_step: question })
@@ -70,8 +62,11 @@ export default class Login extends Component {
           this.setState({
             id: response.data.id,
             current_user: true})
-          // this.props.currentUser(this.state.current_user, this.state.id)
+          this.props.currentUser(this.state.current_user, this.state.id)
         }
+      })
+      .catch(function (error) {
+        console.error(error)
       });
     } else {
       console.log("Password doesn't match");
@@ -80,7 +75,7 @@ export default class Login extends Component {
 
   render() {
     if(this.state.current_user){
-      return <Redirect to={`/user/${this.state.id}`}/>
+      return <Redirect to={`/users/${this.state.id}`}/>
     }
     const { visible, loading } = this.state;
     return (
