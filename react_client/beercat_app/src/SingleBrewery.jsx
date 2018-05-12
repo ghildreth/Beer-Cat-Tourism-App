@@ -74,7 +74,7 @@ class SingleBrewery extends Component {
       return (
         <div className="brewery-content">
           <img src="../beer-tap.jpg" height="600px" width="1200px" />
-            <h1>{brewery.name}</h1>
+            <h1 className="brewery-name">{brewery.name}</h1>
             <div className="brewery-tombstone">
               <div className="breweries-description">
               <span key={brewery.id}>
