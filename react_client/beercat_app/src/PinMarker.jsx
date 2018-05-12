@@ -21,6 +21,20 @@ export class PinMarker extends Component {
     this.setState({ showTooltip: false });
   }
 
+  onMouseOver() {
+    this.setState({ showTooltip: !this.state.showTooltip });
+  }
+
+  onCloseclick() {
+    this.setState({ showTooltip: false });
+  }
+
+  onHover() {
+    this.setState({ showTooltip: true });
+  }
+
+
+
   render() {
     const { showTooltip } = this.state;
     const {
@@ -33,7 +47,9 @@ export class PinMarker extends Component {
       lat: parseFloat(lat),
       lng: parseFloat(lng),
     }}
+        onHover={this.onHover.bind(this)}
         onClick={this.clickTooltip.bind(this)}
+        onCloseclick={this.onCloseclick.bind(this)}
       >
         {showTooltip && (
         <PinInfoWindow
@@ -42,9 +58,8 @@ export class PinMarker extends Component {
           name={name}
           city={city}
           address={address}
-          lat={lat}
-          lng={lng}
           closeWindow={this.closeWindow.bind(this)}
+          stateOfWindow={this.state.showTooltip}
         />
       )}
       </Marker>

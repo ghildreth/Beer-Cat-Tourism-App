@@ -1,11 +1,10 @@
 /* eslint-disable */
 import React, { Component } from 'react';
-import { withGoogleMap, GoogleMap, DirectionsRenderer, withScriptsjs, Polyline } from 'react-google-maps';
+import { withGoogleMap, GoogleMap, DirectionsRenderer, withScriptsjs, Polyline, Marker } from 'react-google-maps';
 import { PinMarker } from './PinMarker'
 import axios from 'axios'
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
-import Routes from './Routes'
-
+import './Map.css'
 
 function makeDirectionService(ds) {
   function route(stuff) {
@@ -23,7 +22,207 @@ function makeDirectionService(ds) {
     route,
   };
 }
-
+const exampleMapStyles = [
+    {
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            },
+            {
+                "color": "#f49f53"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "stylers": [
+            {
+                "color": "#f9ddc5"
+            },
+            {
+                "lightness": -7
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "stylers": [
+            {
+                "color": "#813033"
+            },
+            {
+                "lightness": 43
+            }
+        ]
+    },
+    {
+        "featureType": "poi.business",
+        "stylers": [
+            {
+                "color": "#645c20"
+            },
+            {
+                "lightness": 38
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "stylers": [
+            {
+                "color": "#1994bf"
+            },
+            {
+                "saturation": -69
+            },
+            {
+                "gamma": 0.99
+            },
+            {
+                "lightness": 43
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#f19f53"
+            },
+            {
+                "weight": 1.3
+            },
+            {
+                "visibility": "on"
+            },
+            {
+                "lightness": 16
+            }
+        ]
+    },
+    {
+        "featureType": "poi.business"
+    },
+    {
+        "featureType": "poi.park",
+        "stylers": [
+            {
+                "color": "#645c20"
+            },
+            {
+                "lightness": 39
+            }
+        ]
+    },
+    {
+        "featureType": "poi.school",
+        "stylers": [
+            {
+                "color": "#a95521"
+            },
+            {
+                "lightness": 35
+            }
+        ]
+    },
+    {},
+    {
+        "featureType": "poi.medical",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#813033"
+            },
+            {
+                "lightness": 38
+            },
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+        "elementType": "labels"
+    },
+    {
+        "featureType": "poi.sports_complex",
+        "stylers": [
+            {
+                "color": "#9e5916"
+            },
+            {
+                "lightness": 32
+            }
+        ]
+    },
+    {},
+    {
+        "featureType": "poi.government",
+        "stylers": [
+            {
+                "color": "#9e5916"
+            },
+            {
+                "lightness": 46
+            }
+        ]
+    },
+    {
+        "featureType": "transit.station",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.line",
+        "stylers": [
+            {
+                "color": "#813033"
+            },
+            {
+                "lightness": 22
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "stylers": [
+            {
+                "lightness": 38
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#f19f53"
+            },
+            {
+                "lightness": -10
+            }
+        ]
+    },
+    {},
+    {},
+    {}
+]
 const TourMap = props => {
   // let walkingTour;
   // if (props.showDirections && props.directions) {
@@ -31,6 +230,8 @@ const TourMap = props => {
   // }
   return (
     <GoogleMap
+
+      defaultOptions={{ styles: exampleMapStyles }}
       ref={props.onMapMounted}
       onZoomChanged={props.handleMapChanged}
       onDragEnd={props.handleMapChanged}
@@ -38,15 +239,17 @@ const TourMap = props => {
       defaultCenter={props.center}
       defaultZoom={props.zoom}
     >
+      {props.directions && <DirectionsRenderer directions={props.directions} options={{suppressMarkers: true}} panel={ document.getElementById('panel') }/>}
+      {props.showDirections && <div id="panel"></div>}
 
-      {props.showDirections && props.directions && <DirectionsRenderer directions={props.directions} />}
+
       {/*{walkingTour}*/}
       {
         props.places.map(place => (
           <PinMarker
             key={place.id}
             id={place.id}
-            city={place.city}xMapBounds
+            city={place.city}
             address={place.address}
             lat={place.latitude}
             lng={place.longitude}
@@ -57,9 +260,10 @@ const TourMap = props => {
         ))
       }
       {
-      // this adds a polyline to the map
-       // props.directions ? props.directions.routes.map(route => <Polyline path={route.overview_path} />) : null
+
+       props.directions ? props.directions.routes.map(route => <Polyline path={route.overview_path} />) : null
       }
+
     </GoogleMap>
   )
 }
@@ -80,7 +284,7 @@ export default class Map extends Component {
       lat: 49.2827,
       lng: -123.1207,
       // waypoints: [49.2827, 123.1207]
-      showWalkingPath: false
+      showWalkingPath: true
     };
   }
 
@@ -122,11 +326,12 @@ export default class Map extends Component {
 
   _onButtonClick() {
     this.setState({
-      showWalkingPath: ! this.state.showWalkingPath,
+      showWalkingPath: !this.state.showWalkingPath,
     });
   }
 
   componentDidMount() {
+
     const DirectionsService = makeDirectionService(new google.maps.DirectionsService());
     this.props.places.map(place => {
       console.log('check me out', place.latitude)
@@ -140,11 +345,6 @@ export default class Map extends Component {
     const waypoints = coords.slice(1, coords.length - 1)
       .map((location) => ({location, stopover: true}))
 
-    // console.log('realOrigin', this.props.places[0].latitude, this.props.places[0].longitude)
-    // console.log('realDesination', this.props.places[this.props.places.length - 1].latitude, this.props.places[this.props.places.length - 1].longitude)
-    // const firstPlace = new google.maps.LatLng(this.props.places[0].latitude, this.props.places[0].longitude);
-    // const lastPlace = new google.maps.LatLng(this.props.places[this.props.places.length - 1].latitude, this.props.places[this.props.places.length - 1].longitude);
-    // for i loop through the this.props.places to generate the nth amount of locations on the map
 
     DirectionsService.route({
       origin,
@@ -161,8 +361,6 @@ export default class Map extends Component {
     });
   }
 
-
-
   render() {
     const { lat, lng } = this.state;
     const { places } = this.props;
@@ -170,32 +368,30 @@ export default class Map extends Component {
     // console.log('way points', waypoints)
     return (
 
-      <div style={{ width: '750px', height: '750px' }}>
-        <ul>
-          <button onClick={this._onButtonClick.bind(this)}>Button </button>
-        {/*  {this.state.showWalkingPath ?
-            <Routes /> :
-            null
-          }*/}
-          <li>lng: {lng}</li>
-          <li>lat: {lat}</li>
-          <li>xMapBounds.min: {this.xMapBounds.min}</li>
-          <li>xMapBounds.max: {this.xMapBounds.max}</li>
-          <li>yMapBounds.min: {this.yMapBounds.min}</li>
-          <li>yMapBounds.max: {this.yMapBounds.max}</li>
-        </ul>
-        <WrappedTourMap
-          onMapMounted={this.handleMapMounted.bind(this)}
-          handleMapChanged={this.handleMapChanged.bind(this)}
-          handleMapFullyLoaded={this.handleMapFullyLoaded.bind(this)}
-          center={{ lat, lng }}
-          places={ places }
-          zoom={this.zoom}
-          containerElement={ <div style={{height: '100%'}}/> }
-          mapElement={ <div style={{height: '100%'}}/> }
-          showDirections={this.state.showWalkingPath}
-          directions={this.state.directions}
-        />
+      <div style={{ width: '750px', height: '750px' }} className="mappy">
+        <div style={{ width: '20%'}}>
+          <ul class="BrewList">
+            {/*<button onClick={this._onButtonClick.bind(this)}>Show Walking Path</button>*/}
+            <table>
+              <h6>The Brewery Route:</h6>
+                {places.map((place => <table>{place.name}</table>))}
+            </table>
+          </ul>
+        </div>
+          <WrappedTourMap
+            onMapMounted={this.handleMapMounted.bind(this)}
+            handleMapChanged={this.handleMapChanged.bind(this)}
+            handleMapFullyLoaded={this.handleMapFullyLoaded.bind(this)}
+            center={{ lat, lng }}
+            places={ places }
+            zoom={this.zoom}
+            containerElement={ <div style={{height: '100%'}}/> }
+            mapElement={ <div style={{height: '100%'}}/> }
+            showDirections={this.state.showWalkingPath}
+            directions={this.state.directions}
+            onCloseClick={this.props.closeWindow}
+            handleMapClick={this.props.closeWindow}
+          />
       </div>
     );
   }

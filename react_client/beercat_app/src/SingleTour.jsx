@@ -5,6 +5,7 @@
  import Map from "./Map.jsx";
  import axios from 'axios';
  import Rating from 'react-rating';
+ import './Map.css'
 
  export default class SingleTour extends Component {
    constructor(props){
