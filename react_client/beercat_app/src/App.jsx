@@ -15,6 +15,9 @@ import Login from './Login';
 import SingleTour from './SingleTour';
 import SingleUser from './SingleUser';
 import Under19 from './Sorry';
+import { getUser, logIn } from './data-svc';
+
+
 
 
 class App extends Component {
@@ -22,7 +25,7 @@ class App extends Component {
     super(props);
     this.state = {
       over19: localStorage.getItem('over19'),
-      current_user: localStorage.getItem('current_user'),
+      current_user: false,
       id: '',
       beers: [],
       breweries: [],
@@ -34,61 +37,33 @@ class App extends Component {
 
   }
 
+  loadUser = async () => {
+    let me = await getUser();
+    if (me) {
+      this.setState({ 
+        id: me.id,
+        current_user: true, me 
+      });
+    }    
+  }
+
   componentDidMount() {
-    
-    axios.get('/api/breweries')
-    .then(response => {
-      console.log('Breweries Response', response)
-      this.setState({breweries: response.data});
-    })
-    axios.get('/api/beers')
-    .then(response => {
-      console.log('Beers Response', response)
-      this.setState({beers: response.data});
-    })
-    axios.get('/api/tours')
-    .then(response => {
-      console.log('Tours Response', response)
-      this.setState({tours: response.data});
-      console.log('tour state', this.state.tours)
-    })
-
-    axios.get('/api/tour_breweries')
-    .then(response => {
-      console.log('Tour Breweries Response', response)
-      this.setState({tour_breweries: response.data});
-    })
-
-    axios.get('/api/user_tours')
-    .then(response => {
-      console.log('User Tours Response', response)
-      this.setState({user_tours: response.data});
-    })
-
-    axios.get('/api/users')
-    .then(response => {
-      console.log('Users Response', response)
-      this.setState({users: response.data});
-    })
-
-    .catch(error => console.log(error))
+    this.loadUser();
   }
 
   currentUser = (status, id) => {
     this.setState({id: id, current_user: status,});
-    localStorage.setItem('current_user', true);
-    this.setState({current_user: true});
   }
 
   // onLogin = async (email, password) => {
   //   await logIn(email, password);
-  //   localStorage.setItem('current_user', true);
-  //   this.setState({current_user: true});
+  //   // localStorage.setItem('current_user', true);
+  //   this.loadUser();
   // }
 
   logout = () => {
-    localStorage.removeItem('current_user');
     this.setState({current_user: false});
+    axios.delete('/api/sessions')
   }
 
   confirmedUserOver19 = () => {
@@ -106,8 +81,8 @@ class App extends Component {
                   <div>
                     <img className="over19" src={process.env.PUBLIC_URL + '/assets_logo/BeerCatMain.png'} alt="avatar"/>
                     <h1>Are you over the legal drinking age where you reside?</h1>
-                    <button type="button" class="btn btn-secondary"><Link to='/yes'>Cat.</Link></button>
-                    <button type="button" class="btn btn-light"><Link to='/sorry'>Kitten.</Link></button>
+                    <button type="button" className="btn btn-secondary"><Link to='/yes'>Cat.</Link></button>
+                    <button type="button" className="btn btn-light"><Link to='/sorry'>Kitten.</Link></button>
                   </div>
                 )
             }}/>
@@ -127,7 +102,7 @@ class App extends Component {
                   <Switch>
                     <Route exact path="/" component={TourList} />
                     <Route path="/about" component={About} />
-                    <Route path="/signup" component={() => <Signup currentUser={this.currentUser}/>}/>
+                    <Route path="/signup" render={() => <Signup currentUser={this.currentUser}/>}/>
                     <Route path="/login" render={({history}) => {
                       return <Login currentUser={this.currentUser} history={history}/>
                     }}/>
