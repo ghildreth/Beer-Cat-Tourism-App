@@ -79,6 +79,14 @@ header {
   border-radius: 1em;
 }
 
+.brewery-hours {
+  list-style-type: none;
+}
+
+/*.single-beer-description {
+  overflow-wrap: normal;
+}*/
+
 div.slider {
   height: 9rem;
 }
