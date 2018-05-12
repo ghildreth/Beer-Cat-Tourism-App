@@ -4,7 +4,6 @@ import { InfoWindow } from 'react-google-maps'
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 
 
-
 export class PinInfoWindow extends Component {
   render() {
     const {
@@ -12,14 +11,12 @@ export class PinInfoWindow extends Component {
     } = this.props;
 
     return (
-      <InfoWindow onCloseClick={this.props.closeWindow}>
+      <InfoWindow onCloseClick={this.props.closeWindow} options={{boxStyle: {boxShadow: `3px 3px 10px rgba(0,0,0,0.6)`}}}>
         <div>
-          <h1><Link to={`/breweries/${id}`}>{name}</Link></h1>
+          <p><Link to={`/breweries/${id}`}>{name}</Link></p>
           <p>{description}</p>
           <p>City: {city}</p>
           <p>Address: {address}</p>
-          <summary>Coords: {lat}, {lng}</summary>
-
         </div>
       </InfoWindow>
     );
