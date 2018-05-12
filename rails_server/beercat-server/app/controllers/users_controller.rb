@@ -29,13 +29,8 @@ class UsersController < ApplicationController
   end
 
   def me
-    puts "Me"
-    p session[:user_id]
-    p current_user
     if current_user
-      render json: current_user
-    else
-      render status: 401, json: nil
+      render status: 200, json: current_user
     end
   end
 

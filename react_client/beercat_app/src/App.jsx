@@ -15,6 +15,7 @@ import Login from './Login';
 import SingleTour from './SingleTour';
 import SingleUser from './SingleUser';
 import Under19 from './Sorry';
+import Over19 from './Over19';
 import { getUser, logIn } from './data-svc';
 
 
@@ -79,10 +80,7 @@ class App extends Component {
             <Route path='/over19' render={() => {
                 return (
                   <div>
-                    <img className="over19" src={process.env.PUBLIC_URL + '/assets_logo/BeerCatMain.png'} alt="avatar"/>
-                    <h1>Are you over the legal drinking age where you reside?</h1>
-                    <button type="button" className="btn btn-secondary"><Link to='/yes'>Cat.</Link></button>
-                    <button type="button" className="btn btn-light"><Link to='/sorry'>Kitten.</Link></button>
+                    <Over19/>
                   </div>
                 )
             }}/>

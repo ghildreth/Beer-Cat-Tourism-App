@@ -35,21 +35,25 @@ export default class Login extends Component {
     axios.post('/api/sessions/', {user: { email, password }})
       .then(response => {
         if (response.status === 201) {
+          console.log('response', response)
           this.setState({
             id: response.data.id,
             current_user: true})
           this.props.currentUser(this.state.current_user, this.state.id)    
+          console.log('id', this.state.id)
         } else {
           console.log('not a registered user, cannot log in')
         }
+      })
+      .catch(function (error) {
+        console.error(error)
       });
-
     }
 
   render() {
     const { visible, loading } = this.state;
     if(this.state.current_user){
-      return <Redirect to={`/user/${this.state.id}`}/>
+      return <Redirect to={`/users/${this.state.id}`}/>
     }
     return (
       <div>
