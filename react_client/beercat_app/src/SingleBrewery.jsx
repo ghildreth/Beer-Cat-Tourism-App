@@ -73,24 +73,35 @@ class SingleBrewery extends Component {
     } else {
       return (
         <div>
+        <img src="../beer-tap.jpg" height="600px" width="1200px" />
           <h1>{brewery.name}</h1>
           <div className="brewery-tombstone">
             <span key={brewery.id}>
-              <h4>City: {brewery.city}</h4>
-              <h4>Address: {brewery.address}</h4>
-              <h4>Description: {brewery.description}</h4>
+              <p><h6>City: </h6>{brewery.city}</p>
+              <p><h6>Address: </h6>{brewery.address}</p>
+              <p><h6>Description: </h6>{brewery.description}</p>
+              <h6>Hours: </h6>
+              <ul className="brewery-hours">
+                <li>Sunday:       12-11pm </li>
+                <li>Monday:       Closed </li>
+                <li>Tuesday:       2-11pm </li>
+                <li>Wednesday:       2-11pm </li>
+                <li>Thursday:       2-11pm </li>
+                <li>Friday:       2-11pm </li>
+                <li>Saturday:      12-11pm </li>
+              </ul>
               <a href="/tours">Back</a>
             </span>
           </div>
           <div className="beer-list">
             <h4 className="beer-list-header">What's on Tap?</h4>
             <span>
-              <Slider autoplay="2000" >
+              {/*<Slider autoplay="2000" >*/}
+              <Slider>
                 {beers.filter(beer => beer.brewery_id === brewery.id).map(beer => (
                   <div className="individual-beer" key={beer.id}>
                     <strong>{beer.name}</strong><br/>
                     <em><span>You will like this beer: {beer.userPreference}%</span></em><br/>
-                    <span>Description: {beer.description}</span><br/>
                     <span>Style: {beer.style}</span><br/>
                     <span>ABV: {beer.score_ABV}</span><br/>
                     <span>SRM: {beer.score_SRM}</span><br/>
