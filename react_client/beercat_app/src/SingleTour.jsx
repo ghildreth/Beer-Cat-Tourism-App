@@ -28,7 +28,7 @@
     // axios.post(`api/user_tour`)
     // if()
     //   .then(({ }))
-    console.log('here i am', this.props.match.params)
+    console.log('here i am', this.prpos.currentUser.id)
    }
 
    render() {

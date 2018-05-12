@@ -33,8 +33,6 @@ export class PinMarker extends Component {
     this.setState({ showTooltip: true });
   }
 
-
-
   render() {
     const { showTooltip } = this.state;
     const {
@@ -58,6 +56,8 @@ export class PinMarker extends Component {
           name={name}
           city={city}
           address={address}
+          lat={lat}
+          lng={lng}
           closeWindow={this.closeWindow.bind(this)}
           stateOfWindow={this.state.showTooltip}
         />
