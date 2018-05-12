@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const Navigation = ({currentUser, userID}) => {
   let links = currentUser ?  (<React.Fragment>
-        <div className="nav-item"><Link to={`/user/${userID}`} className="nav-a">My Profile</Link></div>
+        <div className="nav-item"><Link to={`/users/${userID}`} className="nav-a">My Profile</Link></div>
         <div className="nav-item"><Link to='/logout' className="nav-a">Logout</Link></div>
     </React.Fragment>)
     : (<React.Fragment>
