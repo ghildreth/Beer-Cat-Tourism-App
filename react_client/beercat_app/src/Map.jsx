@@ -259,10 +259,10 @@ const TourMap = props => {
           />
         ))
       }
-      {
+{/*      {
 
        props.directions ? props.directions.routes.map(route => <Polyline path={route.overview_path} />) : null
-      }
+      }*/}
 
     </GoogleMap>
   )
@@ -324,11 +324,11 @@ export default class Map extends Component {
     this.yMapBounds.max = yMapBounds.b
   }
 
-  _onButtonClick() {
-    this.setState({
-      showWalkingPath: !this.state.showWalkingPath,
-    });
-  }
+  // _onButtonClick() {
+  //   this.setState({
+  //     showWalkingPath: !this.state.showWalkingPath,
+  //   });
+  // }
 
   componentDidMount() {
 
@@ -369,9 +369,7 @@ export default class Map extends Component {
     return (
 
       <div className="mappy">
-        <div>
 
-        </div>
           <WrappedTourMap
             onMapMounted={this.handleMapMounted.bind(this)}
             handleMapChanged={this.handleMapChanged.bind(this)}
@@ -381,19 +379,23 @@ export default class Map extends Component {
             zoom={this.zoom}
             containerElement={ <div style={{height: '100%'}}/> }
             mapElement={ <div style={{height: '100%'}}/> }
-            showDirections={this.state.showWalkingPath}
             directions={this.state.directions}
-            onCloseClick={this.props.closeWindow}
             handleMapClick={this.props.closeWindow}
+
+
+
           />
-          <ul class="BrewList">
+          <ul className="BrewList">
           {/*<button onClick={this._onButtonClick.bind(this)}>Show Walking Path</button>*/}
-            <table>
+
               <h6>The Brewery Route:</h6>
-              {places.map((place => <table>{place.name}</table>))}
-            </table>
+              {places.map((place => <table id={place.id}><p>{place.name}</p></table>))}
+
           </ul>
       </div>
     );
   }
 }
+
+
+// style={{ width: '750px', height: '750px' }}
