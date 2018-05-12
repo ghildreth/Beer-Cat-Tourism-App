@@ -17,4 +17,19 @@
   z-index: 1;
 }
 
+.mappy {
+  height: 400px;
+  width: 50%;
+}
+
+.tour-content {
+    display: flex;
+    margin-left: 4rem;
+    margin-right: 4rem;
+}
+
+div {
+    margin-left: 1rem;
+}
+
 

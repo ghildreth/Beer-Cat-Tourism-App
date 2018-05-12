@@ -40,11 +40,11 @@ class App extends Component {
   loadUser = async () => {
     let me = await getUser();
     if (me) {
-      this.setState({ 
+      this.setState({
         id: me.id,
-        current_user: true, me 
+        current_user: true, me
       });
-    }    
+    }
   }
 
   componentDidMount() {
@@ -70,7 +70,7 @@ class App extends Component {
     localStorage.setItem('over19', true);
     this.setState({over19: true});
   }
-  
+
   render() {
     return (
       <div className="App">

@@ -4,7 +4,7 @@ import { withGoogleMap, GoogleMap, DirectionsRenderer, withScriptsjs, Polyline, 
 import { PinMarker } from './PinMarker'
 import axios from 'axios'
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
-import './Map.css'
+import Navigation from './Navigation';
 
 function makeDirectionService(ds) {
   function route(stuff) {
@@ -240,7 +240,7 @@ const TourMap = props => {
       defaultZoom={props.zoom}
     >
       {props.directions && <DirectionsRenderer directions={props.directions} options={{suppressMarkers: true}} panel={ document.getElementById('panel') }/>}
-      {props.showDirections && <div id="panel"></div>}
+{/*      {props.showDirections && <div id="panel"></div>}*/}
 
 
       {/*{walkingTour}*/}
@@ -277,7 +277,7 @@ export default class Map extends Component {
     this.yMapBounds = { min: null, max: null }
 
     this.mapFullyLoaded = false
-    this.zoom = 12;
+    this.zoom = 13;
 
     this.state = {
       places: [],
@@ -368,15 +368,9 @@ export default class Map extends Component {
     // console.log('way points', waypoints)
     return (
 
-      <div style={{ width: '750px', height: '750px' }} className="mappy">
-        <div style={{ width: '20%'}}>
-          <ul class="BrewList">
-            {/*<button onClick={this._onButtonClick.bind(this)}>Show Walking Path</button>*/}
-            <table>
-              <h6>The Brewery Route:</h6>
-                {places.map((place => <table>{place.name}</table>))}
-            </table>
-          </ul>
+      <div className="mappy">
+        <div>
+
         </div>
           <WrappedTourMap
             onMapMounted={this.handleMapMounted.bind(this)}
@@ -392,6 +386,13 @@ export default class Map extends Component {
             onCloseClick={this.props.closeWindow}
             handleMapClick={this.props.closeWindow}
           />
+          <ul class="BrewList">
+          {/*<button onClick={this._onButtonClick.bind(this)}>Show Walking Path</button>*/}
+            <table>
+              <h6>The Brewery Route:</h6>
+              {places.map((place => <table>{place.name}</table>))}
+            </table>
+          </ul>
       </div>
     );
   }
