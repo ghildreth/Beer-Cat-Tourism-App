@@ -32,7 +32,7 @@ header {
 }
 
 .logo {
-  
+
   width: 200px;
   height: 155px;
   margin: auto;
@@ -73,8 +73,14 @@ header {
 .beer-list {
   float: right;
   border: 1px solid black;
-  width: 30%;
+  padding-top: 4rem;
+  height: 20rem;
+  width: 44%;
   border-radius: 1em;
+}
+
+div.slider {
+  height: 9rem;
 }
 
 .tours-all {
@@ -113,3 +119,5 @@ img.icon {
   width: 24px;
   padding: .2em;
 }
+
+
