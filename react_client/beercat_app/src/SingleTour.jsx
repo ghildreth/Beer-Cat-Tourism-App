@@ -32,7 +32,6 @@
    }
 
    render() {
- // tour is my state
    const { tour } = this.state;
    if(tour === null) {
      return <div>Loading...</div>
@@ -47,7 +46,12 @@
           <h5>{tour.city}</h5>
           <h5>{tour.duration} hrs</h5>
           <h5>Tour Rating: {tour.rating} </h5>
-          <Rating initialRating={tour.rating} emptySymbol={<img src="../assets_paw/black_paw_print.png" className="icon" />} fullSymbol={<img src="../assets_paw/blue_paw_print.png" className="icon" />} />
+          <Rating initialRating={tour.rating} 
+                  readonly
+                  emptySymbol={<img src="../assets_paw/black_paw_print.png" 
+                  className="icon" />} 
+                  fullSymbol={<img src="../assets_paw/blue_paw_print.png" 
+                  className="icon" />} />
           <p>{tour.description}</p><br/>
           <button onClick={this.handleTourSubmit.bind(this)} className="btn btn-success">Pounce!</button>
           <a href="/tours">Back</a>

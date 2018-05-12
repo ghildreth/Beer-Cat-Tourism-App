@@ -29,14 +29,22 @@ class UserTours extends Component {
     console.log('UserTours component did mount')
       axios.get(`/api/tours/mine`)
       .then(({ data: {tours, user_tours} }) => {
+        console.log(tours, user_tours)
         this.setState( { tours, user_tours })
-      })
-      
+      });
   }
 
   render() {
     const { tours } = this.state
     const { user_tours } = this.state
+
+    const onRate = (rating, user_tour_id) => {
+      axios.put(`/api/user_tours/${user_tour_id}`, {
+        user_tours: {
+        rating: rating
+        }
+      })
+    }
 
       return (
         <div className="tours-all">
@@ -51,13 +59,25 @@ class UserTours extends Component {
                 <h5>City: {tour.city}</h5>
                 <h5>Duration: {tour.duration} hrs</h5>
                 <h5>Description: {tour.description}</h5>
-                <h5>
-                  Rating:  <Rating initialRating={tour.rating} 
-                  emptySymbol={<img src="../assets_paw/black_paw_print.png" 
-                  className="icon" />} 
-                  fullSymbol={<img src="../assets_paw/blue_paw_print.png" 
-                  className="icon" />} />
-                </h5>
+
+                {user_tours.filter(user_tour => user_tour.tour_id === tour.id).map(user_tour => (
+                  <div className="individual-beer" key={user_tours.id + 1000}>
+                    {user_tour.rating  ? (
+                        <h5>Your Rating:</h5>
+                      ) : (
+                        <h5>Rate this Tour:</h5>
+                      )
+                    }
+                      <h5><Rating onChange={(rate) => onRate(rate, user_tour.id)} 
+                        initialRating={user_tour.rating}
+                        emptySymbol={<img src="../assets_paw/black_paw_print.png" 
+                        className="icon" />} 
+                        fullSymbol={<img src="../assets_paw/blue_paw_print.png" 
+                        className="icon" />} />
+                      </h5>
+                 
+                  </div>
+                ))}
               </div>
 
             </div>
