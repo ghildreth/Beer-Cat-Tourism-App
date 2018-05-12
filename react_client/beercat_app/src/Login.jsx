@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, { Component } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
 import { Modal, Button } from 'antd';
 import 'antd/lib/modal/style/css';
@@ -27,28 +27,14 @@ export default class Login extends Component {
       });
     }
 
-  handleOk = () => {
-    this.setState({ loading: true });
-    setTimeout(() => {
-      this.setState({ loading: false, visible: false });
-    }, 1000);
-  }
-
   onSubmit(e) {
     e.preventDefault();
     const form = e.target
     const email = form.email.value;
     const password = form.password.value;
-    console.log('Button was clicked'); 
-    console.log('username', email);
-    console.log('password', password);
-    console.log('logging user in');
     axios.post('/api/sessions/', {user: { email, password }})
       .then(response => {
-        console.log('response data', response);
         if (response.status === 201) {
-          console.log('logged in');
-          this.handleOk();
           this.setState({
             id: response.data.id,
             current_user: true})
@@ -67,7 +53,7 @@ export default class Login extends Component {
     }
     return (
       <div>
-        <Modal  visible={visible} title="Tell me more about you...">
+        <Modal  visible={visible} title="Login">
           <h2>Login to Beer Cat</h2>
           <form onSubmit={this.onSubmit} className="form-stack">
           <label>Email:</label>
@@ -83,8 +69,9 @@ export default class Login extends Component {
             type="text"
             onChange={this.handleChange}
             placeholder="Password"/><br/>
-          <input type="submit" value="Login right meow." />
+          <input type="submit" className="btn btn-primary" value="Login right meow." />
           </form>
+          <h6>Don't have a login? <Link to="/signup">Sign up, meow!</Link></h6>
         </Modal>
       </div>
     );

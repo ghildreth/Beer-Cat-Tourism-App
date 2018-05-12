@@ -2,9 +2,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: user_params[:email])
     
-    render status: 404 and return unless user
-
-    if user.authenticate(user_params[:password])
+    if user && user.authenticate(user_params[:password])
       session[:user_id] = user.id
       render status: 201, json: user
     else

@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import Quiz  from './Quiz';
 import { Modal, Button } from 'antd';
 import 'antd/lib/modal/style/css';
@@ -65,13 +65,12 @@ export default class Login extends Component {
       })
       .then( (response) => {
         console.log('after-post response', response)
-        this.handleOk(e);
         if (response.status === 201) {
           console.log('logged in');
           this.setState({
             id: response.data.id,
             current_user: true})
-          this.props.currentUser(this.state.current_user, this.state.id)
+          // this.props.currentUser(this.state.current_user, this.state.id)
         }
       });
     } else {

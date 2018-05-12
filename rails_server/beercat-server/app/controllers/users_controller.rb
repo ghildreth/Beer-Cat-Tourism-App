@@ -28,15 +28,13 @@ class UsersController < ApplicationController
     render json: user
   end
 
-  def login
-    username = params[:username]
-    password = params[:password]
-    user = User.find_by(username: username)
-    if user.authenticate(password)
-      puts "matches"
-      render json: user
+  def me
+    puts "Me"
+    p session[:user_id]
+    p current_user
+    if current_user
+      render json: current_user
     else
-      puts "doesn't match"
       render status: 401, json: nil
     end
   end
