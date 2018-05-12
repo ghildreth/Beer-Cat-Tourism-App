@@ -72,45 +72,48 @@ class SingleBrewery extends Component {
       return <div>Loading ... </div>;
     } else {
       return (
-        <div>
-        <img src="../beer-tap.jpg" height="600px" width="1200px" />
-          <h1>{brewery.name}</h1>
-          <div className="brewery-tombstone">
-            <span key={brewery.id}>
-              <p><h6>City: </h6>{brewery.city}</p>
-              <p><h6>Address: </h6>{brewery.address}</p>
-              <p><h6>Description: </h6>{brewery.description}</p>
-              <h6>Hours: </h6>
-              <ul className="brewery-hours">
-                <li>Sunday:       12-11pm </li>
-                <li>Monday:       Closed </li>
-                <li>Tuesday:       2-11pm </li>
-                <li>Wednesday:       2-11pm </li>
-                <li>Thursday:       2-11pm </li>
-                <li>Friday:       2-11pm </li>
-                <li>Saturday:      12-11pm </li>
-              </ul>
-              <a href="/tours">Back</a>
-            </span>
+        <div className="brewery-content">
+          <img src="../beer-tap.jpg" height="600px" width="1200px" />
+            <h1>{brewery.name}</h1>
+            <div className="brewery-tombstone">
+              <div className="breweries-description">
+              <span key={brewery.id}>
+                <p><strong>City: </strong>{brewery.city}</p>
+                <p><strong>Address: </strong>{brewery.address}</p>
+                <p><strong>Description: </strong>{brewery.description}</p>
+                <strong>Hours: </strong>
+                <ul className="brewery-hours">
+                  <li>Sunday:       12-11pm </li>
+                  <li>Monday:       Closed </li>
+                  <li>Tuesday:       2-11pm </li>
+                  <li>Wednesday:       2-11pm </li>
+                  <li>Thursday:       2-11pm </li>
+                  <li>Friday:       2-11pm </li>
+                  <li>Saturday:      12-11pm </li>
+                </ul>
+                <a href="/tours">Back</a>
+              </span>
+            </div>
+
+            <div className="beer-list">
+              <h4 className="beer-list-header">What's on Tap?</h4>
+              <span>
+                {/*<Slider autoplay="2000" >*/}
+                <Slider>
+                  {beers.filter(beer => beer.brewery_id === brewery.id).map(beer => (
+                    <div className="individual-beer" key={beer.id}>
+                      <strong>{beer.name}</strong><br/>
+                      <em><span>You will like this beer: {beer.userPreference}%</span></em><br/>
+                      <span>Style: {beer.style}</span><br/>
+                      <span>ABV: {beer.score_ABV}</span><br/>
+                      <span>SRM: {beer.score_SRM}</span><br/>
+                      <span>IBU: {beer.score_IBU}</span><br/>
+                    </div>
+                  ))}
+                </Slider>
+              </span>
+             </div>
           </div>
-          <div className="beer-list">
-            <h4 className="beer-list-header">What's on Tap?</h4>
-            <span>
-              {/*<Slider autoplay="2000" >*/}
-              <Slider>
-                {beers.filter(beer => beer.brewery_id === brewery.id).map(beer => (
-                  <div className="individual-beer" key={beer.id}>
-                    <strong>{beer.name}</strong><br/>
-                    <em><span>You will like this beer: {beer.userPreference}%</span></em><br/>
-                    <span>Style: {beer.style}</span><br/>
-                    <span>ABV: {beer.score_ABV}</span><br/>
-                    <span>SRM: {beer.score_SRM}</span><br/>
-                    <span>IBU: {beer.score_IBU}</span><br/>
-                  </div>
-                ))}
-              </Slider>
-            </span>
-           </div>
         </div>
       )
     }

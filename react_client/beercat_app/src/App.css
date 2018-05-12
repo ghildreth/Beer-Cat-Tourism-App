@@ -26,6 +26,10 @@ header {
   font-size: large;
 }
 
+.container {
+  max-width: 100%;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -65,8 +69,11 @@ header {
 }
 
 .brewery-tombstone {
-  float: left;
-  width: 60%;
+  display: flex;
+  /*text-align: left;*/
+}
+
+.breweries-description {
   text-align: left;
 }
 
