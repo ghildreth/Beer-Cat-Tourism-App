@@ -3,7 +3,7 @@ class ToursController < ApplicationController
     if current_user.nil?
       render status: 401, json: nil
     else
-      render json: current_user.tours
+      render json: {tours: current_user.tours, user_tours: current_user.user_tours}
     end
   end
 
