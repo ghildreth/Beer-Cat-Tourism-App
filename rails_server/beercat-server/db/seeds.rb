@@ -645,4 +645,10 @@ UserTour.create!({
   rating: 3,
 })
 
+UserTour.create!({
+  user_id: 1,
+  tour_id: 2,
+  description: "THIS IS MY SECOND TOUR",
+})
+
 puts "DONE!"

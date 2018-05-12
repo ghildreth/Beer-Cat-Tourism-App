@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { Switch, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Rating from 'react-rating';
 
 class UserTours extends Component {
   constructor(props) {
@@ -27,47 +28,45 @@ class UserTours extends Component {
   componentDidMount() {
     console.log('UserTours component did mount')
       axios.get(`/api/tours/mine`)
-      .then(({ data: tours }) => {
-        this.setState( { tours })
+      .then(({ data: {tours, user_tours} }) => {
+        this.setState( { tours, user_tours })
       })
       
   }
 
   render() {
     const { tours } = this.state
+    const { user_tours } = this.state
 
-    
       return (
         <div className="tours-all">
-      {tours ? (tours.map(tour => (
-        <div key={tour.id} className="tours-individualtour">
-          <div className="tours-individualtourtitle">
-            <h3><Link to={`/tours/${tour.id}`}>{tour.name}</Link></h3>
-          </div>
-          <div className="tours-individualtourdetails">
-            <h5>City: {tour.city}</h5>
-            <h5>Duration: {tour.duration} hrs</h5>
-            <h5>Description: {tour.description}</h5>
-          </div>
-        </div>
-        ))
-      ) : (
-      <div>Loading...</div>
-      )}
+          {tours ? (tours.map(tour => (
+            <div key={tour.id} className="tours-individualtour">
+
+              <div className="tours-individualtourtitle">
+                <h3><Link to={`/tours/${tour.id}`}>{tour.name}</Link></h3>
+              </div>
+
+              <div className="tours-individualtourdetails">
+                <h5>City: {tour.city}</h5>
+                <h5>Duration: {tour.duration} hrs</h5>
+                <h5>Description: {tour.description}</h5>
+                <h5>
+                  Rating:  <Rating initialRating={tour.rating} 
+                  emptySymbol={<img src="../assets_paw/black_paw_print.png" 
+                  className="icon" />} 
+                  fullSymbol={<img src="../assets_paw/blue_paw_print.png" 
+                  className="icon" />} />
+                </h5>
+              </div>
+
+            </div>
+            ))
+          ) : (
+          <div>Loading...</div>
+          )}
       </div>
       )
-        
-        
-
-      //   <div>
-      //     <h4>Your tours:</h4> 
-      //     <ul className='userTours'>
-
-      //       <li>Tour 1</li>
-      //       <li>Tour 2</li>
-      //     </ul>
-      //   </div>
-      // );
     }
   }
 export default UserTours
