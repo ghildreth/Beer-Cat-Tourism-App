@@ -67,22 +67,30 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+/* SINGLE BREWERY STYLE START */
 
+h1.brewery-name {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
 .brewery-tombstone {
   display: flex;
   /*text-align: left;*/
 }
 
 .breweries-description {
+  margin-left: auto;
+  margin-right: auto;
   text-align: left;
 }
 
 .beer-list {
-  float: right;
+  margin-right: auto;
+  margin-left: auto;
   border: 1px solid black;
   padding-top: 4rem;
   height: 20rem;
-  width: 44%;
+  width: 28%;
   border-radius: 1em;
 }
 
