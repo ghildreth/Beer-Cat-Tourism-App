@@ -17,19 +17,44 @@
    componentDidMount() {
      const { match: { params } } = this.props;
 
-     console.log('mounting from single tour')
+     console.log('mounting from single tour', this.props.match.params.id)
      axios.get(`/api/tours/${params.id}`)
        .then(({ data: tour }) => {
          this.setState( {tour} );
        });
-   }
 
-   handleTourSubmit(){
-    // axios.post(`api/user_tour`)
-    // if()
-    //   .then(({ }))
-    console.log('here i am', this.prpos.currentUser.id)
-   }
+     axios.get('/api/users/me')
+     .then(response => {
+       if (response.status === 204) {
+         console.log('user session deleted')
+         this.setState({
+           current_user: false,
+           logged_in: false,
+         })
+       }
+       if (response.status === 200 || response.status === 201) {
+         console.log('logged in user is', response)
+         this.setState({logged_in: true, id: response.data.id})
+       } else {
+         this.setState({logged_in: false})
+       }
+     })
+     .catch(function (error) {
+       console.error(error)
+     });
+  }
+
+   handleTourSubmit = event => {
+    event.preventDefault();
+    axios.post('/api/user_tours', {
+      user_tours: {
+        user_id: this.state.id,
+        tour_id: this.props.match.params.id
+      }}).then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+    }
 
    render() {
    const { tour } = this.state;
@@ -46,11 +71,11 @@
           <h5>{tour.city}</h5>
           <h5>{tour.duration} hrs</h5>
           <h5>Tour Rating: {tour.rating} </h5>
-          <Rating initialRating={tour.rating} 
+          <Rating initialRating={tour.rating}
                   readonly
-                  emptySymbol={<img src="../assets_paw/black_paw_print.png" 
-                  className="icon" />} 
-                  fullSymbol={<img src="../assets_paw/blue_paw_print.png" 
+                  emptySymbol={<img src="../assets_paw/black_paw_print.png"
+                  className="icon" />}
+                  fullSymbol={<img src="../assets_paw/blue_paw_print.png"
                   className="icon" />} />
           <p>{tour.description}</p><br/>
           <button onClick={this.handleTourSubmit.bind(this)} className="btn btn-success">Pounce!</button>

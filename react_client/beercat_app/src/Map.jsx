@@ -389,7 +389,7 @@ export default class Map extends Component {
           {/*<button onClick={this._onButtonClick.bind(this)}>Show Walking Path</button>*/}
 
               <h6>The Brewery Route:</h6>
-              {places.map((place => <table id={place.id}><p>{place.name}</p></table>))}
+              {places.map((place => <span key={place.id } id={place.id}> {place.name} </span>))}
 
           </ul>
       </div>

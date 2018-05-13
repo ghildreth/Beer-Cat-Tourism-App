@@ -49,7 +49,7 @@ class UserTours extends Component {
       return (
         <div className="tours-all">
           {tours ? (tours.map(tour => (
-            <div key={tour.id} className="tours-individualtour">
+            <div key={ tour.id * Math.random() } className="tours-individualtour">
 
               <div className="tours-individualtourtitle">
                 <h3><Link to={`/tours/${tour.id}`}>{tour.name}</Link></h3>
@@ -68,14 +68,14 @@ class UserTours extends Component {
                         <h5>Rate this Tour:</h5>
                       )
                     }
-                      <h5><Rating onChange={(rate) => onRate(rate, user_tour.id)} 
+                      <h5><Rating onChange={(rate) => onRate(rate, user_tour.id)}
                         initialRating={user_tour.rating}
-                        emptySymbol={<img src="../assets_paw/black_paw_print.png" 
-                        className="icon" />} 
-                        fullSymbol={<img src="../assets_paw/blue_paw_print.png" 
+                        emptySymbol={<img src="../assets_paw/black_paw_print.png"
+                        className="icon" />}
+                        fullSymbol={<img src="../assets_paw/blue_paw_print.png"
                         className="icon" />} />
                       </h5>
-                 
+
                   </div>
                 ))}
               </div>

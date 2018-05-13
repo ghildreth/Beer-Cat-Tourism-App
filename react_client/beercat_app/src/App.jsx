@@ -113,7 +113,7 @@ class App extends Component {
                     <Route exact path="/beers" component={BeerList} />
                     <Route path="/beers/:id" component={SingleBeer} />
                     <Route exact path="/tours" component={TourList} />
-                    <Route path="/tours/:id" component={SingleTour} currentUser={this.state.currentUser}/>
+                    <Route path="/tours/:id" component={SingleTour} currentID={this.state.id}/>
                     <Route path="/users/:id" component={SingleUser}/>
                   </Switch>
                 </div>
