@@ -57,8 +57,7 @@ export default class Login extends Component {
     }
     return (
       <div>
-        <Modal  visible={visible} title="Login">
-          <h2>Login to Beer Cat</h2>
+        <Modal  visible={visible} title="Login to Beer Cat">
           <form onSubmit={this.onSubmit} className="form-stack">
           <label>Email:</label>
           <input className="email"

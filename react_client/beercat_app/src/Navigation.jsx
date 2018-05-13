@@ -18,8 +18,8 @@ const Navigation = ({currentUser, userID}) => {
     <nav className="nav-bar">
       <div className="nav">
         <div className="nav-item"><Link to='/about' className="nav-a">About</Link></div>
-        <div className="nav-item"><Link to='/' className="nav-a">Tours</Link></div>
-        <div><Link to='/tours'><img className="nav-item logo" src={process.env.PUBLIC_URL + '/assets_logo/BeerCat.png'} alt="avatar"/></Link></div>
+        <div className="nav-item"><Link to='/tours' className="nav-a">Tours</Link></div>
+        <div><Link to='/'><img className="nav-item logo" src={process.env.PUBLIC_URL + '/assets_logo/BeerCat.png'} alt="avatar"/></Link></div>
         {links}
       </div>
     </nav>
