@@ -228,6 +228,8 @@ const TourMap = props => {
   // if (props.showDirections && props.directions) {
   //   walkingTour = <DirectionsRenderer directions={props.directions} />
   // }
+
+
   return (
     <GoogleMap
 
@@ -386,17 +388,13 @@ export default class Map extends Component {
           <ul >
           {/*<button onClick={this._onButtonClick.bind(this)}>Show Walking Path</button>*/}
 
-              <h6>The Brewery Route:</h6>
-              {places.map((place => <span key={place.id } id={place.id}> {place.name} </span>))}
-
             <h5 className="brewery-route">The Brewery Route:</h5>
             {places.map((place => <table id={place.id}><tbody><tr><td>{place.name}</td></tr></tbody></table>))}
           </ul>
-          <ul className="tour-tips">
-              <h5>Tips</h5>
-              <li>Weekends are especially busy, try to arrive early.</li>
-
-          </ul>
+          <div className="tour-tips">
+            <h5>Tips</h5>
+            {this.props.tips.full_description}
+          </div>
         </div>
       </div>
     );
