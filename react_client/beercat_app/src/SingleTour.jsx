@@ -20,6 +20,7 @@
      console.log('mounting from single tour', this.props.match.params.id)
      axios.get(`/api/tours/${params.id}`)
        .then(({ data: tour }) => {
+        console.log('Tour: ', tour)
          this.setState( {tour} );
        });
 
@@ -87,7 +88,7 @@
             <button className="btn back"type="submit">Back</button>
           </form>
           </span>
-          <Map places={ this.state.tour.breweries } />
+          <Map tips={this.state.tour} places={ this.state.tour.breweries } />
        </div>
      </div>
 

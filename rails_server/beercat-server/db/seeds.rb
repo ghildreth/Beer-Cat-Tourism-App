@@ -527,7 +527,7 @@ Tour.create!({
   city: "Vancouver",
   duration: 3.5,
   description: "It's awesome!",
-  tips: "See all the things.",
+  full_description: "Start off this tour by running into a brick wall to get to the secret entrance to Brewery Parallel 49 & 3/4. Fill up on butter beer before you apparate over to Cat's Meow to bat around a ball of yarn. Regular patrons can be quite frisky. When you're purring with excitement, sharpen you're claws and head on over to the Mouse Hole.",
   rating: 4
 })
 
@@ -536,7 +536,7 @@ Tour.create!({
   city: "Vancouver",
   duration: 1.5,
   description: "Amazing Vancouver nightlife.",
-  tips: "Don't get lost",
+  full_description: "Follow the buzz on the street to The Honeycomb. Don't let the geometric shape fool you, this brewery is anything but oridinary. With plenty of nectar on tap, you'll leave feeling well pollinated. Be sure to try Queen Bee, the hive's number one seller. Enjoy the local Cantina Band's upbeat tunes at this local hot spot. Bring a friend, don't arrive solo and be sure not to offend some of the regular patrons. Bas kah!",
   rating: 2
 })
 
@@ -545,7 +545,7 @@ Tour.create!({
   city: "Vancouver",
   duration: 2,
   description: "Low key chilled night.",
-  tips: "Try not to fall asleep",
+  full_description: "Try not to fall asleep",
   rating: 1
 })
 
@@ -554,7 +554,7 @@ Tour.create!({
   city: "Vancouver",
   duration: 4,
   description: "A walk through some of Vancouver's historical spots.",
-  tips: "Make sure to stop and take in the historical sights along the way.",
+  full_description: "Make sure to stop and take in the historical sights along the way.",
   rating: 2.5
 })
 

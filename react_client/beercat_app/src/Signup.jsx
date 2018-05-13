@@ -21,13 +21,16 @@ export default class Login extends Component {
   }
 
   showModal = () => {
-      this.setState({
-        visible: true,
-      });
-    }
+    this.setState({ visible: true });
+  }
+
+  handleCancel = () => {
+    this.setState({ visible: false });
+    window.location.replace('/');
+  }
 
   handleNextQuestion = (question) => {
-    this.setState({ modal_step: question })
+    this.setState({ modal_step: question });
   }
 
   onSubmit(e) {
@@ -81,8 +84,13 @@ export default class Login extends Component {
     return (
       <div>
         <Modal  visible={visible}
-                title="Tell us more about you...">
-          <Quiz onSubmit={this.onSubmit} className="form-inline" modalStep={ this.state.modal_step } handleNextQuestion={ this.handleNextQuestion } />
+                title="Tell us more about you..."
+                onCancel={this.handleCancel}
+                footer={null}>
+          <Quiz onSubmit={this.onSubmit} 
+                className="form-inline" 
+                modalStep={ this.state.modal_step } 
+                handleNextQuestion={ this.handleNextQuestion } />
         </Modal>
       </div>
     );

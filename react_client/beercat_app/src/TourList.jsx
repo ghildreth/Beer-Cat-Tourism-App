@@ -24,18 +24,16 @@ export default class TourList extends Component {
       <div className="tours-all">
       {tours ? (tours.map(tour => (
         <div key={tour.id} className="tours-individualtour">
-          <div className="tours-individualtourtitle">
-            <h3><Link to={`/tours/${tour.id}`}>{tour.name}</Link></h3>
-          </div>
-          <div className="tours-individualtourdetails">
-            <p><strong>City:</strong> {tour.city}</p>
-            <p><strong>Duration:</strong> {tour.duration} hrs</p>
-            <p><strong>Description:</strong><br/> {tour.description}</p>
-          </div>
+          <h3 className="tours-individualtourtitle"><Link to={`/tours/${tour.id}`} className="tours-individualtourtitle-link">{tour.name}</Link></h3>
+          <p className="tours-individualtourdetails">
+            <strong>City:</strong> {tour.city}<br/>
+            <strong>Duration:</strong> {tour.duration} hrs<br/><br/>
+            {tour.description}
+          </p>
         </div>
         ))
       ) : (
-      <div>Loading...</div>
+      <div></div>
       )}
       </div>
       )
