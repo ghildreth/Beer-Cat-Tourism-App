@@ -49,6 +49,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log('running loadUser')
     this.loadUser();
   }
 
@@ -88,7 +89,7 @@ class App extends Component {
               this.confirmedUserOver19();
               return <Redirect to='/'/>
             }}/>
-            <Route path="/sorry" component={Under19}/>
+            <Route path="/under19" component={Under19}/>
             <Route path="/" render={() => {
               if(!this.state.over19){
                 return <Redirect to='/over19'/>
