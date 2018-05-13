@@ -385,13 +385,17 @@ export default class Map extends Component {
 
 
           />
-          <ul className="BrewList">
+        <div className="brewList">
+          <ul >
           {/*<button onClick={this._onButtonClick.bind(this)}>Show Walking Path</button>*/}
-
-              <h6>The Brewery Route:</h6>
-              {places.map((place => <table id={place.id}><p>{place.name}</p></table>))}
-
+            <h5 className="brewery-route">The Brewery Route:</h5>
+            {places.map((place => <table id={place.id}><tbody><tr><td>{place.name}</td></tr></tbody></table>))}
           </ul>
+          <ul className="tour-tips">
+              <h5>Tips</h5>
+              <li>Weekends are especially busy, try to arrive early.</li>
+          </ul>
+        </div>
       </div>
     );
   }
