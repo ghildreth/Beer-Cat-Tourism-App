@@ -37,6 +37,10 @@ header {
   to { transform: rotate(360deg); }
 }
 
+.back {
+  border: 1px solid black;
+}
+
 .logo {
 
   width: 200px;
@@ -88,7 +92,6 @@ h1.brewery-name {
 }
 .brewery-tombstone {
   display: flex;
-  /*text-align: left;*/
 }
 
 .breweries-description {
@@ -111,12 +114,51 @@ h1.brewery-name {
   list-style-type: none;
 }
 
-/*.single-beer-description {
-  overflow-wrap: normal;
-}*/
+.brewery-route{
+  text-align: -webkit-auto;
+}
 
 div.slider {
   height: 9rem;
+}
+
+/* START OF SINGLE TOUR CSS */
+.tour-details {
+  margin: auto auto 0 auto;
+}
+
+.tour-description {
+  margin-top: 1rem;
+}
+
+.tour-duration {
+  margin-bottom: 1rem;
+}
+
+.tour-city {
+  margin-bottom: 1rem;
+}
+
+.pounce {
+  margin-right: 2rem;
+}
+
+.tour-rating {
+  margin-bottom: 1rem;
+}
+
+.tour-content {
+  padding-top: 5rem;
+  padding-right: 5rem;
+}
+
+.brewList {
+  margin-top: 2rem;
+  display: flex;
+}
+
+.tour-tips {
+  margin-left: 3rem;
 }
 
 .tours-all {
@@ -151,8 +193,8 @@ div.slider {
 
 /* Paw Print CSS */
 img.icon {
-  height: 24px;
-  width: 24px;
+  height: 3rem;
+  width: 3rem;
   padding: .2em;
 }
 
