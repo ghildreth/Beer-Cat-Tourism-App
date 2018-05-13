@@ -58,7 +58,6 @@ class UserTours extends Component {
               <div className="tours-individualtourdetails">
                 <h5>City: {tour.city}</h5>
                 <h5>Duration: {tour.duration} hrs</h5>
-                <h5>Description: {tour.description}</h5>
 
                 {user_tours.filter(user_tour => user_tour.tour_id === tour.id).map(user_tour => (
                   <div className="individual-beer" key={user_tours.id + 1000}>

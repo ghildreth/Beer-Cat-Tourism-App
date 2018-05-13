@@ -70,23 +70,19 @@
 
          <span className="tour-details" key={tour.id}>
           <h2>{tour.name}</h2>
-          <h5>{tour.city}</h5>
-          <h5>{tour.duration} hrs</h5>
-          <h5>Tour Rating: {tour.rating} </h5>
-          <h5 className="tour-city">{tour.city}</h5>
-          <h5 className="tour-duration">{tour.duration} hrs</h5>
-          <h5 className="tour-rating">Tour Rating: {tour.rating} </h5>
+          <h5 className="tour-city">City: {tour.city}</h5>
+          <h5 className="tour-duration">Duration: {tour.duration} hrs</h5>
+          <h5 className="tour-rating">Tour Rating:<br/>
           <Rating initialRating={tour.rating}
                   readonly
                   emptySymbol={<img src="../assets_paw/black_paw_print.png"
                   className="icon" />}
                   fullSymbol={<img src="../assets_paw/blue_paw_print.png"
                   className="icon" />} />
+          </h5>
           <p className="tour-description">{tour.description}</p><br/>
-          <button onClick={this.handleTourSubmit.bind(this)} className="btn btn-success pounce">Pounce!</button>
-          <form method="get" action="/tours">
-            <button className="btn back"type="submit">Back</button>
-          </form>
+          <button onClick={this.handleTourSubmit.bind(this)} className="btn button-pounce">Pounce on this tour!</button><br/><br/>
+          <button type="button" className="btn back-button"><Link className="back-link" to='/tours'>Back</Link></button>
           </span>
           <Map tips={this.state.tour} places={ this.state.tour.breweries } />
        </div>
