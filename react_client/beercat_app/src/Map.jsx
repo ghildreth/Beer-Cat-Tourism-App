@@ -228,7 +228,7 @@ const TourMap = props => {
   // if (props.showDirections && props.directions) {
   //   walkingTour = <DirectionsRenderer directions={props.directions} />
   // }
-
+// console.log('hi', props)
 
   return (
     <GoogleMap
@@ -267,13 +267,17 @@ const TourMap = props => {
       }*/}
 
     </GoogleMap>
+
   )
+
 }
+
 const WrappedTourMap = withGoogleMap(TourMap);
 
 export default class Map extends Component {
   constructor(props) {
     super(props);
+    // console.log('here ya go', this.props.places[0].latitude)
 
     this.xMapBounds = { min: null, max: null }
     this.yMapBounds = { min: null, max: null }
@@ -283,8 +287,8 @@ export default class Map extends Component {
 
     this.state = {
       places: [],
-      lat: 49.2827,
-      lng: -123.1207,
+      lat: this.props.places[0].latitude,
+      lng: this.props.places[0].longitude,
       // waypoints: [49.2827, 123.1207]
       showWalkingPath: true
     };
@@ -389,7 +393,7 @@ export default class Map extends Component {
           {/*<button onClick={this._onButtonClick.bind(this)}>Show Walking Path</button>*/}
 
             <h5 className="brewery-route">The Brewery Route:</h5>
-            {places.map((place => <table id={place.id}><tbody><tr><td>{place.name}</td></tr></tbody></table>))}
+            {places.map((place => <table key={place.id}><tbody><tr><td>{place.name}</td></tr></tbody></table>))}
           </ul>
           <div className="tour-tips">
             <h5>Tips</h5>
