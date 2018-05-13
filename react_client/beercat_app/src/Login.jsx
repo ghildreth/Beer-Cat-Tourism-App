@@ -22,10 +22,15 @@ export default class Login extends Component {
   }
 
   showModal = () => {
-      this.setState({
-        visible: true,
-      });
-    }
+    this.setState({
+      visible: true,
+    });
+  }
+
+  handleCancel = () => {
+    this.setState({ visible: false });
+    window.location.replace('/');
+  }
 
   onSubmit(e) {
     e.preventDefault();
@@ -57,24 +62,26 @@ export default class Login extends Component {
     }
     return (
       <div>
-        <Modal  visible={visible} title="Login to Beer Cat">
+        <Modal  visible={visible} 
+                title="Purrrease login..." 
+                onCancel={this.handleCancel} 
+                footer={null}>
           <form onSubmit={this.onSubmit} className="form-stack">
-          <label>Email:</label>
-          <input className="email"
+          <input className="form-control form-control-lg"
             name="email"
             type="email"
             onChange={this.handleChange}
             placeholder="Email"
           /><br/>
-          <label>Password:</label>
-          <input className="password"
+          <input className="form-control form-control-lg"
             name="password"
-            type="text"
+            type="password"
             onChange={this.handleChange}
             placeholder="Password"/><br/>
-          <input type="submit" className="btn btn-primary" value="Login right meow." />
+          <input type="submit" className="btn submit-button" value="Login right meow." />
           </form>
-          <h6>Don't have a login? <Link to="/signup">Sign up, meow!</Link></h6>
+          <br/>
+          <p><strong>Don't have a login? <Link to="/signup">Sign up, meow!</Link></strong></p>
         </Modal>
       </div>
     );

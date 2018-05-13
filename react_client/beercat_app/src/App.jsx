@@ -109,7 +109,7 @@ class App extends Component {
                       this.logout();
                       return <Redirect to='/'/>
                     }}/>
-                    <Route exact path="/breweries" component={BreweryList} />
+                    <Route exact path="/breweries" component={TourList} />
                     <Route path="/breweries/:id" component={SingleBrewery} />
                     <Route exact path="/beers" component={BeerList} />
                     <Route path="/beers/:id" component={SingleBeer} />
