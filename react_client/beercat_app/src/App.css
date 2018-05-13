@@ -34,8 +34,14 @@ header {
   to { transform: rotate(360deg); }
 }
 
-.back {
-  border: 1px solid black;
+.back-button {
+  background-color: #efefef;
+  width: 200px;
+  height: 50px;
+}
+
+.back-link {
+  color: '#23c6cb'
 }
 
 .logo {
@@ -187,8 +193,11 @@ div.slider {
   margin-bottom: 1rem;
 }
 
-.pounce {
-  margin-right: 2rem;
+.button-pounce {
+  background-color: #23c6cb;
+  color: #ffffff;
+  width: 200px;
+  height: 50px;
 }
 
 .tour-rating {
@@ -246,7 +255,6 @@ img.icon {
   padding: .2em;
 }
 
-
 /* Login */
 
 .submit-button {
@@ -256,6 +264,8 @@ img.icon {
   border: 3px solid #c8d36f;
   color: #ffffff;
 }
+
+/* Form Labels */
 
 label {
   font-size: 1.2em;
