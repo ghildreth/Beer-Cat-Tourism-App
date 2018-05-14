@@ -19,17 +19,21 @@ end
 
 puts "Creating Breweries ..."
 
-Brewery.create(name: 'Brewery Parallel 49&3/4', city: 'Vancouver', address: '1234 Fake Street', description: "This is the descriptiono of the brewery, it's the best brewery ever.", latitude: 49.283834, longitude: -123.0665496)
-Brewery.create(name: "Cat's Meow", city: 'Vancouver', address: '237 That Street', description: "You can get beer here. It's tasty.", latitude: 49.2691407, longitude: -123.1051664)
-Brewery.create(name: "Mouse Hole", city: 'Vancouver', address: '615 Cheese Street', description: "Tiny hole in the wall watering hole,", latitude: 49.2827, longitude: -123.1207)
-Brewery.create(name: 'The Honeycomb', city: 'Vancouver', address: '435 The Farm', description: "Where the bees come to pollinate. Take a break from being a busy worker bee and drink some nectar.", latitude: 49.282684, longitude: -123.138617)
-Brewery.create(name: 'Star Wars Cantina', city: "Pirate City", address:'Ep. IV', description: 'Her name was Leia - She was a princess! With a danish on each ear and Darth Vader drawing near...', latitude: 49.2787766, longitude: -123.1160782)
-Brewery.create(name: 'Blue Mandolin', city: 'Vancouver', address: '213 Humming Avenue', description: "Relaxing pints and tasty tunes tucked away in Vancouver's industrial district", latitude: 49.267229, longitude: -123.104256)
-Brewery.create(name: 'Exposed Brickwork', city: 'Vancouver', address: '498 Gastown', description: "All beer served with a side of Avocado Toast and a 63 degree egg.", latitude: 49.284065, longitude: -123.107223)
-Brewery.create(name: 'Programmer Pick-Up', city: 'Vancouver', address: 'The Steam Cock', description: "Tinder for programmers.", latitude: 49.2837637, longitude: -123.1143696)
-Brewery.create(name: 'Miniature Horse', city: 'Portland, Oregon', address: '1323 Stable Lane ', description: "Quit stalling and hoof it over here.", latitude: 45.513323, longitude: -122.658402)
-Brewery.create(name: 'Red Hat', city: 'Portland, Orgeon', address: '1981 Jumpman Street  ', description: "Rotating taps will get you saying Ya! Wah! Wahoo!", latitude: 45.516094, longitude: -122.656175)
-Brewery.create(name: 'Curious Coniferous', city: 'Portland, Orgeon', address: '1427 Soil Street', description: "Down to earth brewery, comfortable enough to lay some roots down.", latitude: 45.516636, longitude: -122.655567)
+Brewery.create(name: 'Brewery Parallel 49&3/4', city: 'Vancouver, BC', address: '1234 Fake Street', description: "This is the descriptiono of the brewery, it's the best brewery ever.", latitude: 49.283834, longitude: -123.0665496)
+Brewery.create(name: "Cat's Meow", city: 'Vancouver, BC', address: '237 That Street', description: "You can get beer here. It's tasty.", latitude: 49.2691407, longitude: -123.1051664)
+Brewery.create(name: "Mouse Hole", city: 'Vancouver, BC', address: '615 Cheese Street', description: "Tiny hole in the wall watering hole,", latitude: 49.2827, longitude: -123.1207)
+Brewery.create(name: 'The Honeycomb', city: 'Vancouver, BC', address: '435 The Farm', description: "Where the bees come to pollinate. Take a break from being a busy worker bee and drink some nectar.", latitude: 49.282684, longitude: -123.138617)
+Brewery.create(name: 'Star Wars Cantina', city: "Vancouver, BC", address:'Ep. IV', description: 'Her name was Leia - She was a princess! With a danish on each ear and Darth Vader drawing near...', latitude: 49.2787766, longitude: -123.1160782)
+Brewery.create(name: 'Blue Mandolin', city: 'Vancouver, BC', address: '213 Humming Avenue', description: "Relaxing pints and tasty tunes tucked away in Vancouver's industrial district", latitude: 49.267229, longitude: -123.104256)
+Brewery.create(name: 'Exposed Brickwork', city: 'Vancouver, BC', address: '498 Gastown', description: "All beer served with a side of Avocado Toast and a 63 degree egg.", latitude: 49.284065, longitude: -123.107223)
+Brewery.create(name: 'Programmer Pick-Up', city: 'Vancouver, BC', address: 'The Steam Cock', description: "Tinder for programmers.", latitude: 49.2837637, longitude: -123.1143696)
+Brewery.create(name: 'Miniature Horse', city: 'Portland, OR', address: '1323 Stable Lane ', description: "Quit stalling and hoof it over here.", latitude: 45.513323, longitude: -122.658402)
+Brewery.create(name: 'Red Hat', city: 'Portland, OR', address: '1981 Jumpman Street  ', description: "Rotating taps will get you saying Ya! Wah! Wahoo!", latitude: 45.516094, longitude: -122.656175)
+Brewery.create(name: 'Curious Coniferous', city: 'Portland, OR', address: '1427 Soil Street', description: "Down to earth brewery, comfortable enough to lay some roots down.", latitude: 45.516636, longitude: -122.655567)
+Brewery.create(name: "Pirate's Booty Brewery", city: 'Seattle, WA', address: '1415 Treasure Avenue', description: "Arr matey, thar be strong brews here. Watch yer booty and keep those landlubbin' hands to yerself!", latitude: 47.611851, longitude: -122.345290)
+Brewery.create(name: "The Flying Fish", city: 'Seattle, WA', address: '1427 Swordfish Place', description: "Throwin' back fish and pints, just for the halibut. Careful you don't catch any crabs.", latitude: 47.608539, longitude: -122.339711)
+Brewery.create(name: "Osprey Bay Suds", city: 'Seattle, WA', address: '1900 Nesting Lane', description: "Your tastebuds will take flight once you sample our flights.", latitude: 47.607772, longitude: -122.342994)
+
 
 ## BEERS
 
@@ -694,14 +698,187 @@ Beer.create!({
   seasonal: false
 })
 
+# 12 Pirates Booty Brewery
+Beer.create!({
+  brewery_id: 12,
+  name:  'Treasure Ale',
+  description: "",
+  style: 'Amber Ale',
+  score_ABV: 5,
+  score_SRM: 7,
+  score_IBU: 33,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 12,
+  name:  'Jolly Roger',
+  description: "",
+  style: 'Cream Ale',
+  score_ABV: 4.5,
+  score_SRM: 8,
+  score_IBU: 35,
+  score_adventurous: true,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 12,
+  name:  'Skull & Crossbones Pilsner',
+  description: "",
+  style: 'Pilsner',
+  score_ABV: 4,
+  score_SRM: 4,
+  score_IBU: 22,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 12,
+  name:  'Walk the Plank IPA',
+  description: "",
+  style: 'IPA',
+  score_ABV: 6,
+  score_SRM: 5,
+  score_IBU: 65,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: true
+})
+
+# 13 The Flying Fish
+
+Beer.create!({
+  brewery_id: 13,
+  name:  'Salmon Sour',
+  description: "",
+  style: 'Sour',
+  score_ABV: 8.2,
+  score_SRM: 17,
+  score_IBU: 55,
+  score_adventurous: true,
+  score_sour: true,
+  seasonal: true
+})
+
+Beer.create!({
+  brewery_id: 13,
+  name:  "Catch of the Day IPA",
+  description: "",
+  style: 'IPA',
+  score_ABV: 6.5,
+  score_SRM: 6,
+  score_IBU: 88,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 13,
+  name:  "Starboard Stout",
+  description: "",
+  style: 'Stout',
+  score_ABV: 8,
+  score_SRM: 19,
+  score_IBU: 45,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: true
+})
+
+Beer.create!({
+  brewery_id: 13,
+  name:  "Huckin' Halibut",
+  description: "",
+  style: 'Pilsner',
+  score_ABV: 4,
+  score_SRM: 4,
+  score_IBU: 22,
+  score_adventurous: true,
+  score_sour: false,
+  seasonal: true
+})
+
+# 14 Osprey Bay Suds
+
+Beer.create!({
+  brewery_id: 14,
+  name:  "Seahawk Session Ale",
+  description: "",
+  style: 'ISA',
+  score_ABV: 3.7,
+  score_SRM: 11,
+  score_IBU: 80,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 14,
+  name:  "Flightin' Ale",
+  description: "",
+  style: 'Golden Ale',
+  score_ABV: 5,
+  score_SRM: 10,
+  score_IBU: 20,
+  score_adventurous: true,
+  score_sour: false,
+  seasonal: true
+})
+
+Beer.create!({
+  brewery_id: 14,
+  name:  "Hatchling Ale",
+  description: "",
+  style: 'Cream Ale',
+  score_ABV: 5.5,
+  score_SRM: 5,
+  score_IBU: 20,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 14,
+  name:  "Coastal Saison",
+  description: "",
+  style: 'Saison',
+  score_ABV: 5.4,
+  score_SRM: 5,
+  score_IBU: 25,
+  score_adventurous: true,
+  score_sour: false,
+  seasonal: true
+})
+
+Beer.create!({
+  brewery_id: 14,
+  name:  "Hawks Nest Porter",
+  description: "",
+  style: 'Porter',
+  score_ABV: 8.2,
+  score_SRM: 25,
+  score_IBU: 20,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
 
 ## Tours
 
 puts "Creating Tours ..."
 
 Tour.create!({
-  name: "Vancouver Prowl",
-  city: "Vancouver",
+  name: "Vancouver Gastown Prowl",
+  city: "Vancouver, BC",
   duration: 3.5,
   description: "It's awesome!",
   full_description: "Start off this tour by running into a brick wall to get to the secret entrance to Brewery Parallel 49 & 3/4. Fill up on butter beer before you apparate over to Cat's Meow to bat around a ball of yarn. Regular patrons can be quite frisky. When you're purring with excitement, sharpen you're claws and head on over to the Mouse Hole.",
@@ -710,25 +887,25 @@ Tour.create!({
 
 Tour.create!({
   name: "Late Night Pub Pounce",
-  city: "Vancouver",
-  duration: 1.5,
+  city: "Vancouver, BC",
+  duration: 2.5,
   description: "Amazing Vancouver nightlife.",
   full_description: "Follow the buzz on the street to The Honeycomb. Don't let the geometric shape fool you, this brewery is anything but oridinary. With plenty of nectar on tap, you'll leave feeling well pollinated. Be sure to try Queen Bee, the hive's number one seller. Enjoy the local Cantina Band's upbeat tunes at this local hot spot. Bring a friend, don't arrive solo and be sure not to offend some of the regular patrons. Bas kah!",
-  rating: 2
+  rating: 3.5
 })
 
 Tour.create!({
   name: "Cat Napping",
-  city: "Vancouver",
+  city: "Vancouver, BC",
   duration: 2,
   description: "Low key chilled night.",
   full_description: "Try not to fall asleep",
-  rating: 1
+  rating: 4
 })
 
 Tour.create!({
-  name: "Hisssstory Tour",
-  city: "Vancouver",
+  name: "Hiss-tory Tour",
+  city: "Vancouver, BC",
   duration: 4,
   description: "A walk through some of Vancouver's historical spots.",
   full_description: "Make sure to stop and take in the historical sights along the way.",
@@ -737,11 +914,20 @@ Tour.create!({
 
 Tour.create!({
   name: "Portland Pawb Crawl",
-  city: "Portland, Orgeon",
+  city: "Portland, OR",
   duration: 3.5,
   description: "Feline good and pawsitive vibes.",
   full_description: "Saddle up and trot over to the Miniature Horse. If you're feeling adventurous, try out the Shiny Unicorn. In three jumps you'll be at your next stop, Red Hat. Be wary of banana peels along the way as locals can be a little forgetful of their fruit. Curious Coniferous has a large patio with shady spots which will be a nice way to relax and end of your tour.",
-  rating: 2.5
+  rating: 3.5
+})
+
+Tour.create!({
+  name: "Seattle's Cat-Fish Crawl",
+  city: "Seattle, WA",
+  duration: 4.5,
+  description: "Get your paws on this coastal city's finest craft brews.",
+  full_description: "With the smell of salt air in your lungs, shiver your timbers to the Pirate's Booty Brewery and discover the buried treasure that abounds on their rotating taps. From there, The Flying Fish is just a hop, skip, and a tossed cod away! End your crawl at Osprey Bay Suds, the perfect nesting spot for you to enjoy a brew or two and watch the sunset over the Elliott Bay.",
+  rating: 4
 })
 
 
@@ -818,6 +1004,24 @@ TourBrewery.create!({
 TourBrewery.create!({
   tour_id: 5,
   brewery_id: 11,
+  brewery_order: 3
+})
+
+TourBrewery.create!({
+  tour_id: 6,
+  brewery_id: 12,
+  brewery_order: 1
+})
+
+TourBrewery.create!({
+  tour_id: 6,
+  brewery_id: 13,
+  brewery_order: 2
+})
+
+TourBrewery.create!({
+  tour_id: 6,
+  brewery_id: 14,
   brewery_order: 3
 })
 
