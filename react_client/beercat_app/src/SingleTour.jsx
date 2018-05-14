@@ -6,7 +6,7 @@
  import axios from 'axios';
  import Rating from 'react-rating';
  import Alert from 'react-s-alert';
- import 'react-s-alert/dist/s-alert-default.css';
+ import './styles/alert-default.css';
  import 'react-s-alert/dist/s-alert-css-effects/jelly.css';
  import './Map.css'
 
@@ -55,19 +55,19 @@
 
  handleTourSubmit = event => {
   event.preventDefault();
-    axios.post('/api/user_tours', {
-      user_tours: {
-        user_id: this.state.id,
-        tour_id: this.props.match.params.id
-      }}).then(res => {
-        Alert.success("Tour Added, furry good choice!", {
-            position: 'top-right',
-            effect: 'jelly',
-            timeout: 2000
-        });
-        console.log(res);
-        console.log(res.data);
-    })
+  axios.post('/api/user_tours', {
+    user_tours: {
+      user_id: this.state.id,
+      tour_id: this.props.match.params.id
+    }}).then(res => {
+      Alert.success("Tour Added, furry good choice!", {
+          position: 'top-right',
+          effect: 'jelly',
+          timeout: 2000
+      });
+      console.log(res);
+      console.log(res.data);
+  })
   }
 
    render() {
