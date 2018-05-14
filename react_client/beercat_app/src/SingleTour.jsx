@@ -1,18 +1,17 @@
 /* eslint-disable */
- import React, { Component } from 'react';
- import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
- import TourList from './TourList';
- import Map from "./Map.jsx";
- import axios from 'axios';
- import Rating from 'react-rating';
- import Alert from 'react-s-alert';
- import './styles/alert-default.css';
- import 'react-s-alert/dist/s-alert-css-effects/jelly.css';
- import './Map.css'
- import Slider from 'react-animated-slider';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+import TourList from './TourList';
+import Map from "./Map.jsx";
+import axios from 'axios';
+import Rating from 'react-rating';
+import Alert from 'react-s-alert';
+import './styles/alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/jelly.css';
+import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
 
- export default class SingleTour extends Component {
+export default class SingleTour extends Component {
    constructor(props){
      super(props);
      console.log('what props we working with', props)
