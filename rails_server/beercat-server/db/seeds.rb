@@ -27,7 +27,9 @@ Brewery.create(name: 'Star Wars Cantina', city: "Pirate City", address:'Ep. IV',
 Brewery.create(name: 'Blue Mandolin', city: 'Vancouver', address: '213 Humming Avenue', description: "Relaxing pints and tasty tunes tucked away in Vancouver's industrial district", latitude: 49.267229, longitude: -123.104256)
 Brewery.create(name: 'Exposed Brickwork', city: 'Vancouver', address: '498 Gastown', description: "All beer served with a side of Avocado Toast and a 63 degree egg.", latitude: 49.284065, longitude: -123.107223)
 Brewery.create(name: 'Programmer Pick-Up', city: 'Vancouver', address: 'The Steam Cock', description: "Tinder for programmers.", latitude: 49.2837637, longitude: -123.1143696)
-
+Brewery.create(name: 'Miniature Horse', city: 'Portland, Oregon', address: '1323 Stable Lane ', description: "Quit stalling and hoof it over here.", latitude: 45.513323, longitude: -122.658402)
+Brewery.create(name: 'Red Hat', city: 'Portland, Orgeon', address: '1981 Jumpman Street  ', description: "Rotating taps will get you saying Ya! Wah! Wahoo!", latitude: 45.516094, longitude: -122.656175)
+Brewery.create(name: 'Curious Coniferous', city: 'Portland, Orgeon', address: '1427 Soil Street', description: "Down to earth brewery, comfortable enough to lay some roots down.", latitude: 45.516636, longitude: -122.655567)
 
 ## BEERS
 
@@ -517,6 +519,181 @@ Beer.create!({
   seasonal: false
 })
 
+# start of brewery 9
+
+Beer.create!({
+  brewery_id: 9,
+  name:  'IPNeigh',
+  description: "This stallion isn't for the weak. The cascadia hops will get your tastebuds hopping.",
+  style: 'West Coast IPA',
+  score_ABV: 7.3,
+  score_SRM: 4.3,
+  score_IBU: 95,
+  score_adventurous: true,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 9,
+  name:  'Shiny Unicorn',
+  description: "",
+  style: 'Dry Hopped Sour',
+  score_ABV: 6,
+  score_SRM: 3,
+  score_IBU: 30,
+  score_adventurous: true,
+  score_sour: true,
+  seasonal: true
+})
+
+Beer.create!({
+  brewery_id: 9,
+  name:  'Hay Fever',
+  description: "",
+  style: 'Hefeweizen',
+  score_ABV: 5,
+  score_SRM: 3,
+  score_IBU: 19,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 9,
+  name:  'Seabiscuit',
+  description: "",
+  style: 'Beligian Wheat Beer with Hibiscus',
+  score_ABV: 5,
+  score_SRM: 3.5,
+  score_IBU: 17,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+# start of brewery 10
+
+Beer.create!({
+  brewery_id: 10,
+  name:  'Princess Pilsner',
+  description: "",
+  style: 'Imperial Pilsner',
+  score_ABV: 7.5,
+  score_SRM: 6,
+  score_IBU: 65,
+  score_adventurous: true,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 10,
+  name:  'Laid Back Ape',
+  description: "",
+  style: 'Bourbon Barrel Aged Strong Ale',
+  score_ABV: 9,
+  score_SRM: 5,
+  score_IBU: 24,
+  score_adventurous: true,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 10,
+  name:  'Power Star',
+  description: "",
+  style: 'Golden Ale',
+  score_ABV: 5,
+  score_SRM: 4,
+  score_IBU: 20,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 10,
+  name:  'Double Cherry',
+  description: "",
+  style: 'Belgian Tart Cherry Ale',
+  score_ABV: 4,
+  score_SRM: 3.7,
+  score_IBU: 28,
+  score_adventurous: true,
+  score_sour: true,
+  seasonal: true
+})
+
+Beer.create!({
+  brewery_id: 10,
+  name:  'Gold Coin',
+  description: "",
+  style: 'Kolsch',
+  score_ABV: 4.8,
+  score_SRM: 2,
+  score_IBU: 22,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+# start of brewery 11
+
+Beer.create!({
+  brewery_id: 11,
+  name:  'Pinecone Porter',
+  description: "",
+  style: 'English Porter',
+  score_ABV: 4.9,
+  score_SRM: 18,
+  score_IBU: 18,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 11,
+  name:  'Spruce Moose',
+  description: "",
+  style: 'Hazy IPA',
+  score_ABV: 6,
+  score_SRM: 13,
+  score_IBU: 40,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 11,
+  name:  'Forest Fire',
+  description: "",
+  style: 'Smokey Belgian Quad',
+  score_ABV: 10,
+  score_SRM: 7,
+  score_IBU: 22,
+  score_adventurous: true,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 11,
+  name:  'Treemendous Ale',
+  description: "",
+  style: 'Cream Ale',
+  score_ABV: 4.3,
+  score_SRM: 2.7,
+  score_IBU: 16,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
 
 ## Tours
 
@@ -557,6 +734,16 @@ Tour.create!({
   full_description: "Make sure to stop and take in the historical sights along the way.",
   rating: 2.5
 })
+
+Tour.create!({
+  name: "Portland Pawb Crawl",
+  city: "Portland, Orgeon",
+  duration: 3.5,
+  description: "Feline good and pawsitive vibes.",
+  full_description: "Saddle up and trot over to the Miniature Horse. If you're feeling adventurous, try out the Shiny Unicorn. In three jumps you'll be at your next stop, Red Hat. Be wary of banana peels along the way as locals can be a little forgetful of their fruit. Curious Coniferous has a large patio with shady spots which will be a nice way to relax and end of your tour.",
+  rating: 2.5
+})
+
 
 ## TourBreweries
 
@@ -614,6 +801,24 @@ TourBrewery.create!({
   tour_id: 4,
   brewery_id: 8,
   brewery_order: 4
+})
+
+TourBrewery.create!({
+  tour_id: 5,
+  brewery_id: 9,
+  brewery_order: 1
+})
+
+TourBrewery.create!({
+  tour_id: 5,
+  brewery_id: 10,
+  brewery_order: 2
+})
+
+TourBrewery.create!({
+  tour_id: 5,
+  brewery_id: 11,
+  brewery_order: 3
 })
 
 ## Users
