@@ -1098,7 +1098,7 @@ Beer.create!({
 })
 
 Beer.create!({
-  brewery_id: 15,
+  brewery_id: 18,
   name:  'Expensive Cafe',
   description: "",
   style: 'Sour',
@@ -1111,7 +1111,7 @@ Beer.create!({
 })
 
 Beer.create!({
-  brewery_id: 15,
+  brewery_id: 18,
   name:  'Pale British',
   description: "",
   style: 'Lager',
@@ -1124,7 +1124,7 @@ Beer.create!({
 })
 
 Beer.create!({
-  brewery_id: 15,
+  brewery_id: 18,
   name:  'Day Drunk',
   description: "",
   style: 'ISA',
@@ -1137,7 +1137,7 @@ Beer.create!({
 })
 
 Beer.create!({
-  brewery_id: 15,
+  brewery_id: 18,
   name:  'Park Hang',
   description: "",
   style: 'Stout',

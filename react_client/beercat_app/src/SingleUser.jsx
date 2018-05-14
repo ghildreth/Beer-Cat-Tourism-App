@@ -78,9 +78,9 @@ export default class SingleUser extends Component {
             <span>Name: {this.state.name}<br/></span>
             <span>Email: {this.state.email}<br/></span>
             <span>Likes:</span>
-            <span className="badge badge-info">{ `${this.state.preference_SRM ? `Dark Beer` : `Light Beer`}`}</span>
+            <span className="badge badge-info">{ `${this.state.preference_SRM ? `Light Beer` : `Dark Beer`}`}</span>
             <span className="badge badge-info">{ `${this.state.preference_IBU ? `Hoppy` : `Malty`}`}</span>
-            <span className="badge badge-info">{ `${this.state.preference_IBU ? `Sour` : `Sweet`}`}</span>
+            <span className="badge badge-info">{ `${this.state.preference_sour ? `Sour` : `Sweet`}`}</span>
             <br/>
           </div>
           <UserTours user_id={this.state.id}/>

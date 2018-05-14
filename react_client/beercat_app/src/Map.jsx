@@ -22,6 +22,7 @@ function makeDirectionService(ds) {
     route,
   };
 }
+
 const exampleMapStyles = [
     {
         "elementType": "labels",
@@ -287,8 +288,10 @@ export default class Map extends Component {
 
     this.state = {
       places: [],
-      lat: this.props.places[0].latitude,
-      lng: this.props.places[0].longitude,
+      // lat: this.props.places[0].latitude,
+      // lng: this.props.places[0].longitude,
+      lat: 49.2827,
+      lng: -123.1207,
       // waypoints: [49.2827, 123.1207]
       showWalkingPath: true
     };
@@ -388,18 +391,6 @@ export default class Map extends Component {
             directions={this.state.directions}
             handleMapClick={this.props.closeWindow}
           />
-        <div className="brewList">
-          <ul >
-          {/*<button onClick={this._onButtonClick.bind(this)}>Show Walking Path</button>*/}
-
-            <h5 className="brewery-route">The Brewery Route:</h5>
-            {places.map((place => <table key={place.id}><tbody><tr><td>{place.name}</td></tr></tbody></table>))}
-          </ul>
-          <div className="tour-tips">
-            <h5>Tips</h5>
-            {this.props.tips.full_description}
-          </div>
-        </div>
       </div>
     );
   }
