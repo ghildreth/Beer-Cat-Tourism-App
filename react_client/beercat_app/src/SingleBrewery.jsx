@@ -108,7 +108,13 @@ class SingleBrewery extends Component {
                   {beers.filter(beer => beer.brewery_id === brewery.id).map(beer => (
                     <div className="individual-beer" key={beer.id}>
                       <strong>{beer.name}</strong><br/>
-                      <em><span>You will like this beer: {beer.userPreference}%</span></em><br/>
+                      {beer.userPreference ? (
+                        <em><span>Beer Match: {beer.userPreference}%</span></em>
+                      ) : (
+                        <em><span>Beer Match: Sign up to find out!</span></em>
+                      )
+                       }<br/>
+                      
                       <span>Style: {beer.style}</span><br/>
                       <span>ABV: {beer.score_ABV}</span><br/>
                       <span>SRM: {beer.score_SRM}</span><br/>
