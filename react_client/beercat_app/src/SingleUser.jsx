@@ -59,6 +59,8 @@ export default class SingleUser extends Component {
         if (response.data.id === this.state.id) {
           this.setState({current_user: true})
           console.log('current user and page user are the same')
+        } else {
+          console.log('not the same user')
         }
       })
       .catch(function (error) {
@@ -69,21 +71,25 @@ export default class SingleUser extends Component {
   render() {
     if (this.state.current_user) {
       return (
-        <div>
-          <img className="avatar" src={`https://api.adorable.io/avatars/200/${this.state.username}.png`} style={{borderRadius: 10}} alt="avatar"/>
+        <div className="user-profile">
+          <img className="avatar" src={`https://api.adorable.io/avatars/150/${this.state.username}.png`} alt="avatar"/>
           <h2>{ `Welcome to Beer Cat, ${ this.state.username} !` }</h2>
           <div>
             <span>Name: {this.state.name}<br/></span>
             <span>Email: {this.state.email}<br/></span>
-            <span>{ `ABV Preference: ${this.state.preference_ABV === true ? `keep it light` : `fuck me up, fam`}`}<br/></span>
+            <span>Likes:</span>
+            <span className="badge badge-info">{ `${this.state.preference_SRM ? `Dark Beer` : `Light Beer`}`}</span>
+            <span className="badge badge-info">{ `${this.state.preference_IBU ? `Hoppy` : `Malty`}`}</span>
+            <span className="badge badge-info">{ `${this.state.preference_IBU ? `Sour` : `Sweet`}`}</span>
+            <br/>
           </div>
           <UserTours user_id={this.state.id}/>
         </div>
       );
     } else {
       return (
-        <div>
-          <img className="avatar" src={`https://api.adorable.io/avatars/200/${this.state.username}.png`} style={{borderRadius: 10}} alt="avatar"/>
+        <div className="user-profile">
+          <img className="avatar" src={`https://api.adorable.io/avatars/150/${this.state.username}.png`} alt="avatar"/>
           <h2>{ this.state.username }</h2>
             <span>{ `ABV Preference: ${this.state.preference_ABV === true ? `keep it light` : `fuck me up, fam`}`}</span>
           <UserTours user_id={this.state.id}/>

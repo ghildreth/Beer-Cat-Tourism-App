@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, BrowserHistory } from 'react-router-dom';
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
 import { Link } from 'react-router-dom';
@@ -73,7 +73,6 @@ class SingleBrewery extends Component {
     } else {
       return (
         <div className="brewery-content">
-          <img src="../beer-tap.jpg" height="600px" width="1200px" />
             <h1 className="brewery-name">{brewery.name}</h1>
             <div className="brewery-tombstone">
               <div className="breweries-description">
@@ -91,7 +90,7 @@ class SingleBrewery extends Component {
                   <li>Friday:       2-11pm </li>
                   <li>Saturday:      12-11pm </li>
                 </ul>
-                <a href="/tours">Back</a>
+                <button type="button" className="btn back-button"><Link className="back-link" to='/tours'>Back</Link></button>
               </span>
             </div>
 

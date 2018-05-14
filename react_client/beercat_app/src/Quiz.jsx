@@ -34,7 +34,7 @@ class Quiz extends React.Component {
         <form onSubmit={this.props.onSubmit} className="form-group" >
           <div className={`${modalStep === 1 ? "display-block" : "display-none"}`}>
             <input name="name" className="form-control form-control-lg" placeholder="Full Name" autoFocus /><br/>
-            <input name="email" className="form-control form-control-lg" placeholder="Email" autoFocus /><br/>
+            <input name="email" type="email" className="form-control form-control-lg" placeholder="Email" autoFocus /><br/>
             <input name="userName" className="form-control form-control-lg" placeholder="User Name" autoFocus /><br/>
             <input name="password" type="password" className="form-control form-control-lg" placeholder="Password" /><br/>
             <input name="passwordConfirmation" type="password" className="form-control form-control-lg" placeholder="Password Confirmation" /><br/>

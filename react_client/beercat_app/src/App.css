@@ -41,7 +41,7 @@ header {
 }
 
 .back-link {
-  color: '#23c6cb'
+  color: #23c6cb;
 }
 
 .logo {
@@ -269,4 +269,10 @@ img.icon {
 
 label {
   font-size: 1.2em;
+}
+
+/* User Profile */
+
+.avatar {
+  border-radius: 5em;
 }

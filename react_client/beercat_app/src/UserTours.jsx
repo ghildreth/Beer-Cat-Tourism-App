@@ -47,18 +47,18 @@ class UserTours extends Component {
     }
 
       return (
-        <div className="tours-all">
+        <div className="user-tours">
           {tours ? (tours.map(tour => (
-            <div key={ tour.id * Math.random() } className="tours-individualtour">
+            <div key={ tour.id * Math.random() } className="user-individualtour">
 
-              <div className="tours-individualtourtitle">
+              <div className="user-individualtourtitle">
                 <h3><Link to={`/tours/${tour.id}`}>{tour.name}</Link></h3>
               </div>
 
-              <div className="tours-individualtourdetails">
+              <div className="user-individualtourdetails">
                 <h5>City: {tour.city}</h5>
                 <h5>Duration: {tour.duration} hrs</h5>
-
+              </div>
                 {user_tours.filter(user_tour => user_tour.tour_id === tour.id).map(user_tour => (
                   <div className="individual-beer" key={user_tours.id + 1000}>
                     {user_tour.rating  ? (
@@ -79,7 +79,7 @@ class UserTours extends Component {
                 ))}
               </div>
 
-            </div>
+            
             ))
           ) : (
           <div>
