@@ -33,6 +33,11 @@ Brewery.create(name: 'Curious Coniferous', city: 'Portland, OR', address: '1427 
 Brewery.create(name: "Pirate's Booty Brewery", city: 'Seattle, WA', address: '1415 Treasure Avenue', description: "Arr matey, thar be strong brews here. Watch yer booty and keep those landlubbin' hands to yerself!", latitude: 47.611851, longitude: -122.345290)
 Brewery.create(name: "The Flying Fish", city: 'Seattle, WA', address: '1427 Swordfish Place', description: "Throwin' back fish and pints, just for the halibut. Careful you don't catch any crabs.", latitude: 47.608539, longitude: -122.339711)
 Brewery.create(name: "Osprey Bay Suds", city: 'Seattle, WA', address: '1900 Nesting Lane', description: "Your tastebuds will take flight once you sample our flights.", latitude: 47.607772, longitude: -122.342994)
+# 15
+Brewery.create(name: 'The English Muffin', city: 'London, GB', address: '2525 Essex Road', description: "Best drunk food on the highstreet, chips and gravy, kebabs, and marmite on toast", latitude: 51.5408877, longitude: -0.0980332)
+Brewery.create(name: 'Borough Market Brewery', city: 'London, GB', address: 'Borough Market', description: "Perfect stop for once you've eaten an entire meal of market samples and about a pound of cheese.", latitude: 51.50544, longitude: -0.0932493)
+Brewery.create(name: 'Piccadilly Pandemonium', city: 'London, GB', address: '5 Piccadilly Circus', description: "If you can elbow your way through the tourists, have a ncie relaxing pint at this secret basement brewpub.", latitude: 51.5105733, longitude: -0.1378587)
+Brewery.create(name: 'Primrose Hill Pumphouse', city: 'London, GB', address: '221B Primrose Hill', description: "Served with a view and the noise of the elephants form the Zoo", latitude: 51.5380514, longitude: -0.1744411)
 
 
 ## BEERS
@@ -872,6 +877,275 @@ Beer.create!({
   seasonal: false
 })
 
+# Start of Brewery 15
+
+Beer.create!({
+  brewery_id: 15,
+  name:  'Marmite IPA',
+  description: "",
+  style: 'IPA',
+  score_ABV: 7.1,
+  score_SRM: 7,
+  score_IBU: 47,
+  score_adventurous: true,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 15,
+  name:  'Bitter English',
+  description: "",
+  style: 'Sour',
+  score_ABV: 4.7,
+  score_SRM: 4,
+  score_IBU: 12,
+  score_adventurous: false,
+  score_sour: true,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 15,
+  name:  '2 Weeks of Summer',
+  description: "",
+  style: 'Lager',
+  score_ABV: 4,
+  score_SRM: 1,
+  score_IBU: 26,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 15,
+  name:  'Cheese Toastie',
+  description: "",
+  style: 'ISA',
+  score_ABV: 4.4,
+  score_SRM: 4,
+  score_IBU: 40,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 15,
+  name:  'Sunday Roast',
+  description: "",
+  style: 'Stout',
+  score_ABV: 4.5,
+  score_SRM: 24,
+  score_IBU: 28,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+# Start of Brewery 16
+
+Beer.create!({
+  brewery_id: 16,
+  name:  'London Bridge Hop',
+  description: "",
+  style: 'IPA',
+  score_ABV: 7.1,
+  score_SRM: 7,
+  score_IBU: 47,
+  score_adventurous: true,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 16,
+  name:  'Thames Water',
+  description: "",
+  style: 'Sour',
+  score_ABV: 4.5,
+  score_SRM: 3,
+  score_IBU: 12,
+  score_adventurous: false,
+  score_sour: true,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 16,
+  name:  'Stag Do River Cruise',
+  description: "",
+  style: 'Lager',
+  score_ABV: 4,
+  score_SRM: 1,
+  score_IBU: 26,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 16,
+  name:  'Shoreditch Hipster Socks',
+  description: "",
+  style: 'ISA',
+  score_ABV: 4.4,
+  score_SRM: 4,
+  score_IBU: 40,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 16,
+  name:  'Overpriced Rent',
+  description: "",
+  style: 'Stout',
+  score_ABV: 4.5,
+  score_SRM: 24,
+  score_IBU: 28,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+# Start of Brewery 17
+
+Beer.create!({
+  brewery_id: 17,
+  name:  'Shaftesbury Avenue',
+  description: "",
+  style: 'IPA',
+  score_ABV: 7.1,
+  score_SRM: 7,
+  score_IBU: 47,
+  score_adventurous: true,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 17,
+  name:  'Regents Street',
+  description: "",
+  style: 'Sour',
+  score_ABV: 4.7,
+  score_SRM: 4,
+  score_IBU: 12,
+  score_adventurous: false,
+  score_sour: true,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 17,
+  name:  'Oxford Circus',
+  description: "",
+  style: 'Lager',
+  score_ABV: 4,
+  score_SRM: 1,
+  score_IBU: 26,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 17,
+  name:  'Green Park',
+  description: "",
+  style: 'ISA',
+  score_ABV: 4.4,
+  score_SRM: 4,
+  score_IBU: 40,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 17,
+  name:  'Hyde Park',
+  description: "",
+  style: 'Stout',
+  score_ABV: 4.5,
+  score_SRM: 24,
+  score_IBU: 28,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+# Start of Brewery 18
+
+Beer.create!({
+  brewery_id: 18,
+  name:  'London Zoo',
+  description: "",
+  style: 'IPA',
+  score_ABV: 7.1,
+  score_SRM: 7,
+  score_IBU: 47,
+  score_adventurous: true,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 15,
+  name:  'Expensive Cafe',
+  description: "",
+  style: 'Sour',
+  score_ABV: 4.7,
+  score_SRM: 4,
+  score_IBU: 12,
+  score_adventurous: false,
+  score_sour: true,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 15,
+  name:  'Pale British',
+  description: "",
+  style: 'Lager',
+  score_ABV: 4,
+  score_SRM: 1,
+  score_IBU: 26,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 15,
+  name:  'Day Drunk',
+  description: "",
+  style: 'ISA',
+  score_ABV: 4.4,
+  score_SRM: 4,
+  score_IBU: 40,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 15,
+  name:  'Park Hang',
+  description: "",
+  style: 'Stout',
+  score_ABV: 4.5,
+  score_SRM: 24,
+  score_IBU: 28,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+
 ## Tours
 
 puts "Creating Tours ..."
@@ -927,6 +1201,15 @@ Tour.create!({
   duration: 4.5,
   description: "Get your paws on this coastal city's finest craft brews.",
   full_description: "With the smell of salt air in your lungs, shiver your timbers to the Pirate's Booty Brewery and discover the buried treasure that abounds on their rotating taps. From there, The Flying Fish is just a hop, skip, and a tossed cod away! End your crawl at Osprey Bay Suds, the perfect nesting spot for you to enjoy a brew or two and watch the sunset over the Elliott Bay.",
+  rating: 4
+})
+
+Tour.create!({
+  name: "London's Tipsy Bike Bounce",
+  city: "London, GB",
+  duration: 5,
+  description: "Best experience on a Boris bike, this is the local's route.",
+  full_description: "Grab a bike at any docking station and make your way around these boozy spots. Fill up on food at the English Muffin and then eat all teh cheese in sight at Borough Market. If you're feeling brave enough to venture to Piccadilly Circus you'll have to learn the secret knock to get into Piccadilly Pandemonium. If you survive, you'll be rewarded by watching the sunset from Primrose Hill.",
   rating: 4
 })
 
@@ -1023,6 +1306,30 @@ TourBrewery.create!({
   tour_id: 6,
   brewery_id: 14,
   brewery_order: 3
+})
+
+TourBrewery.create!({
+  tour_id:7,
+  brewery_id: 15,
+  brewery_order: 1
+})
+
+TourBrewery.create!({
+  tour_id: 7,
+  brewery_id: 16,
+  brewery_order: 2
+})
+
+TourBrewery.create!({
+  tour_id: 7,
+  brewery_id: 17,
+  brewery_order: 3
+})
+
+TourBrewery.create!({
+  tour_id: 7,
+  brewery_id: 18,
+  brewery_order: 4
 })
 
 ## Users
