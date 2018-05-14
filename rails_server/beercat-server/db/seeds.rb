@@ -18,7 +18,8 @@ end
 ## BREWERIES
 
 puts "Creating Breweries ..."
-
+# refactor the names and such
+# brewery1 = Brewery.create()
 Brewery.create(name: 'Brewery Parallel 49&3/4', city: 'Vancouver, BC', address: '1234 Fake Street', description: "This is the descriptiono of the brewery, it's the best brewery ever.", latitude: 49.283834, longitude: -123.0665496)
 Brewery.create(name: "Cat's Meow", city: 'Vancouver, BC', address: '237 That Street', description: "You can get beer here. It's tasty.", latitude: 49.2691407, longitude: -123.1051664)
 Brewery.create(name: "Mouse Hole", city: 'Vancouver, BC', address: '615 Cheese Street', description: "Tiny hole in the wall watering hole,", latitude: 49.2827, longitude: -123.1207)
@@ -38,7 +39,10 @@ Brewery.create(name: 'The English Muffin', city: 'London, GB', address: '2525 Es
 Brewery.create(name: 'Borough Market Brewery', city: 'London, GB', address: 'Borough Market', description: "Perfect stop for once you've eaten an entire meal of market samples and about a pound of cheese.", latitude: 51.50544, longitude: -0.0932493)
 Brewery.create(name: 'Piccadilly Pandemonium', city: 'London, GB', address: '5 Piccadilly Circus', description: "If you can elbow your way through the tourists, have a ncie relaxing pint at this secret basement brewpub.", latitude: 51.5105733, longitude: -0.1378587)
 Brewery.create(name: 'Primrose Hill Pumphouse', city: 'London, GB', address: '221B Primrose Hill', description: "Served with a view and the noise of the elephants form the Zoo", latitude: 51.5380514, longitude: -0.1744411)
-
+# 19
+Brewery.create(name: 'Sourdough Beer Beard', city: 'San Francisco', address: '563 2nd St, San Francisco, CA 94107, USA', description: 'The smell of fresh sourdough bread fills the air as you enter this building and you notice the partons are drinking beer out of bread bowls... uh.', latitude: 37.758628, longitude:-122.399594)
+Brewery.create(name: 'The Golden Opportunity', city: 'San Francisco', address: '1785 Fulton St, San Francisco, CA 94117, USA', description: 'You might be asked to take lots of pictures for tourist!', latitude: 37.8199, longitude:-122.4783)
+Brewery.create(name: "Fisherman's Brewarf", city: 'San Francisco', address: '2801 Leavenworth St, San Francisco, CA 94133, USA', description: 'You might be asked to take lots of pictures for tourist!', latitude: 37.8075638, longitude: -122.4177)
 
 ## BEERS
 
@@ -1145,6 +1149,95 @@ Beer.create!({
   seasonal: false
 })
 
+Beer.create!({
+  brewery_id: 19,
+  name: 'Chowder Ale',
+  description: "",
+  style: 'IPA',
+  score_ABV: 6,
+  score_SRM: 7,
+  score_IBU: 44,
+  score_adventurous: true,
+  score_sour: true,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 19,
+  name: 'Polk Street Pilsner',
+  description: "",
+  style: 'Pilsner',
+  score_ABV: 5,
+  score_SRM: 4,
+  score_IBU: 35,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 19,
+  name: 'Polk Street Pilsner',
+  description: "",
+  style: 'Pilsner',
+  score_ABV: 5,
+  score_SRM: 4,
+  score_IBU: 35,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 20,
+  name: 'Salty Saison',
+  description: "",
+  style: 'Saison',
+  score_ABV: 5,
+  score_SRM: 4,
+  score_IBU: 45,
+  score_adventurous: true,
+  score_sour: true,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 20,
+  name: 'The Golden Gateway',
+  description: "",
+  style: 'Amber',
+  score_ABV: 5,
+  score_SRM: 4,
+  score_IBU: 35,
+  score_adventurous: false,
+  score_sour: true,
+  seasonal: false
+})
+Beer.create!({
+  brewery_id: 21,
+  name: 'Ocean Air Ale',
+  description: "",
+  style: 'IPA',
+  score_ABV: 7,
+  score_SRM: 4,
+  score_IBU: 60,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 21,
+  name: 'The Red Herring',
+  description: "",
+  style: 'Lager',
+  score_ABV: 5,
+  score_SRM: 4,
+  score_IBU: 35,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
 
 ## Tours
 
@@ -1210,6 +1303,15 @@ Tour.create!({
   duration: 5,
   description: "Best experience on a Boris bike, this is the local's route.",
   full_description: "Grab a bike at any docking station and make your way around these boozy spots. Fill up on food at the English Muffin and then eat all teh cheese in sight at Borough Market. If you're feeling brave enough to venture to Piccadilly Circus you'll have to learn the secret knock to get into Piccadilly Pandemonium. If you survive, you'll be rewarded by watching the sunset from Primrose Hill.",
+  rating: 4
+})
+
+Tour.create!({
+  name: "Frisky Frisco",
+  city: "San Francisco",
+  duration: 4,
+  description: "The coldest winter I ever saw was the summer I spent in San Francisco.",
+  full_description: "Grab a jacket and wear some comfortable walking shoes, this city is silly and hilly!",
   rating: 4
 })
 
@@ -1330,6 +1432,24 @@ TourBrewery.create!({
   tour_id: 7,
   brewery_id: 18,
   brewery_order: 4
+})
+
+TourBrewery.create!({
+  tour_id: 8,
+  brewery_id: 19,
+  brewery_order: 4,
+})
+
+TourBrewery.create!({
+  tour_id: 8,
+  brewery_id: 20,
+  brewery_order: 4,
+})
+
+TourBrewery.create!({
+  tour_id: 8,
+  brewery_id: 21,
+  brewery_order: 4,
 })
 
 ## Users
