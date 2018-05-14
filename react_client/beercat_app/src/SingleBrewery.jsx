@@ -37,30 +37,36 @@ class SingleBrewery extends Component {
   }
 
   componentDidMount() {
+    function getBrewery(id){
+      return axios.get(`/api/breweries/${id}`)
+        .then(({data}) => data);
+    }
+    function getBeersByBreweryId(id){
+      return axios.get('/api/beers') // '/api/breweries/{id}/beers'
+        .then((response) => response.data);
+    }
+    function getMe(){
+      return axios.get('/api/users/me')
+        .then((response) => response.data)
+        .catch(() => null)
+    }
     const { match: {params} } = this.props;
-    axios.get(`/api/breweries/${params.id}`)
-    .then(({ data: brewery }) => {
-      this.setState({ brewery: brewery })
-    })
+
     Promise.all([
-      Promise.resolve({ data: {
-        name: 'Sadie',
-        email: 'sadiefreeman@gmail.com',
-        preference_ABV: true,
-        preference_SRM: false,
-        preference_IBU: true,
-        preference_adventurous: true,
-        preference_sour: true,
-      } }),
-      axios.get(`/api/beers/`)
+      getMe(),
+      getBrewery(this.props.match.params.id),
+      getBeersByBreweryId(this.props.match.params.id)
     ])
-    .then(([{data:user}, { data }]) => {
-      const beers = data.map(beer => {
-        beer.userPreference = calculateBeerMatch(beer, user);
-        return beer;
-      })
-      .sort((a, b) => b.userPreference - a.userPreference)
-      this.setState({ beers })
+    .then(([user, brewery, breweryBeers]) => {
+      let beers = breweryBeers;
+      if(user){
+         beers = breweryBeers.map(beer => {
+          beer.userPreference = calculateBeerMatch(beer, user);
+          return beer;
+        })
+        .sort((a, b) => b.userPreference - a.userPreference)
+      }
+      this.setState({ beers, brewery })
     })
   }
 
