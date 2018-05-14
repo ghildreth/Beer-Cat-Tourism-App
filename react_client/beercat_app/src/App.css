@@ -56,6 +56,10 @@ header {
   height: 1080px;
 }
 
+.about-content {
+  margin-top: 3rem;
+}
+
 .over19 {
   width: 600px;
   margin: auto;
