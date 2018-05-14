@@ -388,18 +388,6 @@ export default class Map extends Component {
             directions={this.state.directions}
             handleMapClick={this.props.closeWindow}
           />
-        <div className="brewList">
-          <ul >
-          {/*<button onClick={this._onButtonClick.bind(this)}>Show Walking Path</button>*/}
-
-            <h5 className="brewery-route">The Brewery Route:</h5>
-            {places.map((place => <table key={place.id}><tbody><tr><td>{place.name}</td></tr></tbody></table>))}
-          </ul>
-          <div className="tour-tips">
-            <h5>Tips</h5>
-            {this.props.tips.full_description}
-          </div>
-        </div>
       </div>
     );
   }

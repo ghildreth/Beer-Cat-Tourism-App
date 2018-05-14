@@ -172,17 +172,32 @@ h1.brewery-name {
   text-align: -webkit-auto;
 }
 
-div.slider {
+div.beer-slider {
   height: 9rem;
 }
 
 /* START OF SINGLE TOUR CSS */
+.tour-banner {
+  height: 200px;
+  background-color: #23c6cb;
+  margin: 1em 0em;
+}
+
+.tour-title {
+  font-size: 4em;
+  padding-top: 1em;
+  color: #ffffff;
+  font-weight: 900;
+}
+
 .tour-details {
-  margin: auto auto 0 auto;
+  width: 50%;
 }
 
 .tour-description {
-  margin-top: 1rem;
+  margin: auto;
+  text-align: justify;
+  padding: 1em 3em 0em 3em;
 }
 
 .tour-duration {
@@ -205,18 +220,22 @@ div.slider {
 }
 
 .tour-content {
-  padding-top: 5rem;
-  padding-right: 5rem;
+  padding: 1em 5em 5em 1em;
+  display: flex;
+}
+
+.tour-slider-name {
+  color: #23c6cb;
+}
+
+.mappy {
+  width: 50%;
 }
 
 .brewList {
   margin-top: 2rem;
   margin-bottom: 6rem;
   display: flex;
-}
-
-.tour-tips {
-  margin-left: 3rem;
 }
 
 .tours-all {
@@ -248,10 +267,19 @@ div.slider {
   padding: 0em 0em 0em 1em;
 }
 
+div.tour-slider {
+  height: 2rem;
+  margin: auto;
+  margin-bottom: 3em;
+  margin-top: 1em;
+  width: 80%;
+  position: relative;
+}
+
 /* Paw Print CSS */
 img.icon {
-  height: 3rem;
-  width: 3rem;
+  height: 2.5rem;
+  width: 2.5rem;
   padding: .2em;
 }
 

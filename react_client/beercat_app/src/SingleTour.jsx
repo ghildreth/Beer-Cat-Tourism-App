@@ -6,6 +6,8 @@
  import axios from 'axios';
  import Rating from 'react-rating';
  import './Map.css'
+ import Slider from 'react-animated-slider';
+import 'react-animated-slider/build/horizontal.css';
 
  export default class SingleTour extends Component {
    constructor(props){
@@ -66,23 +68,32 @@
 
      return (
       <div>
-       <div className="tour-content">
-
-         <span className="tour-details" key={tour.id}>
-          <h2>{tour.name}</h2>
-          <h5 className="tour-city">City: {tour.city}</h5>
-          <h5 className="tour-duration">Duration: {tour.duration} hrs</h5>
-          <h5 className="tour-rating">Tour Rating:<br/>
-          <Rating initialRating={tour.rating}
-                  readonly
-                  emptySymbol={<img src="../assets_paw/black_paw_print.png"
-                  className="icon" />}
-                  fullSymbol={<img src="../assets_paw/blue_paw_print.png"
-                  className="icon" />} />
-          </h5>
-          <p className="tour-description">{tour.description}</p><br/>
-          <button onClick={this.handleTourSubmit.bind(this)} className="btn button-pounce">Pounce on this tour!</button><br/><br/>
-          <button type="button" className="btn back-button"><Link className="back-link" to='/tours'>Back</Link></button>
+        <div className="tour-banner">
+          <h1 className="tour-title">{tour.name}</h1>
+        </div>
+        <div className="tour-content">
+          <span className="tour-details" key={tour.id}>
+            <p className="tour-city"><strong>City:</strong> {tour.city}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+              <span className="tour-duration"><strong>Duration:</strong> {tour.duration} hrs</span>
+            </p>
+            <span className="tour-rating"><strong>Average User Rating:</strong><br/>
+              <Rating initialRating={tour.rating}
+                      readonly
+                      emptySymbol={<img src="../assets_paw/black_paw_print.png"
+                      className="icon" />}
+                      fullSymbol={<img src="../assets_paw/blue_paw_print.png"
+                      className="icon" />} />
+            </span>
+            <p className="tour-description">{tour.full_description}</p><br/>
+            <span className="brewery-route"><strong>Stops on the Tour:</strong></span>
+            <Slider autoplay="1500" className="slider tour-slider">        
+              {this.state.tour.breweries.map((brewery) => 
+                <div key={brewery.id}>
+                  <Link to={`/breweries/${brewery.id}`}><p className="tour-slider-name">{brewery.name}</p></Link>
+                </div>)}
+            </Slider>
+            <button onClick={this.handleTourSubmit.bind(this)} className="btn button-pounce">Pounce on this tour!</button>&nbsp;&nbsp; 
+            <button type="button" className="btn back-button"><Link className="back-link" to='/tours'>Back</Link></button>
           </span>
           <Map tips={this.state.tour} places={ this.state.tour.breweries } />
        </div>
