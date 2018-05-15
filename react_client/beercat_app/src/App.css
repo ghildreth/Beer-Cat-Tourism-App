@@ -239,6 +239,43 @@ label {
   border-radius: 5em;
 }
 
+.user-banner {
+  height: 200px;
+  background-color: #C56C5D;
+  margin: 1rem 0em;
+}
+
+.user-title {
+  font-size: 3.7rem;
+  padding-top: 4rem;
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.avatar {
+  border-radius: 5rem;
+}
+
+.user-details {
+  width: 50%;
+}
+
+.user-tour-description {
+  margin: auto;
+  text-align: justify;
+  padding: 1rem 3rem 0rem 3rem;
+  display: flex;
+}
+
+.user-individualtour {
+  margin-left: 3rem;
+  margin-right: 3rem;
+  width: 240px;
+  height: 240px;
+  border: 1px solid black;
+  padding: 1rem;
+}
+
 /* About */
 .about-banner {
   height: 200px;
@@ -325,6 +362,5 @@ label {
   position: fixed;
   width: 100%;
 }
-
 
 
