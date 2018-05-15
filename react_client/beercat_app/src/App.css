@@ -173,6 +173,13 @@ div.beer-slider {
   margin-bottom: 6rem;
   display: flex;
 }
+/*START OF ALL TOURS CSS*/
+
+.tours-banner {
+  height: 200px;
+  background-color: #23C6CB;
+  margin: 1em 0em;
+}
 
 .tours-all {
   display: flex;
@@ -180,6 +187,7 @@ div.beer-slider {
   max-width: 80%;
   justify-content: center;
   margin: auto;
+  margin-top: 2rem;
 }
 
 .tours-individualtour {
@@ -218,17 +226,15 @@ div.tour-slider {
   position: absolute;
   width:240px;
   height:126px;
-  border-radius: 11px;
-  background: skyblue;
+  border-radius: 0 0 11px 11px;
+  background: #23C6CB;
   opacity:0;
 }
 
 .tours-individualtour:hover .tours-description {
-  opacity:0.6;
-  transition: 0.3s;
-  text-align:justify;
-  color:#000000;
-  font-size:20px;
+  opacity:1;
+  color: #FFF;
+  font-size:16px;
   font-weight:700;
   font-family:"Poppins", serif;
   padding:30px;
