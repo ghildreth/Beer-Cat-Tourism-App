@@ -30,10 +30,14 @@ function calculateBeerMatch(beer, user) {
 }
 
 class SingleBrewery extends Component {
-  state = {
-    brewery: null,
-    beers: null,
-    open: false
+  constructor(props){
+    super(props);
+    this.state = {
+      brewery: null,
+      beers: null,
+      open: false
+    }
+    this.goBack = this.goBack.bind(this);
   }
 
   componentDidMount() {
@@ -70,6 +74,10 @@ class SingleBrewery extends Component {
     })
   }
 
+  goBack(){
+    this.props.history.goBack();
+  }
+
   render () {
     const { brewery } = this.state
     const { beers } = this.state
@@ -85,8 +93,9 @@ class SingleBrewery extends Component {
           </div>
             <div className="brewery-content">
               <span className="brewery-details" key={brewery.id}>
-                <p className="brewery-description">{brewery.description}</p>
-                <p><strong>Address:</strong> {brewery.address}, {brewery.city}</p>
+                <p className="brewery-description"><strong>{brewery.description}</strong></p>
+                <br/>
+                <p><strong>Address:</strong><br/> {brewery.address}, {brewery.city}</p>
                 <p className="brewery-hours"><strong>Hours: </strong><br/>
                   Sunday: 12-11pm<br/>
                   Monday: Closed <br/>
@@ -96,7 +105,7 @@ class SingleBrewery extends Component {
                   Friday: 2-11pm <br/>
                   Saturday: 12-11pm <br/>
                 </p>
-                <button type="button" className="btn back-button"><Link className="back-link" to='/tours'>Back to Tours</Link></button>
+                <button type="button" className="btn back-button" onClick={this.goBack}><span className="back-link">Back</span></button>
               </span>
             <div className="beer-list">
               <h3 className="beer-list-header">What's on Tap?</h3>
@@ -113,7 +122,7 @@ class SingleBrewery extends Component {
                       <br/>
                       {beer.userPreference ? (
                         <span><strong>Purrfect Beer Match:</strong><br/> 
-                        <h1>{beer.userPreference}%</h1></span>
+                        <h1 className="beer-match">{beer.userPreference}%</h1></span>
                       ) : (
                         <span><strong>Is this your purrfect Beer Match?</strong><br/><em>Sign up to find out!</em></span>
                       )
