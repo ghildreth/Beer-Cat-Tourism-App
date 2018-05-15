@@ -13,7 +13,7 @@
     z-index: 1000;
     pointer-events: none;
     color: rgba(250,251,255,0.95);
-    font-size: 3px;
+    font-size: 100%;
     font-family: 'Poppins', sans-serif;
     max-width: 300px;
     -webkit-transition: top .4s, bottom .4s;
@@ -37,7 +37,6 @@
 
 .s-alert-box p {
     margin: 0;
-    font-size: 3px;
 }
 
 .s-alert-box.s-alert-show,
