@@ -81,7 +81,8 @@ export default class SingleTour extends Component {
      return (
       <div>
         <div className="tour-banner">
-          <h1 className="tour-title">{tour.name}</h1>
+          <h6 className="page-small-title">Tour</h6>
+          <h1 className="page-title">{tour.name}</h1>
         </div>
         <div className="tour-content">
           <span className="tour-details" key={tour.id}>
@@ -101,7 +102,7 @@ export default class SingleTour extends Component {
             <Slider autoplay="1500" className="slider tour-slider">        
               {this.state.tour.breweries.map((brewery) => 
                 <div key={brewery.id}>
-                  <Link to={`/breweries/${brewery.id}`}><p className="tour-slider-name">{brewery.name}</p></Link>
+                  <Link to={`/breweries/${brewery.id}`} tour={this.props.match.params.id}><p className="tour-slider-name">{brewery.name}</p></Link>
                 </div>)}
             </Slider>
             <button onClick={this.handleTourSubmit.bind(this)} className="btn button-pounce">Pounce on this tour!</button>&nbsp;&nbsp; 
