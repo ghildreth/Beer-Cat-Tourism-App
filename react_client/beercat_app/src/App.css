@@ -242,8 +242,8 @@ div.tour-slider {
 
 /* Paw Print CSS */
 img.icon {
-  height: 2.5rem;
-  width: 2.5rem;
+  height: 2rem;
+  width: 2rem;
   padding: .2em;
 }
 
@@ -296,13 +296,45 @@ label {
 }
 
 .user-individualtour {
-  margin-left: 3rem;
-  margin-right: 3rem;
-  width: 240px;
-  height: 240px;
-  border: 1px solid black;
-  padding: 1rem;
+    border: .3em solid #c56c5d;
+    background-color: white;
+    width: 250px;
+    height: 250px;
+    border-radius: 1rem;
+    margin: 1.25em;
 }
+
+.user-tours-individualtourtitle {
+  height: 100px;
+  padding: 1em 0em 0em 0em;
+}
+
+.user-tours-description {
+  position: absolute;
+  width: 240px;
+  height: 126px;
+  border-radius: 0 0 11px 11px;
+  background: #23C6CB;
+  opacity: 0;
+}
+
+.user-tours-individualtourdetails {
+  text-align: left;
+  padding: 0em 0em 0em 1em;
+  margin-bottom: -3px;
+
+}
+.user-tours-individualtour {
+  padding-left: .5rem;
+  padding-right: .5rem;
+  border: .3em solid #c56c5d;
+  background-color: white;
+  width: 250px;
+  height: 250px;
+  border-radius: 1rem;
+  margin: 1.25em;
+}
+
 
 .user-tours {
   display: flex;
