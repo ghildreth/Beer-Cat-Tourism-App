@@ -6,6 +6,7 @@ import Map from "./Map.jsx";
 import axios from 'axios';
 import Rating from 'react-rating';
 import Alert from 'react-s-alert';
+import Footer from './Footer.jsx'
 import './styles/alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/jelly.css';
 import Slider from 'react-animated-slider';
@@ -99,18 +100,19 @@ export default class SingleTour extends Component {
             </span>
             <p className="tour-description">{tour.full_description}</p><br/>
             <span className="brewery-route"><strong>Stops on the Tour:</strong></span>
-            <Slider autoplay="1500" className="slider tour-slider">        
-              {this.state.tour.breweries.map((brewery) => 
+            <Slider autoplay="1500" className="slider tour-slider">
+              {this.state.tour.breweries.map((brewery) =>
                 <div key={brewery.id}>
                   <Link to={`/breweries/${brewery.id}`} tour={this.props.match.params.id}><p className="tour-slider-name">{brewery.name}</p></Link>
                 </div>)}
             </Slider>
-            <button onClick={this.handleTourSubmit.bind(this)} className="btn button-pounce">Pounce on this tour!</button>&nbsp;&nbsp; 
+            <button onClick={this.handleTourSubmit.bind(this)} className="btn button-pounce">Pounce on this tour!</button>&nbsp;&nbsp;
             <button type="button" className="btn back-button"><Link className="back-link" to='/tours'>Back</Link></button>
           </span>
           <Map tips={this.state.tour} places={ this.state.tour.breweries } />
        </div>
        <Alert stack={{limit: 1}} />
+       <Footer><h6>9PM Productions</h6></Footer>
      </div>
 
        );
