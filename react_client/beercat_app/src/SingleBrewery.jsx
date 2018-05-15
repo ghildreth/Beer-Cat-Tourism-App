@@ -78,54 +78,53 @@ class SingleBrewery extends Component {
       return <div>Loading ... </div>;
     } else {
       return (
-        <div className="brewery-content">
-            <h1 className="brewery-name">{brewery.name}</h1>
-            <div className="brewery-tombstone">
-              <div className="breweries-description">
-              <span key={brewery.id}>
-                <p><strong>City: </strong>{brewery.city}</p>
-                <p><strong>Address: </strong>{brewery.address}</p>
-                <p><strong>Description: </strong>{brewery.description}</p>
-                <strong>Hours: </strong>
-                <ul className="brewery-hours">
-                  <li>Sunday:       12-11pm </li>
-                  <li>Monday:       Closed </li>
-                  <li>Tuesday:       2-11pm </li>
-                  <li>Wednesday:       2-11pm </li>
-                  <li>Thursday:       2-11pm </li>
-                  <li>Friday:       2-11pm </li>
-                  <li>Saturday:      12-11pm </li>
-                </ul>
-                <button type="button" className="btn back-button"><Link className="back-link" to='/tours'>Back</Link></button>
+        <div>
+          <div className="brewery-banner">
+            <h6 className="page-small-title">Brewery</h6>
+            <h1 className="page-title">{brewery.name}</h1>
+          </div>
+            <div className="brewery-content">
+              <span className="brewery-details" key={brewery.id}>
+                <p className="brewery-description">{brewery.description}</p>
+                <p><strong>Address:</strong> {brewery.address}, {brewery.city}</p>
+                <p className="brewery-hours"><strong>Hours: </strong><br/>
+                  Sunday: 12-11pm<br/>
+                  Monday: Closed <br/>
+                  Tuesday: 2-11pm <br/>
+                  Wednesday: 2-11pm <br/>
+                  Thursday: 2-11pm <br/>
+                  Friday: 2-11pm <br/>
+                  Saturday: 12-11pm <br/>
+                </p>
+                <button type="button" className="btn back-button"><Link className="back-link" to='/tours'>Back to Tours</Link></button>
               </span>
-            </div>
-
             <div className="beer-list">
-              <h4 className="beer-list-header">What's on Tap?</h4>
+              <h3 className="beer-list-header">What's on Tap?</h3>
               <span>
-                {/*<Slider autoplay="2000" >*/}
-                <Slider>
+                <Slider autoplay="3000" className="slider beer-slider">
                   {beers.filter(beer => beer.brewery_id === brewery.id).map(beer => (
                     <div className="individual-beer" key={beer.id}>
-                      <strong>{beer.name}</strong><br/>
+                      <span className="beer-name">{beer.name}</span>
+                      <br/>
+                      <span><strong>Style:</strong> {beer.style}</span><br/>
+                      <span><strong>ABV:</strong> {beer.score_ABV}</span><br/>
+                      <span><strong>SRM:</strong> {beer.score_SRM}</span><br/>
+                      <span><strong>IBU:</strong> {beer.score_IBU}</span><br/>
+                      <br/>
                       {beer.userPreference ? (
-                        <em><span>Beer Match: {beer.userPreference}%</span></em>
+                        <span><strong>Purrfect Beer Match:</strong><br/> 
+                        <h1>{beer.userPreference}%</h1></span>
                       ) : (
-                        <em><span>Beer Match: Sign up to find out!</span></em>
+                        <span><strong>Is this your purrfect Beer Match?</strong><br/><em>Sign up to find out!</em></span>
                       )
                        }<br/>
-                      
-                      <span>Style: {beer.style}</span><br/>
-                      <span>ABV: {beer.score_ABV}</span><br/>
-                      <span>SRM: {beer.score_SRM}</span><br/>
-                      <span>IBU: {beer.score_IBU}</span><br/>
                     </div>
                   ))}
                 </Slider>
               </span>
              </div>
+             </div>
           </div>
-        </div>
       )
     }
   }

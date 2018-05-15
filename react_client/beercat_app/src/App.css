@@ -4,24 +4,9 @@
   font-size: 16px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
 header {
   width: 90%;
   margin: auto;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
 }
 
 .container {
@@ -34,6 +19,41 @@ header {
   to { transform: rotate(360deg); }
 }
 
+
+
+.logo {
+
+  width: 200px;
+  height: 155px;
+  margin: auto;
+}
+
+.nav-a {
+  color: black;
+}
+
+.nav {
+  padding-top: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Shared Page Elements */
+
+.page-title {
+  font-size: 4em;
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.page-small-title {
+  padding: 1.5em 0em 0em 0em;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 1.5em;
+}
+
 .back-button {
   background-color: #efefef;
   width: 200px;
@@ -44,12 +64,294 @@ header {
   color: #23c6cb;
 }
 
-.logo {
+/* SINGLE BREWERY STYLE START */
 
-  width: 200px;
-  height: 155px;
-  margin: auto;
+.brewery-banner {
+  height: 200px;
+  background-color: #c56c5d;
+  margin: 1em 0em;
 }
+
+.brewery-content {
+  display: flex;
+  padding: 1em 0em 5em 1em;
+}
+
+.brewery-details {
+  width: 50%;
+}
+
+#alert {
+  background-color: white;
+}
+
+.brewery-description {
+  margin: auto;
+  text-align: justify;
+  padding: 1em 3em 0em 3em;
+}
+
+.beer-list-header {
+  font-weight: 900;
+  padding-bottom: 0.5em;
+}
+.beer-list {
+  padding-top: 2rem;
+  width: 40%;
+  border-radius: 1em;
+  background-color: #f5efef;
+}
+
+.beer-name {
+  font-weight: 900;
+  font-size: 2em;
+}
+
+.brewery-hours {
+  list-style-type: none;
+}
+
+.brewery-route{
+  text-align: -webkit-auto;
+}
+
+div.beer-slider {
+  height: 20em;
+}
+
+/* START OF SINGLE TOUR CSS */
+.tour-banner {
+  height: 200px;
+  background-color: #23c6cb;
+  margin: 1em 0em;
+}
+
+.tour-details {
+  width: 50%;
+}
+
+.tour-description {
+  margin: auto;
+  text-align: justify;
+  padding: 1em 3em 0em 3em;
+}
+
+.tour-duration {
+  margin-bottom: 1rem;
+}
+
+.tour-city {
+  margin-bottom: 1rem;
+}
+
+.button-pounce {
+  background-color: #23c6cb;
+  color: #ffffff;
+  width: 200px;
+  height: 50px;
+}
+
+.tour-rating {
+  margin-bottom: 1rem;
+}
+
+.tour-content {
+  padding: 1em 5em 5em 1em;
+  display: flex;
+}
+
+.tour-slider-name {
+  color: #23c6cb;
+}
+
+.mappy {
+  width: 50%;
+}
+
+.brewList {
+  margin-top: 2rem;
+  margin-bottom: 6rem;
+  display: flex;
+}
+/*START OF ALL TOURS CSS*/
+
+.tours-banner {
+  height: 200px;
+  background-color: #23C6CB;
+  margin: 1em 0em;
+}
+
+.tours-all {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 80%;
+  justify-content: center;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+.tours-individualtour {
+  border: .3em solid #c56c5d;
+  background-color: white;
+  width: 250px;
+  height: 250px;
+  border-radius: 1rem;
+  margin: 1.25em;
+}
+
+.tours-individualtourtitle {
+  height: 100px;
+  padding: 1em 0em 0em 0em;
+}
+
+.tours-individualtourtitle-link {
+  color: #23c6cb;
+}
+
+.tours-individualtourdetails {
+  text-align: left;
+  padding: 0em 0em 0em 1em;
+}
+
+div.tour-slider {
+  height: 2rem;
+  margin: auto;
+  margin-bottom: 3em;
+  margin-top: 1em;
+  width: 80%;
+  position: relative;
+}
+
+.tours-description {
+  position: absolute;
+  width:240px;
+  height:126px;
+  border-radius: 0 0 11px 11px;
+  background: #23C6CB;
+  opacity:0;
+}
+
+.tours-individualtour:hover .tours-description {
+  opacity:1;
+  color: #FFF;
+  font-size:16px;
+  font-weight:700;
+  font-family:"Poppins", serif;
+  padding:30px;
+}
+
+/* Paw Print CSS */
+img.icon {
+  height: 2rem;
+  width: 2rem;
+  padding: .2em;
+}
+
+/* Login */
+
+.submit-button {
+  width: 200px;
+  height: 50px;
+  background-color: #c8d36f;
+  border: 3px solid #c8d36f;
+  color: #ffffff;
+}
+
+/* Form Labels */
+label {
+  font-size: 1.2em;
+}
+
+/* User Profile */
+.avatar {
+  border-radius: 5em;
+}
+
+.user-banner {
+  height: 200px;
+  background-color: #C56C5D;
+  margin: 1rem 0em;
+}
+
+.user-title {
+  font-size: 3.7rem;
+  padding-top: 4rem;
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.avatar {
+  border-radius: 5rem;
+}
+
+.user-details {
+  width: 50%;
+}
+
+.user-tour-description {
+  margin: auto;
+  text-align: justify;
+  padding: 1rem 3rem 0rem 3rem;
+  display: flex;
+}
+
+.user-individualtour {
+    border: .3em solid #c56c5d;
+    background-color: white;
+    width: 250px;
+    height: 250px;
+    border-radius: 1rem;
+    margin: 1.25em;
+}
+
+.user-tours-individualtourtitle {
+  height: 100px;
+  padding: 1em 0em 0em 0em;
+}
+
+.user-tours-description {
+  position: absolute;
+  width: 240px;
+  height: 126px;
+  border-radius: 0 0 11px 11px;
+  background: #23C6CB;
+  opacity: 0;
+}
+
+.user-tours-individualtourdetails {
+  text-align: left;
+  padding: 0em 0em 0em 1em;
+  margin-bottom: -3px;
+
+}
+.user-tours-individualtour {
+  padding-left: .5rem;
+  padding-right: .5rem;
+  border: .3em solid #c56c5d;
+  background-color: white;
+  width: 250px;
+  height: 250px;
+  border-radius: 1rem;
+  margin: 1.25em;
+}
+
+
+.user-tours {
+  display: flex;
+}
+
+/* About */
+.about-banner {
+  height: 200px;
+  background-color: #daa253;
+  margin: 1em 0em;
+}
+
+.about-content {
+  margin-top: 3rem;
+}
+
+/* Age Check - Welcome Page */
 
 .welcome {
   background-color: #dcf8f9;
@@ -125,158 +427,4 @@ header {
   width: 100%;
 }
 
-.nav {
-  padding-top: 1em;
-}
 
-.nav-a {
-  color: black;
-}
-
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-/* SINGLE BREWERY STYLE START */
-
-h1.brewery-name {
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-}
-.brewery-tombstone {
-  display: flex;
-}
-
-#alert {
-  background-color: white;
-}
-
-.breweries-description {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-}
-
-.beer-list {
-  margin-right: auto;
-  margin-left: auto;
-  border: 1px solid black;
-  padding-top: 4rem;
-  height: 20rem;
-  width: 28%;
-  border-radius: 1em;
-}
-
-.brewery-hours {
-  list-style-type: none;
-}
-
-.brewery-route{
-  text-align: -webkit-auto;
-}
-
-div.slider {
-  height: 9rem;
-}
-
-/* START OF SINGLE TOUR CSS */
-.tour-details {
-  margin: auto auto 0 auto;
-}
-
-.tour-description {
-  margin-top: 1rem;
-}
-
-.tour-duration {
-  margin-bottom: 1rem;
-}
-
-.tour-city {
-  margin-bottom: 1rem;
-}
-
-.button-pounce {
-  background-color: #23c6cb;
-  color: #ffffff;
-  width: 200px;
-  height: 50px;
-}
-
-.tour-rating {
-  margin-bottom: 1rem;
-}
-
-.tour-content {
-  padding-top: 5rem;
-  padding-right: 5rem;
-}
-
-.brewList {
-  margin-top: 2rem;
-  margin-bottom: 6rem;
-  display: flex;
-}
-
-.tour-tips {
-  margin-left: 3rem;
-}
-
-.tours-all {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 2em;
-  margin-top: 2em;
-}
-
-.tours-individualtour {
-  border: .3em solid #c56c5d;
-  background-color: white;
-  width: 300px;
-  height: 300px;
-  margin: 1.25em;
-}
-
-.tours-individualtourtitle {
-  height: 100px;
-  padding: 1em 0em 0em 0em;
-}
-
-.tours-individualtourtitle-link {
-  color: #23c6cb;
-}
-
-.tours-individualtourdetails {
-  text-align: left;
-  padding: 0em 0em 0em 1em;
-}
-
-/* Paw Print CSS */
-img.icon {
-  height: 3rem;
-  width: 3rem;
-  padding: .2em;
-}
-
-/* Login */
-
-.submit-button {
-  width: 200px;
-  height: 50px;
-  background-color: #c8d36f;
-  border: 3px solid #c8d36f;
-  color: #ffffff;
-}
-
-/* Form Labels */
-
-label {
-  font-size: 1.2em;
-}
-
-/* User Profile */
-
-.avatar {
-  border-radius: 5em;
-}

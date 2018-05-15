@@ -49,25 +49,24 @@ class UserTours extends Component {
       return (
         <div className="user-tours">
           {tours ? (tours.map(tour => (
-            <div key={ tour.id * Math.random() } className="user-individualtour">
-
-              <div className="user-individualtourtitle">
-                <h3><Link to={`/tours/${tour.id}`}>{tour.name}</Link></h3>
-              </div>
-
-              <div className="user-individualtourdetails">
-                <h5>City: {tour.city}</h5>
-                <h5>Duration: {tour.duration} hrs</h5>
-              </div>
+            <div key={ tour.id * Math.random() } className="user-tours-individualtour">
+                  <h3 className="tours-individualtourtitle"><Link to={`/tours/${tour.id}`} className="tours-individualtourtitle-link">{tour.name}</Link></h3>
+                  {/* <div className="tours-description">{tour.description}</div> */}
+                  <p className="user-tours-individualtourdetails">
+                    <strong>City:</strong> {tour.city}<br/>
+                    <strong>Duration:</strong> {tour.duration} hrs<br/><br/>
+                  </p>
                 {user_tours.filter(user_tour => user_tour.tour_id === tour.id).map(user_tour => (
-                  <div className="individual-beer" key={user_tours.id + 1000}>
+                  <div key={user_tours.id + 1000}>
                     {user_tour.rating  ? (
-                        <h5>Your Rating:</h5>
+                        <p className="user-tours-individualtourdetails">
+                        <strong>Your Rating:</strong></p>
                       ) : (
-                        <h5>Rate this Tour:</h5>
+                        <p className="user-tours-individualtourdetails">
+                        <strong >Rate this Tour:</strong></p>
                       )
                     }
-                      <h5><Rating onChange={(rate) => onRate(rate, user_tour.id)}
+                      <h5 ><Rating onChange={(rate) => onRate(rate, user_tour.id)}
                         initialRating={user_tour.rating}
                         emptySymbol={<img src="../assets_paw/black_paw_print.png"
                         className="icon" />}
