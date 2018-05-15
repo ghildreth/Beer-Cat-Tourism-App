@@ -276,6 +276,10 @@ label {
   padding: 1rem;
 }
 
+.user-tours {
+  display: flex;
+}
+
 /* About */
 .about-banner {
   height: 200px;
