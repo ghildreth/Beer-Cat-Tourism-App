@@ -249,15 +249,17 @@ div.beer-slider {
 .tours-all {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 2em;
-  margin-top: 2em;
+  max-width: 80%;
+  justify-content: center;
+  margin: auto;
 }
 
 .tours-individualtour {
   border: .3em solid #c56c5d;
   background-color: white;
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
+  border-radius: 1rem;
   margin: 1.25em;
 }
 
@@ -282,6 +284,26 @@ div.tour-slider {
   margin-top: 1em;
   width: 80%;
   position: relative;
+}
+
+.tours-description {
+  position: absolute;
+  width:240px;
+  height:126px;
+  border-radius: 11px;
+  background: skyblue;
+  opacity:0;
+}
+
+.tours-individualtour:hover .tours-description {
+  opacity:0.6;
+  transition: 0.3s;
+  text-align:justify;
+  color:#000000;
+  font-size:20px;
+  font-weight:700;
+  font-family:"Poppins", serif;
+  padding:30px;
 }
 
 /* Paw Print CSS */
