@@ -64,11 +64,15 @@ header {
   color: #23c6cb;
 }
 
+.back-link:hover {
+  color: #23c6cb;
+}
+
 /* SINGLE BREWERY STYLE START */
 
 .brewery-banner {
   height: 200px;
-  background-color: #c56c5d;
+  background-color: #c8d36f;
   margin: 1em 0em;
 }
 
@@ -87,8 +91,10 @@ header {
 
 .brewery-description {
   margin: auto;
-  text-align: justify;
-  padding: 1em 3em 0em 3em;
+  text-align: center;
+  width: 75%;
+  padding: 1em 0em 0em 0em;
+  font-size: 1.25em;
 }
 
 .beer-list-header {
@@ -99,7 +105,8 @@ header {
   padding-top: 2rem;
   width: 40%;
   border-radius: 1em;
-  background-color: #f5efef;
+  background-color: #eef1d6;
+  color: #000000;
 }
 
 .beer-name {
@@ -126,6 +133,11 @@ div.beer-slider {
   margin: 1em 0em;
 }
 
+.tour-content {
+  padding: 1em 5em 5em 1em;
+  display: flex;
+}
+
 .tour-details {
   width: 50%;
 }
@@ -144,24 +156,19 @@ div.beer-slider {
   margin-bottom: 1rem;
 }
 
+.tour-rating {
+  margin-bottom: 1rem;
+}
+
+.tour-slider-name {
+  color: #23c6cb;
+}
+
 .button-pounce {
   background-color: #23c6cb;
   color: #ffffff;
   width: 200px;
   height: 50px;
-}
-
-.tour-rating {
-  margin-bottom: 1rem;
-}
-
-.tour-content {
-  padding: 1em 5em 5em 1em;
-  display: flex;
-}
-
-.tour-slider-name {
-  color: #23c6cb;
 }
 
 .mappy {
@@ -180,6 +187,8 @@ div.beer-slider {
   background-color: #23C6CB;
   margin: 1em 0em;
 }
+
+/* Home Page */ 
 
 .tours-all {
   display: flex;
@@ -240,7 +249,8 @@ div.tour-slider {
   padding:30px;
 }
 
-/* Paw Print CSS */
+/* Paw Print */
+
 img.icon {
   height: 2rem;
   width: 2rem;
@@ -348,7 +358,20 @@ label {
 }
 
 .about-content {
-  margin-top: 3rem;
+  padding: 1em 5em 5em 1em;
+  display: flex;
+}
+
+.about-us {
+  width: 50%;
+  text-align: left;
+  padding: 1em 5em 0em 5em;
+}
+
+.how-to {
+  width: 50%;
+  text-align: left;
+  padding: 1em 0em;
 }
 
 /* Age Check - Welcome Page */
@@ -418,6 +441,7 @@ label {
 
 .sorrykitten {
   margin-top: 4rem;
+  font-weight: 900;
 }
 
 .under19 {
