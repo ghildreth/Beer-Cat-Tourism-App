@@ -21,20 +21,29 @@ export default class TourList extends Component {
   render() {
     const { tours } = this.state
     return (
-      <div className="tours-all">
-      {tours ? (tours.map(tour => (
-        <div key={tour.id} className="tours-individualtour">
-          <h3 className="tours-individualtourtitle"><Link to={`/tours/${tour.id}`} className="tours-individualtourtitle-link">{tour.name}</Link></h3>
-          <p className="tours-individualtourdetails">
-            <strong>City:</strong> {tour.city}<br/>
-            <strong>Duration:</strong> {tour.duration} hrs<br/><br/>
-            {tour.description}
-          </p>
+      <div>
+        <div className="tours-banner">
+            <h6 className="page-small-title">Tours</h6>
+          <h1 className="page-title">Choose a tour</h1>
+          </div>
+        <div className="tours-all">
+
+        {tours ? (tours.map(tour => (
+          <div key={tour.id} className="tours-individualtour">
+
+            <h3 className="tours-individualtourtitle"><Link to={`/tours/${tour.id}`} className="tours-individualtourtitle-link">{tour.name}</Link></h3>
+            <div className="tours-description">{tour.description}</div>
+            <p className="tours-individualtourdetails">
+              <strong>City:</strong> {tour.city}<br/>
+              <strong>Duration:</strong> {tour.duration} hrs<br/><br/>
+            </p>
+
+          </div>
+          ))
+        ) : (
+        <div></div>
+        )}
         </div>
-        ))
-      ) : (
-      <div></div>
-      )}
       </div>
       )
   }

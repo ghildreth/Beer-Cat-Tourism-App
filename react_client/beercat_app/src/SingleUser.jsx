@@ -72,18 +72,23 @@ export default class SingleUser extends Component {
     if (this.state.current_user) {
       return (
         <div className="user-profile">
-          <img className="avatar" src={`https://api.adorable.io/avatars/150/${this.state.username}.png`} alt="avatar"/>
-          <h2>{ `Welcome to Beer Cat, ${ this.state.username} !` }</h2>
-          <div>
-            <span>Name: {this.state.name}<br/></span>
-            <span>Email: {this.state.email}<br/></span>
-            <span>Likes:</span>
-            <span className="badge badge-info">{ `${this.state.preference_SRM ? `Light Beer` : `Dark Beer`}`}</span>
-            <span className="badge badge-info">{ `${this.state.preference_IBU ? `Hoppy` : `Malty`}`}</span>
-            <span className="badge badge-info">{ `${this.state.preference_sour ? `Sour` : `Sweet`}`}</span>
-            <br/>
+          <div className="user-banner">
+            <h1 className="user-title">Welcome to Beer Cat!</h1>
           </div>
-          <UserTours user_id={this.state.id}/>
+          <div className="user-content">
+           <img className="avatar" src={`https://api.adorable.io/avatars/150/${this.state.username}.png`} alt="avatar"/>
+              <h2>{ `Username: ${ this.state.username}`}</h2>
+              <span><b>Name:</b> {this.state.name}<br/></span>
+              <span><b>Email:</b> {this.state.email}<br/></span>
+              <span><b>Likes:</b></span>
+              <span className="badge badge-info">{ `${this.state.preference_SRM ? `Light Beer` : `Dark Beer`}`}</span>
+              <span className="badge badge-info">{ `${this.state.preference_IBU ? `Hoppy` : `Malty`}`}</span>
+              <span className="badge badge-info">{ `${this.state.preference_sour ? `Sour` : `Sweet`}`}</span>
+              <br/>
+          </div>
+          <span className="user-tour-description">
+            <UserTours user_id={this.state.id}/>
+          </span>
         </div>
       );
     } else {
@@ -91,7 +96,7 @@ export default class SingleUser extends Component {
         <div className="user-profile">
           <img className="avatar" src={`https://api.adorable.io/avatars/150/${this.state.username}.png`} alt="avatar"/>
           <h2>{ this.state.username }</h2>
-            <span>{ `ABV Preference: ${this.state.preference_ABV === true ? `keep it light` : `fuck me up, fam`}`}</span>
+            <span>{ `ABV Preference: ${this.state.preference_ABV === false ? `keep it light` : `fuck me up, fam`}`}</span>
           <UserTours user_id={this.state.id}/>
         </div>
       ); 
