@@ -49,7 +49,7 @@ class UserTours extends Component {
       return (
         <div className="user-tours">
           {tours ? (tours.map(tour => (
-            <div key={ tour.id * Math.random() } className="tours-individualtour">
+            <div key={ tour.id * Math.random() } className="user-tours-individualtour">
                   <h3 className="tours-individualtourtitle"><Link to={`/tours/${tour.id}`} className="tours-individualtourtitle-link">{tour.name}</Link></h3>
                   {/* <div className="tours-description">{tour.description}</div> */}
                   <p className="user-tours-individualtourdetails">
