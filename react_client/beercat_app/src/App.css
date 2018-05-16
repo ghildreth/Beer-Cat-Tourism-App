@@ -188,7 +188,7 @@ div.beer-slider {
   margin: 1em 0em;
 }
 
-/* Home Page */ 
+/* Home Page */
 
 .tours-all {
   display: flex;
@@ -451,4 +451,22 @@ label {
   width: 100%;
 }
 
+/*Footer Style*/
+.footerStyle {
+  background-color: #e8e8e8;
+  font-size: 20px;
+  color: black;
+  text-align: center;
+  padding: 20px;
+  left: 0;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
+}
+
+.phantomStyle {
+  display: block;
+  height: 60px;
+  width: 100%;
+}
 

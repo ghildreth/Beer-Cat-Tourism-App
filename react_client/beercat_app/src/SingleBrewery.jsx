@@ -121,7 +121,7 @@ class SingleBrewery extends Component {
                       <span><strong>IBU:</strong> {beer.score_IBU}</span><br/>
                       <br/>
                       {beer.userPreference ? (
-                        <span><strong>Purrfect Beer Match:</strong><br/> 
+                        <span><strong>Purrfect Beer Match:</strong><br/>
                         <h1 className="beer-match">{beer.userPreference}%</h1></span>
                       ) : (
                         <span><strong>Is this your purrfect Beer Match?</strong><br/><em>Sign up to find out!</em></span>
