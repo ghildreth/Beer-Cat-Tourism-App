@@ -110,7 +110,7 @@ class SingleBrewery extends Component {
             <div className="beer-list">
               <h3 className="beer-list-header">What's on Tap?</h3>
               <span>
-                <Slider className="slider beer-slider">
+                <Slider autoplay="3000" className="slider beer-slider">
                   {beers.filter(beer => beer.brewery_id === brewery.id).map(beer => (
                     <div className="individual-beer" key={beer.id}>
                       <span className="beer-name">{beer.name}</span>
