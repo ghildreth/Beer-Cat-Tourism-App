@@ -30,7 +30,7 @@ export default class TourList extends Component {
 
         {tours ? (tours.map(tour => (
           <Link to={`/tours/${tour.id}`} className="tours-individualtourtitle-link">
-            <div key={tour.id} className="tours-individualtour">
+            <div key={tour.id + Math.random()} className="tours-individualtour">
 
               <h3 className="tours-individualtourtitle">{tour.name}</h3>
               <div className="tours-description">{tour.description}</div>
