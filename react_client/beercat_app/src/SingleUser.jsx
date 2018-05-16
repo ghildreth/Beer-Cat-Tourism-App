@@ -62,6 +62,9 @@ export default class SingleUser extends Component {
         } else {
           console.log('not the same user')
         }
+        if (response.data.id === params.id) {
+          this.setState({logged_in: true, current_user: true})
+        }
       })
       .catch(function (error) {
         console.error(error)
@@ -73,7 +76,7 @@ export default class SingleUser extends Component {
       return (
         <div className="user-profile">
           <div className="user-banner">
-            <h1 className="user-title">Welcome to Beer Cat {this.state.username}!</h1>
+            <h1 className="user-title">Hello, {this.state.username}!</h1>
           </div>
           <div className="user-tour-content-box">
             <div className="user-content">
