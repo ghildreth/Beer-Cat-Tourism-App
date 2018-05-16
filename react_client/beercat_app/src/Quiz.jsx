@@ -45,73 +45,88 @@ class Quiz extends React.Component {
           <div className={`${modalStep === 2 ? "display-block" : "display-none"}`}>
             <h6>How strong do you like your beer?</h6>
             <br/>
-            <label>I have to work in the morning, let's keep it light.&nbsp;&nbsp;&nbsp;</label>
-              <input type="radio" name="preference_ABV" id="abv_choice1" value="false"/><br/>
-            <label>My beer should be like Superman! (cape optional)&nbsp;&nbsp;&nbsp;</label>
-              <input type="radio" name="preference_ABV" id="abv_choice2" value= "true"/><br/>
-            <label>Beer has <em>'strength'</em>!?&nbsp;&nbsp;&nbsp;</label>
-              <input type="radio" name="preference_ABV" id="abv_choice3" value="false"/><br/>
-            <label>Ummmm? I mean, I don't know, but I'm game!&nbsp;&nbsp;&nbsp;</label>
+            <label>I have to work in the morning, let's keep it light.&nbsp;&nbsp;&nbsp;
+              <input type="radio" name="preference_ABV" id="abv_choice1" value="false"/>
+            </label><br/>
+            <label>My beer should be like Superman! (cape optional)&nbsp;&nbsp;&nbsp;
+              <input type="radio" name="preference_ABV" id="abv_choice2" value= "true"/>
+            </label><br/>
+            <label>Beer has <em>'strength'</em>!?&nbsp;&nbsp;&nbsp;
+              <input type="radio" name="preference_ABV" id="abv_choice3" value="false"/>
+            </label><br/>
+            <label>Ummmm? I mean, I don't know, but I'm game!&nbsp;&nbsp;&nbsp;
               <input type="radio" name="preference_ABV" id="abv_choice4" value= "true"/>
-            <br/><br/>
+            </label><br/><br/>
             <button type="button"  className="btn submit-button" onClick={() => handleNextQuestion(3)}>Next</button>
           </div>
 
           <div className={`${modalStep === 3 ? "display-block" : "display-none"}`}>
             <h6>Light Side? Dark Side?</h6>
             <br/>
-            <label>Beer and chocolate are best enjoyed dark.&nbsp;&nbsp;&nbsp;</label>
-              <input type="radio" name="preference_SRM" id="srm_choice1" value= "false" /><br/>
-            <label>Light, sunny beers match my light, sunny personality!&nbsp;&nbsp;&nbsp;</label>
-              <input type="radio" name="preference_SRM" id="srm_choice2" value= "true" /><br/>
-            <label>I'm afraid of the dark, and that includes beer...&nbsp;&nbsp;&nbsp;</label>
-              <input type="radio" name="preference_SRM" id="srm_choice3" value= "true" /><br/>
-            <label>Give me a beer that eats like a meal!&nbsp;&nbsp;&nbsp;</label>
+            <label>Beer and chocolate are best enjoyed dark.&nbsp;&nbsp;&nbsp;
+              <input type="radio" name="preference_SRM" id="srm_choice1" value= "false" />
+            </label><br/>
+            <label>Light, sunny beers match my light, sunny personality!&nbsp;&nbsp;&nbsp;
+              <input type="radio" name="preference_SRM" id="srm_choice2" value= "true" />
+            </label><br/>
+            <label>I'm afraid of the dark, and that includes beer...&nbsp;&nbsp;&nbsp;
+              <input type="radio" name="preference_SRM" id="srm_choice3" value= "true" />
+            </label><br/>
+            <label>Give me a beer that eats like a meal!&nbsp;&nbsp;&nbsp;
               <input type="radio" name="preference_SRM" id="srm_choice4" value= "false" />
-            <br/><br/>
+            </label><br/><br/>
             <button type="button"  className="btn submit-button" onClick={() => handleNextQuestion(4)}>Next</button>
           </div>
 
           <div className={`${modalStep === 4 ? "display-block" : "display-none"}`}>
             <h6>Are you a bitter (beer) person?</h6>
             <br/>
-            <label>Bitter beer smells like moldy socks. No thanks!&nbsp;&nbsp;&nbsp;</label>
-              <input type="radio" name="preference_IBU" id="ibu_choice1" value= "false" /><br/>
-            <label>Bitter beer smells like moldy socks. Yes please!&nbsp;&nbsp;&nbsp;</label>
-              <input type="radio" name="preference_IBU" id="ibu_choice2" value= "true" /><br/>
-            <label>I'm like a bunny - hop, hop, hops!&nbsp;&nbsp;&nbsp;</label>
-              <input type="radio" name="preference_IBU" id="ibu_choice3" value= "true" /><br/>
-            <label>I have no idea... but I think I'll pass.&nbsp;&nbsp;&nbsp;</label>
+            <label>Bitter beer smells like moldy socks. No thanks!&nbsp;&nbsp;&nbsp;
+              <input type="radio" name="preference_IBU" id="ibu_choice1" value= "false" />
+            </label><br/>
+            <label>Bitter beer smells like moldy socks. Yes please!&nbsp;&nbsp;&nbsp;
+              <input type="radio" name="preference_IBU" id="ibu_choice2" value= "true" />
+            </label><br/>
+            <label>I'm like a bunny - hop, hop, hops!&nbsp;&nbsp;&nbsp;
+              <input type="radio" name="preference_IBU" id="ibu_choice3" value= "true" />
+            </label><br/>
+            <label>I have no idea... but I think I'll pass.&nbsp;&nbsp;&nbsp;
               <input type="radio" name="preference_IBU" id="ibu_choice4" value= "false" />
-            <br/><br/>
+            </label><br/><br/>
             <button type="button"  className="btn submit-button" onClick={() => handleNextQuestion(5)}>Next</button>
           </div>
 
           <div className={`${modalStep === 5 ? "display-block" : "display-none"}`}>
             <h6>How adventurous are you?</h6><br/>
-            <label>Adventure is my middle name!&nbsp;&nbsp;&nbsp;</label>
-              <input type="radio" name="preference_adventurous" id="adventurous_choice1" value= "true" /><br/>
-            <label>I like to leave exploring to other people...&nbsp;&nbsp;&nbsp;</label>
-              <input type="radio" name="preference_adventurous" id="adventurous_choice2" value= "false" /><br/>
-            <label>I'll try anything once!&nbsp;&nbsp;&nbsp;</label>
-              <input type="radio" name="preference_adventurous" id="adventurous_choice3" value= "true" /><br/>
-            <label>My adventurous spirit wandered off without me.&nbsp;&nbsp;&nbsp;</label>
+            <label>Adventure is my middle name!&nbsp;&nbsp;&nbsp;
+              <input type="radio" name="preference_adventurous" id="adventurous_choice1" value= "true" />
+            </label><br/>
+            <label>I like to leave exploring to other people...&nbsp;&nbsp;&nbsp;
+              <input type="radio" name="preference_adventurous" id="adventurous_choice2" value= "false" />
+            </label><br/>
+            <label>I'll try anything once!&nbsp;&nbsp;&nbsp;
+              <input type="radio" name="preference_adventurous" id="adventurous_choice3" value= "true" />
+            </label><br/>
+            <label>My adventurous spirit wandered off without me.&nbsp;&nbsp;&nbsp;
               <input type="radio" name="preference_adventurous" id="adventurous_choice4" value= "false" />
-            <br/><br/>
+            </label><br/><br/>
             <button type="button"  className="btn submit-button" onClick={() => handleNextQuestion(6)}>Next</button>
           </div>
 
           <div className={`${modalStep === 6 ? "display-block" : "display-none"}`}>
             <h6>Sour Candies are...</h6><br/>
-            <label>Totally gross. No way, no how.&nbsp;&nbsp;&nbsp;</label>
-              <input type="radio" name="preference_sour" id="sour_choice1" value= "false" /><br/>
-            <label>The best candy in the candy aisle, by far!&nbsp;&nbsp;&nbsp;</label>
-              <input type="radio" name="preference_sour" id="sour_choice2" value= "true" /><br/>
-            <label>Pretty good, but not my favourite.&nbsp;&nbsp;&nbsp;</label>
-              <input type="radio" name="preference_sour" id="sour_choice3" value= "true" /><br/>
-            <label>Over-hyped. I'd rather have chips and chocolate.&nbsp;&nbsp;&nbsp;</label>
+            <label>Totally gross. No way, no how.&nbsp;&nbsp;&nbsp;
+              <input type="radio" name="preference_sour" id="sour_choice1" value= "false" />
+            </label><br/>
+            <label>The best candy in the candy aisle, by far!&nbsp;&nbsp;&nbsp;
+              <input type="radio" name="preference_sour" id="sour_choice2" value= "true" />
+            </label><br/>
+            <label>Pretty good, but not my favourite.&nbsp;&nbsp;&nbsp;
+              <input type="radio" name="preference_sour" id="sour_choice3" value= "true" />
+            </label><br/>
+            <label>Over-hyped. I'd rather have chips and chocolate.&nbsp;&nbsp;&nbsp;
               <input type="radio" name="preference_sour" id="sour_choice4" value= "false" />
-              <br/><br/>
+            </label><br/><br/>
             <input className="btn submit-button" value="submit" type="submit"/>
           </div>
         </form>

@@ -197,6 +197,7 @@ div.beer-slider {
   justify-content: center;
   margin: auto;
   margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .tours-individualtour {
@@ -233,20 +234,20 @@ div.tour-slider {
 
 .tours-description {
   position: absolute;
-  width:240px;
-  height:126px;
+  width:240.5px;
+  height:127px;
   border-radius: 0 0 11px 11px;
   background: #23C6CB;
   opacity:0;
 }
 
 .tours-individualtour:hover .tours-description {
-  opacity:1;
+  opacity: 1;
   color: #FFF;
-  font-size:16px;
-  font-weight:700;
-  font-family:"Poppins", serif;
-  padding:30px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Poppins", serif;
+  padding: 1rem;
 }
 
 /* Paw Print */
@@ -455,6 +456,7 @@ label {
 .footerStyle {
   background-color: #e8e8e8;
   font-size: 20px;
+  position: fixed;
   color: black;
   text-align: center;
   padding: 20px;
