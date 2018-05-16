@@ -73,6 +73,7 @@ export default class SingleTour extends Component {
 
    render() {
    const { tour } = this.state;
+   
    if(tour === null) {
      return <div>Loading...</div>
 
@@ -99,14 +100,22 @@ export default class SingleTour extends Component {
             </span>
             <p className="tour-description">{tour.full_description}</p><br/>
             <span className="brewery-route"><strong>Stops on the Tour:</strong></span>
-            <Slider autoplay="1500" className="slider tour-slider">        
-              {this.state.tour.breweries.map((brewery) => 
+            <Slider className="slider tour-slider">
+              {this.state.tour.breweries.map((brewery) =>
                 <div key={brewery.id}>
                   <Link to={`/breweries/${brewery.id}`}><p className="tour-slider-name">{brewery.name}</p></Link>
                 </div>)}
             </Slider>
-            <button onClick={this.handleTourSubmit.bind(this)} className="btn button-pounce">Pounce on this tour!</button>&nbsp;&nbsp; 
+            <div>
+              {this.state.logged_in ? 
+              ( 
+                <button onClick={this.handleTourSubmit.bind(this)} className="btn button-pounce">Pounce on this tour!</button>
+              ) : (    
+                <a href="http://localhost:3000/signup"><button className="btn button-pounce">Signup to Pounce!</button></a>             
+              )
+                }
             <button type="button" className="btn back-button"><Link className="back-link" to='/tours'>Back</Link></button>
+           </div>
           </span>
           <Map tips={this.state.tour} places={ this.state.tour.breweries } />
        </div>

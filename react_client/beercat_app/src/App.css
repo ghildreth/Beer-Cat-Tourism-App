@@ -58,6 +58,7 @@ header {
   background-color: #efefef;
   width: 200px;
   height: 50px;
+  margin-left: 1rem;
 }
 
 .back-link {
@@ -169,6 +170,7 @@ div.beer-slider {
   color: #ffffff;
   width: 200px;
   height: 50px;
+  margin-left: 1rem;
 }
 
 .mappy {
@@ -188,15 +190,16 @@ div.beer-slider {
   margin: 1em 0em;
 }
 
-/* Home Page */ 
+/* Home Page */
 
 .tours-all {
   display: flex;
   flex-wrap: wrap;
-  max-width: 80%;
+  max-width: 85%;
   justify-content: center;
   margin: auto;
   margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .tours-individualtour {
@@ -233,20 +236,20 @@ div.tour-slider {
 
 .tours-description {
   position: absolute;
-  width:240px;
-  height:126px;
+  width:240.5px;
+  height:127px;
   border-radius: 0 0 11px 11px;
   background: #23C6CB;
   opacity:0;
 }
 
 .tours-individualtour:hover .tours-description {
-  opacity:1;
+  opacity: 1;
   color: #FFF;
-  font-size:16px;
-  font-weight:700;
-  font-family:"Poppins", serif;
-  padding:30px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Poppins", serif;
+  padding: 1rem;
 }
 
 /* Paw Print */
@@ -270,6 +273,10 @@ img.icon {
 /* Form Labels */
 label {
   font-size: 1.2em;
+}
+
+.radio-button {
+  margin-right: 1rem;
 }
 
 /* User Profile */
@@ -300,9 +307,9 @@ label {
 
 .user-tour-description {
   margin: auto;
-  text-align: justify;
+
   padding: 1rem 3rem 0rem 3rem;
-  display: flex;
+
 }
 
 .user-individualtour {
@@ -335,7 +342,7 @@ label {
 
 }
 .user-tours-individualtour {
-  padding-left: .5rem;
+  padding-left: .5remdisplaydisplaydisplay;
   padding-right: .5rem;
   border: .3em solid #c56c5d;
   background-color: white;
@@ -390,12 +397,12 @@ label {
   width: 200px;
   height: 50px;
   margin: 1rem;
-  background-color: #ffffff;
+  background-color: #D5E07C;
   border: 3px solid #c8d36f;
 }
 
 .agecheck-link-yes:hover {
-  color: #c8d36f;
+  color: #ffffff;
 }
 
 .agecheck-button-yes {
@@ -411,14 +418,14 @@ label {
 }
 
 .agecheck-link-no:hover {
-  color: #c56c5d;
+  color: #ffffff;
 }
 
 .agecheck-button-no:hover {
   width: 200px;
   height: 50px;
   margin: 1rem;
-  background-color: #ffffff;
+  background-color: #df8677;
   border: 3px solid #c56c5d;
 }
 
@@ -451,4 +458,76 @@ label {
   width: 100%;
 }
 
+/*Footer Style*/
+.footerStyle {
+  background-color: #e8e8e8;
+  font-size: 20px;
+  position: fixed;
+  color: black;
+  text-align: center;
+  padding: 20px;
+  left: 0;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
+}
 
+.phantomStyle {
+  display: block;
+  height: 60px;
+  width: 100%;
+}
+
+/* User profile new styling */
+.user-tour-content-box {
+    display: -webkit-box;
+}
+
+.user-content {
+    padding-left: 50px;
+}
+
+.user-tour-description {
+    margin: auto;
+    /* text-align: justify; */
+    padding: 1rem 3rem 0rem 3rem;
+    display: -ms-flexbox;
+    /* display: flex; */
+}
+
+.tours-all {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    max-width: 100%;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 2rem;
+    margin-left: 125px;
+}
+
+.avatar {
+    border-radius: 5rem;
+    margin-bottom: 1rem;
+    height: 100px;
+    width: 100px;
+}
+
+.user-content {
+    margin-top: 5rem;
+}
+
+.badge-info {
+    color: #fff;
+    background-color: #17a2b8;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.badge {
+  font-size: 100%;
+}
