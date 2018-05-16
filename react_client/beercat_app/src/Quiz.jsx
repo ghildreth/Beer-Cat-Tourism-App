@@ -127,7 +127,7 @@ class Quiz extends React.Component {
             <label>Over-hyped. I'd rather have chips and chocolate.&nbsp;&nbsp;&nbsp;
               <input type="radio" name="preference_sour" id="sour_choice4" value= "false" />
             </label><br/><br/>
-            <input className="btn submit-button" value="submit" type="submit"/>
+            <input className="btn submit-button" value="Submit" type="submit"/>
           </div>
         </form>
       </div>
