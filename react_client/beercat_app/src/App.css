@@ -197,6 +197,7 @@ div.beer-slider {
   justify-content: center;
   margin: auto;
   margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .tours-individualtour {
@@ -455,6 +456,7 @@ label {
 .footerStyle {
   background-color: #e8e8e8;
   font-size: 20px;
+  position: fixed;
   color: black;
   text-align: center;
   padding: 20px;
