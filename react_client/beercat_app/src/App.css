@@ -58,6 +58,7 @@ header {
   background-color: #efefef;
   width: 200px;
   height: 50px;
+  margin-left: 1rem;
 }
 
 .back-link {
@@ -169,6 +170,7 @@ div.beer-slider {
   color: #ffffff;
   width: 200px;
   height: 50px;
+  margin-left: 1rem;
 }
 
 .mappy {
