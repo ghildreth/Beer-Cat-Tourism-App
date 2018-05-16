@@ -124,7 +124,9 @@ class SingleBrewery extends Component {
                         <span><strong>Purrfect Beer Match:</strong><br/>
                         <h1 className="beer-match">{beer.userPreference}%</h1></span>
                       ) : (
-                        <span><strong>Is this your purrfect Beer Match?</strong><br/><em>Sign up to find out!</em></span>
+                        <span><strong>Is this your purrfect Beer Match?</strong><br/>
+                          <Link to="/signup"><em>Sign up to find out!</em></Link>
+                        </span>
                       )
                        }<br/>
                     </div>
