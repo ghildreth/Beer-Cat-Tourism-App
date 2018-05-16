@@ -40,9 +40,10 @@ Brewery.create(name: 'Borough Market Brewery', city: 'London, GB', address: 'Bor
 Brewery.create(name: 'Piccadilly Pandemonium', city: 'London, GB', address: '5 Piccadilly Circus', description: "If you can elbow your way through the tourists, have a ncie relaxing pint at this secret basement brewpub.", latitude: 51.5105733, longitude: -0.1378587)
 Brewery.create(name: 'Primrose Hill Pumphouse', city: 'London, GB', address: '221B Primrose Hill', description: "Served with a view and the noise of the elephants form the Zoo", latitude: 51.5380514, longitude: -0.1744411)
 # 19
-Brewery.create(name: 'Sourdough Beer Beard', city: 'San Francisco', address: '563 2nd St, San Francisco, CA 94107, USA', description: 'The smell of fresh sourdough bread fills the air as you enter this building and you notice the partons are drinking beer out of bread bowls... uh.', latitude: 37.758628, longitude:-122.399594)
-Brewery.create(name: 'The Golden Opportunity', city: 'San Francisco', address: '1785 Fulton St, San Francisco, CA 94117, USA', description: 'You might be asked to take lots of pictures for tourist!', latitude: 37.8199, longitude:-122.4783)
-Brewery.create(name: "Fisherman's Brewarf", city: 'San Francisco', address: '2801 Leavenworth St, San Francisco, CA 94133, USA', description: 'You might be asked to take lots of pictures for tourist!', latitude: 37.8075638, longitude: -122.4177)
+Brewery.create(name: 'Sourdough Brewhouse', city: 'San Francisco', address: '563 2nd St, San Francisco, CA 94107, USA', description: 'The smell of fresh sourdough bread fills the air as you enter this building and you notice the partons are drinking beer out of bread bowls... uh.', latitude: 37.758628, longitude:-122.399594)
+Brewery.create(name: 'Golden State of Mind', city: 'San Francisco', address: '1785 Fulton St, San Francisco, CA 94117, USA', description: 'You might be asked to take lots of pictures for tourist!', latitude: 37.8199, longitude:-122.4783)
+Brewery.create(name: "The Fisherman's Shack", city: 'San Francisco', address: '2801 Leavenworth St, San Francisco, CA 94133, USA', description: 'You might be asked to take lots of pictures for tourist!', latitude: 37.8075638, longitude: -122.4177)
+Brewery.create(name: "Full House", city: 'San Francisco', address: '2801 Leavenworth St, San Francisco, CA 94133, USA', description: 'Everywhere you look, everywhere you go!', latitude: 37.7863246, longitude: -122.5120861)
 
 ## BEERS
 
@@ -1311,7 +1312,7 @@ Tour.create!({
   city: "San Francisco",
   duration: 4,
   description: "The coldest winter I ever saw was the summer I spent in San Francisco.",
-  full_description: "Grab a jacket and wear some comfortable walking shoes, this city is silly and hilly!",
+  full_description: "Grab a jacket and wear some comfortable walking shoes, this city is silly and hilly! Get ready to head down to the Golden Gate Bridge where the Golden Opportunity awaits promising great brews on tap. Next stop: Fisherman's Brewarf, have you ever tried a menthol beer? Great for sea sickness! Afterwards",
   rating: 4
 })
 

@@ -1,1 +1,1 @@
-web: cd react_client/beercat_app && npm install && npm build && cd ../.. &&  bundle exec rails s 
+web: cd rails_server/beercat-server && bundle exec rails server -p $PORT

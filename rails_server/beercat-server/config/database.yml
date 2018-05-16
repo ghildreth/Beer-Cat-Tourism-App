@@ -80,6 +80,5 @@ test:
 #
 production:
   <<: *default
-  database: beercat-server_production
-  username: beercat-server
-  password: <%= ENV['BEERCAT-SERVER_DATABASE_PASSWORD'] %>
+url: <%= ENV['DATABASE_URL'] %>
+

@@ -23,7 +23,7 @@ export default class TourList extends Component {
     return (
       <div>
         <div className="tours-banner">
-            <h6 className="page-small-title">Tours</h6>
+            <h6 className="page-small-title">Welcome to Beer Cat!</h6>
           <h1 className="page-title">Choose a tour</h1>
           </div>
         <div className="tours-all">
