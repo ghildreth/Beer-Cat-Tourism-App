@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   scope :api do
+    get '/maps_js', to: 'maps#library'
     resources :breweries
     resources :beers
     get '/tours/mine', to: 'tours#mine'
