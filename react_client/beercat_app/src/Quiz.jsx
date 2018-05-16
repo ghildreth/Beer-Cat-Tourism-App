@@ -58,6 +58,7 @@ class Quiz extends React.Component {
               <input type="radio" name="preference_ABV" id="abv_choice4" value= "true"/>
             </label><br/><br/>
             <button type="button"  className="btn submit-button" onClick={() => handleNextQuestion(3)}>Next</button>
+            <button type="button"  className="btn back-button" onClick={() => handleNextQuestion(1)}>Back</button>
           </div>
 
           <div className={`${modalStep === 3 ? "display-block" : "display-none"}`}>
@@ -76,6 +77,7 @@ class Quiz extends React.Component {
               <input type="radio" name="preference_SRM" id="srm_choice4" value= "false" />
             </label><br/><br/>
             <button type="button"  className="btn submit-button" onClick={() => handleNextQuestion(4)}>Next</button>
+            <button type="button"  className="btn back-button" onClick={() => handleNextQuestion(2)}>Back</button>
           </div>
 
           <div className={`${modalStep === 4 ? "display-block" : "display-none"}`}>
@@ -94,6 +96,7 @@ class Quiz extends React.Component {
               <input type="radio" name="preference_IBU" id="ibu_choice4" value= "false" />
             </label><br/><br/>
             <button type="button"  className="btn submit-button" onClick={() => handleNextQuestion(5)}>Next</button>
+            <button type="button"  className="btn back-button" onClick={() => handleNextQuestion(3)}>Back</button>
           </div>
 
           <div className={`${modalStep === 5 ? "display-block" : "display-none"}`}>
@@ -111,6 +114,7 @@ class Quiz extends React.Component {
               <input type="radio" name="preference_adventurous" id="adventurous_choice4" value= "false" />
             </label><br/><br/>
             <button type="button"  className="btn submit-button" onClick={() => handleNextQuestion(6)}>Next</button>
+            <button type="button"  className="btn back-button" onClick={() => handleNextQuestion(4)}>Back</button>
           </div>
 
           <div className={`${modalStep === 6 ? "display-block" : "display-none"}`}>
@@ -128,6 +132,7 @@ class Quiz extends React.Component {
               <input type="radio" name="preference_sour" id="sour_choice4" value= "false" />
             </label><br/><br/>
             <input className="btn submit-button" value="Submit" type="submit"/>
+            <button type="button"  className="btn back-button" onClick={() => handleNextQuestion(5)}>Back</button>
           </div>
         </form>
       </div>

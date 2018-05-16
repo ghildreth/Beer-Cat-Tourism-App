@@ -60,6 +60,10 @@ header {
   height: 50px;
 }
 
+button.btn.back-button {
+  margin-left: 1rem;
+}
+
 .back-link {
   color: #23c6cb;
 }
