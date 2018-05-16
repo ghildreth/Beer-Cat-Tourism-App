@@ -241,12 +241,12 @@ div.tour-slider {
 }
 
 .tours-individualtour:hover .tours-description {
-  opacity:1;
+  opacity: 1;
   color: #FFF;
-  font-size:16px;
-  font-weight:700;
-  font-family:"Poppins", serif;
-  padding:30px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Poppins", serif;
+  padding: 1rem;
 }
 
 /* Paw Print */
