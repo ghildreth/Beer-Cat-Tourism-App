@@ -6,11 +6,6 @@
   position: relative;
 }
 
-header {
-  width: 90%;
-  margin: auto;
-}
-
 .container {
   max-width: 100%;
   padding: 0rem;
@@ -37,6 +32,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 90%;
+  margin: auto;
+  padding-left: 2em;
 }
 
 /* Shared Page Elements */
@@ -378,7 +376,8 @@ label {
 .how-to {
   width: 50%;
   text-align: left;
-  padding: 1em 0em;
+  /* padding: 1em 0em; */
+  padding: 1em 0em 1em 4em;
 }
 
 /* Age Check - Welcome Page */

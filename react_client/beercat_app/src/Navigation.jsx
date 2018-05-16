@@ -14,7 +14,6 @@ const Navigation = ({currentUser, userID}) => {
   </React.Fragment>);
   
   return (
-  <header>
     <nav className="nav-bar">
       <div className="nav">
         <div className="nav-item"><Link to='/about' className="nav-a">About</Link></div>
@@ -23,7 +22,6 @@ const Navigation = ({currentUser, userID}) => {
         {links}
       </div>
     </nav>
-  </header>
   )
 }
 
