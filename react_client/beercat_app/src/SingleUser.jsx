@@ -73,7 +73,7 @@ export default class SingleUser extends Component {
       return (
         <div className="user-profile">
           <div className="user-banner">
-            <h1 className="user-title">Welcome to Beer Cat {this.state.username}!</h1>
+            <h1 className="user-title">Welcome to Beer Cat, {this.state.username}!</h1>
           </div>
           <div className="user-tour-content-box">
             <div className="user-content">
@@ -95,7 +95,7 @@ export default class SingleUser extends Component {
       return (
         <div className="user-profile">
           <div className="user-banner">
-            <h1 className="user-title">Welcome to Beer Cat {this.state.username}!</h1>
+            <h1 className="user-title">Welcome to Beer Cat, {this.state.username}!</h1>
           </div>
           <div className="user-tour-content-box">
             <div className="user-content">
