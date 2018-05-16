@@ -233,8 +233,8 @@ div.tour-slider {
 
 .tours-description {
   position: absolute;
-  width:240px;
-  height:126px;
+  width:240.5px;
+  height:127px;
   border-radius: 0 0 11px 11px;
   background: #23C6CB;
   opacity:0;
