@@ -45,89 +45,114 @@ class Quiz extends React.Component {
           <div className={`${modalStep === 2 ? "display-block" : "display-none"}`}>
             <h6>How strong do you like your beer?</h6>
             <br/>
-            <label>I have to work in the morning, let's keep it light.&nbsp;&nbsp;&nbsp;
-              <input type="radio" name="preference_ABV" id="abv_choice1" value="false"/>
+            <label>
+              <input className="radio-button" type="radio" name="preference_ABV" id="abv_choice1" value="false"/>
+              I have to work in the morning, let's keep it light.&nbsp;&nbsp;&nbsp;
             </label><br/>
-            <label>My beer should be like Superman! (cape optional)&nbsp;&nbsp;&nbsp;
-              <input type="radio" name="preference_ABV" id="abv_choice2" value= "true"/>
+            <label>
+              <input className="radio-button" type="radio" name="preference_ABV" id="abv_choice2" value= "true"/>
+              My beer should be like Superman! (cape optional)&nbsp;&nbsp;&nbsp;
             </label><br/>
-            <label>Beer has <em>'strength'</em>!?&nbsp;&nbsp;&nbsp;
-              <input type="radio" name="preference_ABV" id="abv_choice3" value="false"/>
+            <label>
+              <input className="radio-button" type="radio" name="preference_ABV" id="abv_choice3" value="false"/>
+              Beer has <em>'strength'</em>!?&nbsp;&nbsp;&nbsp;
             </label><br/>
-            <label>Ummmm? I mean, I don't know, but I'm game!&nbsp;&nbsp;&nbsp;
-              <input type="radio" name="preference_ABV" id="abv_choice4" value= "true"/>
+            <label>
+              <input className="radio-button" type="radio" name="preference_ABV" id="abv_choice4" value= "true"/>
+              Ummmm? I mean, I don't know, but I'm game!&nbsp;&nbsp;&nbsp;
             </label><br/><br/>
             <button type="button"  className="btn submit-button" onClick={() => handleNextQuestion(3)}>Next</button>
+            <button type="button"  className="btn back-button" onClick={() => handleNextQuestion(1)}>Back</button>
           </div>
 
           <div className={`${modalStep === 3 ? "display-block" : "display-none"}`}>
             <h6>Light Side? Dark Side?</h6>
             <br/>
-            <label>Beer and chocolate are best enjoyed dark.&nbsp;&nbsp;&nbsp;
-              <input type="radio" name="preference_SRM" id="srm_choice1" value= "false" />
+            <label>
+              <input className="radio-button" type="radio" name="preference_SRM" id="srm_choice1" value= "false" />
+              Beer and chocolate are best enjoyed dark.&nbsp;&nbsp;&nbsp;
             </label><br/>
-            <label>Light, sunny beers match my light, sunny personality!&nbsp;&nbsp;&nbsp;
-              <input type="radio" name="preference_SRM" id="srm_choice2" value= "true" />
+            <label>
+              <input className="radio-button" type="radio" name="preference_SRM" id="srm_choice2" value= "true" />
+              Light, sunny beers match my light, sunny personality!&nbsp;&nbsp;&nbsp;
             </label><br/>
-            <label>I'm afraid of the dark, and that includes beer...&nbsp;&nbsp;&nbsp;
-              <input type="radio" name="preference_SRM" id="srm_choice3" value= "true" />
+            <label>
+              <input className="radio-button" type="radio" name="preference_SRM" id="srm_choice3" value= "true" />
+              I'm afraid of the dark, and that includes beer...&nbsp;&nbsp;&nbsp;
             </label><br/>
-            <label>Give me a beer that eats like a meal!&nbsp;&nbsp;&nbsp;
-              <input type="radio" name="preference_SRM" id="srm_choice4" value= "false" />
+            <label>
+              <input className="radio-button" type="radio" name="preference_SRM" id="srm_choice4" value= "false" />
+              Give me a beer that eats like a meal!&nbsp;&nbsp;&nbsp;
             </label><br/><br/>
             <button type="button"  className="btn submit-button" onClick={() => handleNextQuestion(4)}>Next</button>
+            <button type="button"  className="btn back-button" onClick={() => handleNextQuestion(2)}>Back</button>
           </div>
 
           <div className={`${modalStep === 4 ? "display-block" : "display-none"}`}>
             <h6>Are you a bitter (beer) person?</h6>
             <br/>
-            <label>Bitter beer smells like moldy socks. No thanks!&nbsp;&nbsp;&nbsp;
-              <input type="radio" name="preference_IBU" id="ibu_choice1" value= "false" />
+            <label>
+              <input className="radio-button" type="radio" name="preference_IBU" id="ibu_choice1" value= "false" />
+              Bitter beer smells like moldy socks. No thanks!&nbsp;&nbsp;&nbsp;
             </label><br/>
-            <label>Bitter beer smells like moldy socks. Yes please!&nbsp;&nbsp;&nbsp;
-              <input type="radio" name="preference_IBU" id="ibu_choice2" value= "true" />
+            <label>
+              <input className="radio-button" type="radio" name="preference_IBU" id="ibu_choice2" value= "true" />
+              Bitter beer smells like moldy socks. Yes please!&nbsp;&nbsp;&nbsp;
             </label><br/>
-            <label>I'm like a bunny - hop, hop, hops!&nbsp;&nbsp;&nbsp;
-              <input type="radio" name="preference_IBU" id="ibu_choice3" value= "true" />
+            <label>
+              <input className="radio-button" type="radio" name="preference_IBU" id="ibu_choice3" value= "true" />
+              I'm like a bunny - hop, hop, hops!&nbsp;&nbsp;&nbsp;
             </label><br/>
-            <label>I have no idea... but I think I'll pass.&nbsp;&nbsp;&nbsp;
-              <input type="radio" name="preference_IBU" id="ibu_choice4" value= "false" />
+            <label>
+              <input className="radio-button" type="radio" name="preference_IBU" id="ibu_choice4" value= "false" />
+              I have no idea... but I think I'll pass.&nbsp;&nbsp;&nbsp;
             </label><br/><br/>
             <button type="button"  className="btn submit-button" onClick={() => handleNextQuestion(5)}>Next</button>
+            <button type="button"  className="btn back-button" onClick={() => handleNextQuestion(3)}>Back</button>
           </div>
 
           <div className={`${modalStep === 5 ? "display-block" : "display-none"}`}>
             <h6>How adventurous are you?</h6><br/>
-            <label>Adventure is my middle name!&nbsp;&nbsp;&nbsp;
-              <input type="radio" name="preference_adventurous" id="adventurous_choice1" value= "true" />
+            <label>
+              <input className="radio-button" type="radio" name="preference_adventurous" id="adventurous_choice1" value= "true" />
+              Adventure is my middle name!&nbsp;&nbsp;&nbsp;
             </label><br/>
-            <label>I like to leave exploring to other people...&nbsp;&nbsp;&nbsp;
-              <input type="radio" name="preference_adventurous" id="adventurous_choice2" value= "false" />
+            <label>
+              <input className="radio-button" type="radio" name="preference_adventurous" id="adventurous_choice2" value= "false" />
+              I like to leave exploring to other people...&nbsp;&nbsp;&nbsp;
             </label><br/>
-            <label>I'll try anything once!&nbsp;&nbsp;&nbsp;
-              <input type="radio" name="preference_adventurous" id="adventurous_choice3" value= "true" />
+            <label>
+              <input className="radio-button" type="radio" name="preference_adventurous" id="adventurous_choice3" value= "true" />
+              I'll try anything once!&nbsp;&nbsp;&nbsp;
             </label><br/>
-            <label>My adventurous spirit wandered off without me.&nbsp;&nbsp;&nbsp;
-              <input type="radio" name="preference_adventurous" id="adventurous_choice4" value= "false" />
+            <label>
+              <input className="radio-button" type="radio" name="preference_adventurous" id="adventurous_choice4" value= "false" />
+              My adventurous spirit wandered off without me.&nbsp;&nbsp;&nbsp;
             </label><br/><br/>
             <button type="button"  className="btn submit-button" onClick={() => handleNextQuestion(6)}>Next</button>
+            <button type="button"  className="btn back-button" onClick={() => handleNextQuestion(4)}>Back</button>
           </div>
 
           <div className={`${modalStep === 6 ? "display-block" : "display-none"}`}>
             <h6>Sour Candies are...</h6><br/>
-            <label>Totally gross. No way, no how.&nbsp;&nbsp;&nbsp;
-              <input type="radio" name="preference_sour" id="sour_choice1" value= "false" />
+            <label>
+              <input className="radio-button" type="radio" name="preference_sour" id="sour_choice1" value= "false" />
+              Totally gross. No way, no how.&nbsp;&nbsp;&nbsp;
             </label><br/>
-            <label>The best candy in the candy aisle, by far!&nbsp;&nbsp;&nbsp;
-              <input type="radio" name="preference_sour" id="sour_choice2" value= "true" />
+            <label>
+              <input className="radio-button" type="radio" name="preference_sour" id="sour_choice2" value= "true" />
+              The best candy in the candy aisle, by far!&nbsp;&nbsp;&nbsp;
             </label><br/>
-            <label>Pretty good, but not my favourite.&nbsp;&nbsp;&nbsp;
-              <input type="radio" name="preference_sour" id="sour_choice3" value= "true" />
+            <label>
+              <input className="radio-button" type="radio" name="preference_sour" id="sour_choice3" value= "true" />
+              Pretty good, but not my favourite.&nbsp;&nbsp;&nbsp;
             </label><br/>
-            <label>Over-hyped. I'd rather have chips and chocolate.&nbsp;&nbsp;&nbsp;
-              <input type="radio" name="preference_sour" id="sour_choice4" value= "false" />
+            <label>
+              <input className="radio-button" type="radio" name="preference_sour" id="sour_choice4" value= "false" />
+              Over-hyped. I'd rather have chips and chocolate.&nbsp;&nbsp;&nbsp;
             </label><br/><br/>
-            <input className="btn submit-button" value="submit" type="submit"/>
+            <input className="btn submit-button" value="Submit" type="submit"/>
+            <button type="button"  className="btn back-button" onClick={() => handleNextQuestion(5)}>Back</button>
           </div>
         </form>
       </div>

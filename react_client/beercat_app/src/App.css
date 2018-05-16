@@ -275,6 +275,10 @@ label {
   font-size: 1.2em;
 }
 
+.radio-button {
+  margin-right: 1rem;
+}
+
 /* User Profile */
 .avatar {
   border-radius: 5em;
