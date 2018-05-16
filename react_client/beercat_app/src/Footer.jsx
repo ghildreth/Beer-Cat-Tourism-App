@@ -2,13 +2,11 @@ import React from "react";
 import { render } from "react-dom";
 
 const footerStyle = {
-  backgroundColor: "efefef",
+  backgroundColor: "#cccccc",
   fontSize: "20px",
   color: "black",
-  borderTop: "1px solid #E7E7E7",
   textAlign: "center",
   padding: "20px",
-  position: "fixed",
   left: "0",
   bottom: "0",
   height: "60px",
