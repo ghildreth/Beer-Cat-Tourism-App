@@ -461,7 +461,7 @@ label {
 .footerStyle {
   background-color: #e8e8e8;
   font-size: 20px;
-  position: absolute;
+  position: fixed;
   color: black;
   text-align: center;
   padding: 20px;
