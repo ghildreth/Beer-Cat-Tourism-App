@@ -60,10 +60,6 @@ header {
   height: 50px;
 }
 
-button.btn.back-button {
-  margin-left: 1rem;
-}
-
 .back-link {
   color: #23c6cb;
 }
@@ -275,6 +271,10 @@ img.icon {
 /* Form Labels */
 label {
   font-size: 1.2em;
+}
+
+.radio-button {
+  margin-right: 1rem;
 }
 
 /* User Profile */
