@@ -5,8 +5,8 @@ Our name is funny, but our premise is simple: We're here to help you discover th
 
 Cat puns aside, we're pawsitive you're going to love Beer Cat.
 
-Cheers!
-Your friends at Beer Cat
+Cheers, 
+Your friends at Beer Cat!
 
 # User Experience
 
@@ -19,7 +19,7 @@ Tell your friends to pounce on the tour with you set up their custom profiles to
 After the tour, give it a rating and get ready to pounce again!
 
 ![Splash Page](https://user-images.githubusercontent.com/35348791/40133292-296753d0-58f4-11e8-8b3e-675945edcc97.png)
-![Home Page](https://user-images.githubusercontent.com/34799149/39965275-b837bd22-564a-11e8-9513-5d262a3b02e6.png)
+![Home Page](https://user-images.githubusercontent.com/35348791/40151052-6b76ac88-5932-11e8-88b3-0f7546a38c8a.png)
 ![Tour Page](https://user-images.githubusercontent.com/35348791/40133385-68a2fab8-58f4-11e8-8bb4-fa8082cb28cf.png)
 ![About Page](https://user-images.githubusercontent.com/35348791/40133405-7c22f430-58f4-11e8-8047-71df12437fa0.png)
 
