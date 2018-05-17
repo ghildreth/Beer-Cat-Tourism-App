@@ -478,13 +478,13 @@ label {
   height: 1080px;
   position: fixed;
   width: 100%;
+  padding-top: 3em;
 }
 
 /*Footer Style*/
 .footerStyle {
   background-color: #e8e8e8;
   font-size: 20px;
-  position: fixed;
   color: black;
   text-align: center;
   padding: 20px;
