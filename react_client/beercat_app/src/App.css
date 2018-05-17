@@ -2,6 +2,7 @@
   text-align: center;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
+  text-decoration: none;
   min-height: 100%;
   position: relative;
 }
@@ -278,9 +279,6 @@ label {
 }
 
 /* User Profile */
-.avatar {
-  border-radius: 5em;
-}
 
 .user-banner {
   height: 200px;
@@ -295,64 +293,88 @@ label {
   font-weight: 900;
 }
 
-.avatar {
-  border-radius: 5rem;
+.user-content {
+  width: 100%;
+  display: flex;
 }
 
-.user-details {
-  width: 50%;
+.user-preferences {
+  width: 40%;
+  padding: 0em 4em;
+  margin: 0em 2em;
 }
 
-.user-tour-description {
-  margin: auto;
-
-  padding: 1rem 3rem 0rem 3rem;
-
+.badge-SRM {
+  color: #fff;
+  background-color: #17a2b8;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
 }
 
-.user-individualtour {
-    border: .3em solid #c56c5d;
-    background-color: white;
-    width: 250px;
-    height: 250px;
-    border-radius: 1rem;
-    margin: 1.25em;
+.badge-ABV {
+  color: #fff;
+  background-color: #daa253;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
 }
 
-.user-tours-individualtourtitle {
-  height: 100px;
-  padding: 1em 0em 0em 0em;
+.badge-IBU {
+  color: #fff;
+  background-color: #c8d26f;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
 }
 
-.user-tours-description {
-  position: absolute;
-  width: 240px;
-  height: 126px;
-  border-radius: 0 0 11px 11px;
-  background: #23C6CB;
-  opacity: 0;
+.badge-SOUR{
+  color: #fff;
+  background-color: #c56c5d;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.user-tours {
+  width: 60%;
+  padding: 1.5em 4em 0em 1em;
+}
+
+.user-tours-link {
+  color: #000000;
+}
+
+.user-tours-link:hover {
+  color: #000000;
+}
+
+.user-tours-individualtour {
+  border: .3em solid #c56c5d;
+  background-color: white;
+  border-radius: 1rem;
+  margin-bottom: .5em;
+  height: 120px;
+  margin-bottom: 0.5em;
+  height: 120px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.user-tours-title {
+  margin-top: .2em;
 }
 
 .user-tours-individualtourdetails {
-  text-align: left;
-  padding: 0em 0em 0em 1em;
-  margin-bottom: -3px;
+  text-align: center;
+  margin-bottom: -1em;
+  margin-top: -.5em;
 
-}
-.user-tours-individualtour {
-  padding-left: .5remdisplaydisplaydisplay;
-  padding-right: .5rem;
-  border: .3em solid #c56c5d;
-  background-color: white;
-  width: 250px;
-  height: 250px;
-  border-radius: 1rem;
-  margin: 1.25em;
-}
-
-
-.user-tours {
-  display: flex;
 }
 
 /* About */
@@ -385,6 +407,7 @@ label {
 .welcome {
   background-color: #dcf8f9;
   height: 1080px;
+  padding-top: 6em;
 }
 
 .over19 {
@@ -477,56 +500,3 @@ label {
   width: 100%;
 }
 
-/* User profile new styling */
-.user-tour-content-box {
-    display: -webkit-box;
-}
-
-.user-content {
-    padding-left: 50px;
-}
-
-.user-tour-description {
-    margin: auto;
-    /* text-align: justify; */
-    padding: 1rem 3rem 0rem 3rem;
-    display: -ms-flexbox;
-    /* display: flex; */
-}
-
-.tours-all {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    max-width: 100%;
-    -ms-flex-pack: center;
-    justify-content: center;
-    margin: auto;
-    margin-top: 2rem;
-    margin-left: 125px;
-}
-
-.avatar {
-    border-radius: 5rem;
-    margin-bottom: 1rem;
-    height: 100px;
-    width: 100px;
-}
-
-.user-content {
-    margin-top: 5rem;
-}
-
-.badge-info {
-    color: #fff;
-    background-color: #17a2b8;
-    margin-left: 10px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 5px;
-}
-
-.badge {
-  font-size: 100%;
-}

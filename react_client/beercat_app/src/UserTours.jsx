@@ -47,35 +47,38 @@ class UserTours extends Component {
     }
 
       return (
-        <div className="tours-all">
+        <div className="user-tours">
+          <h2>Selected Tours:</h2><br/>
           {tours ? (tours.map(tour => (
             <div key={ tour.id * Math.random() } className="user-tours-individualtour">
-                  <h3 className="tours-individualtourtitle"><Link to={`/tours/${tour.id}`} className="tours-individualtourtitle-link">{tour.name}</Link></h3>
-                  {/* <div className="tours-description">{tour.description}</div> */}
+                  <Link to={`/tours/${tour.id}`} className="user-tours-link"><h3 className="user-tours-title">{tour.name}</h3>
                   <p className="user-tours-individualtourdetails">
-                    <strong>City:</strong> {tour.city}<br/>
-                    <strong>Duration:</strong> {tour.duration} hrs<br/><br/>
+                    <strong>City:</strong> {tour.city} | <strong>Duration:</strong> {tour.duration} hrs<br/><br/>
                   </p>
-                {user_tours.filter(user_tour => user_tour.tour_id === tour.id).map(user_tour => (
+                  {user_tours.filter(user_tour => user_tour.tour_id === tour.id).map(user_tour => (
                   <div key={user_tours.id + 1000}>
                     {user_tour.rating  ? (
-                        <p className="user-tours-individualtourdetails">
-                        <strong>Your Rating:</strong></p>
+                      <span className="user-tours-individualtourdetails">
+                        <strong>Your Rating:</strong>
+                      </span>
                       ) : (
-                        <p className="user-tours-individualtourdetails">
-                        <strong >Rate this Tour:</strong></p>
+                      <span className="user-tours-individualtourdetails">
+                        <strong >Rate this Tour:</strong>
+                      </span>
                       )
                     }
-                      <h5 ><Rating onChange={(rate) => onRate(rate, user_tour.id)}
+                      <span ><Rating onChange={(rate) => onRate(rate, user_tour.id)}
                         initialRating={user_tour.rating}
                         emptySymbol={<img src="../assets_paw/black_paw_print.png"
                         className="icon" />}
                         fullSymbol={<img src="../assets_paw/blue_paw_print.png"
                         className="icon" />} />
-                      </h5>
-
+                      </span>
+                      
                   </div>
+                  
                 ))}
+                </Link>
               </div>
 
             
