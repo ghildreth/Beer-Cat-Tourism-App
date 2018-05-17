@@ -20,11 +20,11 @@ end
 puts "Creating Breweries ..."
 # refactor the names and such
 # brewery1 = Brewery.create()
-Brewery.create(name: 'Brewery Parallel 49&3/4', city: 'Vancouver, BC', address: '1234 Fake Street', description: "This is the descriptiono of the brewery, it's the best brewery ever.", latitude: 49.283834, longitude: -123.0665496)
-Brewery.create(name: "Cat's Meow", city: 'Vancouver, BC', address: '237 That Street', description: "You can get beer here. It's tasty.", latitude: 49.2691407, longitude: -123.1051664)
-Brewery.create(name: "Mouse Hole", city: 'Vancouver, BC', address: '615 Cheese Street', description: "Tiny hole in the wall watering hole,", latitude: 49.2827, longitude: -123.1207)
+Brewery.create(name: 'Brewery Parallel 49&3/4', city: 'Vancouver, BC', address: '1234 Fake Street', description: "This is the descriptiono of the brewery, it's the best brewery ever.", latitude: 49.2828012, longitude: -123.1061699)
+Brewery.create(name: "Cat's Meow", city: 'Vancouver, BC', address: '237 That Street', description: "You can get beer here. It's tasty.", latitude: 49.2834736, longitude: -123.1109142)
+Brewery.create(name: "Mouse Hole", city: 'Vancouver, BC', address: '615 Cheese Street', description: "Tiny hole in the wall watering hole,", latitude: 49.284472, longitude: -123.1095647,)
 Brewery.create(name: 'The Honeycomb', city: 'Vancouver, BC', address: '435 The Farm', description: "Where the bees come to pollinate. Take a break from being a busy worker bee and drink some nectar.", latitude: 49.282684, longitude: -123.138617)
-Brewery.create(name: 'Star Wars Cantina', city: "Vancouver, BC", address:'Ep. IV', description: 'Her name was Leia - She was a princess! With a danish on each ear and Darth Vader drawing near...', latitude: 49.2787766, longitude: -123.1160782)
+Brewery.create(name: 'Star Wars Cantina', city: "Vancouver, BC", address:'Ep. IV', description: 'Her name was Leia - She was a princess! With a danish on each ear and Darth Vader drawing near...', latitude: 49.278776, longitude: -123.116078)
 Brewery.create(name: 'Blue Mandolin', city: 'Vancouver, BC', address: '213 Humming Avenue', description: "Relaxing pints and tasty tunes tucked away in Vancouver's industrial district", latitude: 49.267229, longitude: -123.104256)
 Brewery.create(name: 'Exposed Brickwork', city: 'Vancouver, BC', address: '498 Gastown', description: "All beer served with a side of Avocado Toast and a 63 degree egg.", latitude: 49.284065, longitude: -123.107223)
 Brewery.create(name: 'Programmer Pick-Up', city: 'Vancouver, BC', address: 'The Steam Cock', description: "Tinder for programmers.", latitude: 49.2837637, longitude: -123.1143696)
@@ -41,10 +41,10 @@ Brewery.create(name: 'Piccadilly Pandemonium', city: 'London, GB', address: '5 P
 Brewery.create(name: 'Primrose Hill Pumphouse', city: 'London, GB', address: '221B Primrose Hill', description: "Served with a view and the noise of the elephants form the Zoo", latitude: 51.5380514, longitude: -0.1744411)
 # 19
 Brewery.create(name: 'Sourdough Brewhouse', city: 'San Francisco', address: '563 2nd St, San Francisco, CA 94107, USA', description: 'The smell of fresh sourdough bread fills the air as you enter this building and you notice the partons are drinking beer out of bread bowls... uh.', latitude: 37.758628, longitude:-122.399594)
-Brewery.create(name: 'Golden State of Mind', city: 'San Francisco', address: '1785 Fulton St, San Francisco, CA 94117, USA', description: 'You might be asked to take lots of pictures for tourist!', latitude: 37.8199, longitude:-122.4783)
+Brewery.create(name: 'Golden State of Mind', city: 'San Francisco', address: '1785 Fulton St, San Francisco, CA 94117, USA', description: 'You might be asked to take lots49.2829736,-123.109203249.2829736,-123.109203249.2829736,-123.1092032 of pictures for tourist!', latitude: 37.8199, longitude:-122.4783)
 Brewery.create(name: "The Fisherman's Shack", city: 'San Francisco', address: '2801 Leavenworth St, San Francisco, CA 94133, USA', description: 'You might be asked to take lots of pictures for tourist!', latitude: 37.8075638, longitude: -122.4177)
 Brewery.create(name: "Full House", city: 'San Francisco', address: '2801 Leavenworth St, San Francisco, CA 94133, USA', description: 'Everywhere you look, everywhere you go!', latitude: 37.7863246, longitude: -122.5120861)
-
+# 23
 ## BEERS
 
 puts "Creating Beers ..."
@@ -103,6 +103,45 @@ Beer.create!({
   seasonal: true
 })
 
+Beer.create!({
+  brewery_id: 1,
+  name:  'Defence Against the Dark Ale',
+  description: "",
+  style: 'Stout',
+  score_ABV: 6,
+  score_SRM: 25,
+  score_IBU: 40,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 1,
+  name:  'Dementor Chocolate Stout',
+  description: "",
+  style: 'Stout',
+  score_ABV: 6,
+  score_SRM: 25,
+  score_IBU: 29,
+  score_adventurous: true,
+  score_sour: false,
+  seasonal: true
+})
+
+Beer.create!({
+  brewery_id: 1,
+  name:  'Goblet of Fire Ale',
+  description: "",
+  style: 'Stout',
+  score_ABV: 7,
+  score_SRM: 5,
+  score_IBU: 40,
+  score_adventurous: true,
+  score_sour: true,
+  seasonal: true
+})
+
 # START OF BREWERY 2
 
 Beer.create!({
@@ -144,6 +183,44 @@ Beer.create!({
   seasonal: true
 })
 
+Beer.create!({
+  brewery_id: 2,
+  name:  'Persian Pilsner',
+  description: "This crisp, clean pilsner is sure to attract a crowd and goes down easy.",
+  style: 'Pilsner',
+  score_ABV: 4.8,
+  score_SRM: 2,
+  score_IBU: 18,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 2,
+  name:  'Lynx Lager',
+  description: "For the inner mountain cats",
+  style: 'Lager',
+  score_ABV: 3,
+  score_SRM: 2,
+  score_IBU: 25,
+  score_adventurous: true,
+  score_sour: false,
+  seasonal: false
+})
+
+Beer.create!({
+  brewery_id: 2,
+  name:  'Sassy Cat Saison',
+  description: "A fresh delightful spring beer with hints of honey.",
+  style: 'Saison',
+  score_ABV: 4.8,
+  score_SRM: 3.5,
+  score_IBU: 25,
+  score_adventurous: false,
+  score_sour: false,
+  seasonal: true
+})
 # START OF BREWERY 3
 
 
