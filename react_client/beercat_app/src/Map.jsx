@@ -225,11 +225,6 @@ const exampleMapStyles = [
     {}
 ]
 const TourMap = props => {
-  // let walkingTour;
-  // if (props.showDirections && props.directions) {
-  //   walkingTour = <DirectionsRenderer directions={props.directions} />
-  // }
-// console.log('hi', props)
 
   return (
     <GoogleMap
@@ -278,21 +273,17 @@ const WrappedTourMap = withGoogleMap(TourMap);
 export default class Map extends Component {
   constructor(props) {
     super(props);
-    // console.log('here ya go', this.props.places[0].latitude)
 
     this.xMapBounds = { min: null, max: null }
     this.yMapBounds = { min: null, max: null }
 
     this.mapFullyLoaded = false
-    this.zoom = 13;
+    this.zoom = 12;
 
     this.state = {
       places: [],
-      // lat: this.props.places[0].latitude,
-      // lng: this.props.places[0].longitude,
       lat: 49.2827,
       lng: -123.1207,
-      // waypoints: [49.2827, 123.1207]
       showWalkingPath: true
     };
   }
@@ -333,12 +324,6 @@ export default class Map extends Component {
     this.yMapBounds.max = yMapBounds.b
   }
 
-  // _onButtonClick() {
-  //   this.setState({
-  //     showWalkingPath: !this.state.showWalkingPath,
-  //   });
-  // }
-
   componentDidMount() {
 
     const DirectionsService = makeDirectionService(new google.maps.DirectionsService());
@@ -373,8 +358,7 @@ export default class Map extends Component {
   render() {
     const { lat, lng } = this.state;
     const { places } = this.props;
-    // const waypoints = this.props.places[0].latitude;
-    // console.log('way points', waypoints)
+    console.log('meh', places)
     return (
 
       <div className="mappy">
@@ -391,10 +375,8 @@ export default class Map extends Component {
             directions={this.state.directions}
             handleMapClick={this.props.closeWindow}
           />
+
       </div>
     );
   }
 }
-
-
-// style={{ width: '750px', height: '750px' }}
