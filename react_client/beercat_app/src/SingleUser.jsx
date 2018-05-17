@@ -78,19 +78,17 @@ export default class SingleUser extends Component {
           <div className="user-banner">
             <h1 className="user-title">Hello, {this.state.username}!</h1>
           </div>
-          <div className="user-tour-content-box">
-            <div className="user-content">
-             {/*<img className="avatar" src={"https://upload.wikimedia.org/wikipedia/en/e/ed/Nyan_cat_250px_frame.PNG"}/>*/}
-                <br/>
-                <span><h1>Your beer preferences:</h1><br/></span>
-                <span className="badge badge-info">{ `${this.state.preference_SRM ? `Light Beer` : `Dark Beer`}`}</span>
-                <span className="badge badge-info">{ `${this.state.preference_IBU ? `Hoppy` : `Malty`}`}</span>
-                <span className="badge badge-info">{ `${this.state.preference_sour ? `Sour` : `Sweet`}`}</span>
-                <br/>
+          <div className="user-content">
+            <div className="user-preferences">
+              <br/>
+              <h2>Your Beer Preferences:</h2><br/>
+              <span className="badge badge-ABV">{ `${this.state.preference_ABV ? `Strong Beer` : `Light Beer`}`}</span>
+              <span className="badge badge-SRM">{ `${this.state.preference_SRM ? `Lagers & Pilsners` : `Stouts & Ales`}`}</span>
+              <span className="badge badge-IBU">{ `${this.state.preference_IBU ? `Hoppy IPAs` : `Malty Lagers`}`}</span>
+              <span className="badge badge-SOUR">{ `${this.state.preference_sour ? `Team Sour` : `Team Sweet`}`}</span>
+              <br/>
             </div>
-            <span className="user-tour-description">
               <UserTours user_id={this.state.id}/>
-            </span>
           </div>
         </div>
       );
@@ -98,21 +96,19 @@ export default class SingleUser extends Component {
       return (
         <div className="user-profile">
           <div className="user-banner">
-            <h1 className="user-title">Welcome to Beer Cat, {this.state.username}!</h1>
+            <h1 className="user-title">{this.state.username}</h1>
           </div>
-          <div className="user-tour-content-box">
-            <div className="user-content">
-             {/*<img className="avatar" src={"https://upload.wikimedia.org/wikipedia/en/e/ed/Nyan_cat_250px_frame.PNG"}/>*/}
-                <br/>
-                <span><h1>Your beer preferences:</h1><br/></span>
-                <span className="badge badge-info">{ `${this.state.preference_SRM ? `Light Beer` : `Dark Beer`}`}</span>
-                <span className="badge badge-info">{ `${this.state.preference_IBU ? `Hoppy` : `Malty`}`}</span>
-                <span className="badge badge-info">{ `${this.state.preference_sour ? `Sour` : `Sweet`}`}</span>
-                <br/>
+          <div className="user-content">
+            <div className="user-preferences">
+              <br/>
+              <h2>Beer Preferences:</h2><br/>
+              <span className="badge badge-ABV">{ `${this.state.preference_ABV ? `Strong Beer` : `Light Beer`}`}</span>
+              <span className="badge badge-SRM">{ `${this.state.preference_SRM ? `Lagers & Pilsners` : `Stouts & Ales`}`}</span>
+              <span className="badge badge-IBU">{ `${this.state.preference_IBU ? `Hoppy IPAs` : `Malty Lagers`}`}</span>
+              <span className="badge badge-SOUR">{ `${this.state.preference_sour ? `Team Sour` : `Team Sweet`}`}</span>
+              <br/>
             </div>
-            <span className="user-tour-description">
               <UserTours user_id={this.state.id}/>
-            </span>
           </div>
         </div>
       );
