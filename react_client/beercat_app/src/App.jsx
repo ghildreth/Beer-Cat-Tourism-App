@@ -117,13 +117,13 @@ class App extends Component {
                     <Route path="/tours/:id" component={SingleTour} currentID={this.state.id}/>
                     <Route path="/users/:id" component={SingleUser}/>
                   </Switch>
-                  {/*<Footer><h6>Created By 9PM Productions ©</h6></Footer>*/}
+                  <Footer><h6>Created By 9PM Productions ©</h6></Footer>
                 </div>
               )
             }} />
           </Switch>
         </div>
-        <Footer><h6>Created By 9PM Productions ©</h6></Footer>
+        {/* <Footer><h6>Created By 9PM Productions ©</h6></Footer> */}
       </div>
     );
   }

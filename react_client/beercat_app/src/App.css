@@ -35,7 +35,6 @@
   align-items: center;
   width: 90%;
   margin: auto;
-  padding-left: 2em;
 }
 
 /* Shared Page Elements */
@@ -296,6 +295,7 @@ label {
 .user-content {
   width: 100%;
   display: flex;
+  padding-bottom: 12.5em;
 }
 
 .user-preferences {

@@ -20,9 +20,9 @@ end
 puts "Creating Breweries ..."
 # refactor the names and such
 # brewery1 = Brewery.create()
-Brewery.create(name: 'Brewery Parallel 49&3/4', city: 'Vancouver, BC', address: '1234 Fake Street', description: "This is the descriptiono of the brewery, it's the best brewery ever.", latitude: 49.2828012, longitude: -123.1061699)
-Brewery.create(name: "Cat's Meow", city: 'Vancouver, BC', address: '237 That Street', description: "You can get beer here. It's tasty.", latitude: 49.2834736, longitude: -123.1109142)
-Brewery.create(name: "Mouse Hole", city: 'Vancouver, BC', address: '615 Cheese Street', description: "Tiny hole in the wall watering hole,", latitude: 49.284472, longitude: -123.1095647,)
+Brewery.create(name: 'Brewery Parallel 49&3/4', city: 'Vancouver, BC', address: '1234 Hogsmeade Street', description: "A magical brewery located just off Diagon Alley. Not just a witch & wizard hotspot, muggles are always welcome.", latitude: 49.2828012, longitude: -123.1061699)
+Brewery.create(name: "Cat's Meow", city: 'Vancouver, BC', address: '237 Kitty Cat Lane', description: "Paw your way into this cozy brewery and curl up with a saucer of beer. This is a perfect quiet spot for clawing through a good book.", latitude: 49.2834736, longitude: -123.1109142)
+Brewery.create(name: "Mouse Hole", city: 'Vancouver, BC', address: '615 Cheese Street', description: "It may be a tiny hole-in-the-wall, but this watering hole should not be overlooked.", latitude: 49.284472, longitude: -123.1095647,)
 Brewery.create(name: 'The Honeycomb', city: 'Vancouver, BC', address: '435 The Farm', description: "Where the bees come to pollinate. Take a break from being a busy worker bee and drink some nectar.", latitude: 49.282684, longitude: -123.138617)
 Brewery.create(name: 'Star Wars Cantina', city: "Vancouver, BC", address:'Ep. IV', description: 'Her name was Leia - She was a princess! With a danish on each ear and Darth Vader drawing near...', latitude: 49.278776, longitude: -123.116078)
 Brewery.create(name: 'Blue Mandolin', city: 'Vancouver, BC', address: '213 Humming Avenue', description: "Relaxing pints and tasty tunes tucked away in Vancouver's industrial district", latitude: 49.267229, longitude: -123.104256)
@@ -1325,7 +1325,7 @@ Tour.create!({
   name: "Vancouver Gastown Prowl",
   city: "Vancouver, BC",
   duration: 3.5,
-  description: "It's awesome!",
+  description: "Claw your way through some of the best breweries in Gastown.",
   full_description: "Start off this tour by running into a brick wall to get to the secret entrance to Brewery Parallel 49 & 3/4. Fill up on butter beer before you apparate over to Cat's Meow to bat around a ball of yarn. Regular patrons can be quite frisky. When you're purring with excitement, sharpen you're claws and head on over to the Mouse Hole.",
   rating: 4
 })
@@ -1334,7 +1334,7 @@ Tour.create!({
   name: "Late Night Pub Pounce",
   city: "Vancouver, BC",
   duration: 2.5,
-  description: "Amazing Vancouver nightlife.",
+  description: "Amazing Vancouver nightlife, perfect for pouncing!",
   full_description: "Follow the buzz on the street to The Honeycomb. Don't let the geometric shape fool you, this brewery is anything but oridinary. With plenty of nectar on tap, you'll leave feeling well pollinated. Be sure to try Queen Bee, the hive's number one seller. Enjoy the local Cantina Band's upbeat tunes at this local hot spot. Bring a friend, don't arrive solo and be sure not to offend some of the regular patrons. Bas kah!",
   rating: 3.5
 })
@@ -1343,7 +1343,7 @@ Tour.create!({
   name: "Cat Napping",
   city: "Vancouver, BC",
   duration: 2,
-  description: "Low key chilled night.",
+  description: "A low key tour, perfect for those seeking a cat nap in the sunshine.",
   full_description: "Try not to fall asleep",
   rating: 4
 })
@@ -1352,7 +1352,7 @@ Tour.create!({
   name: "Hiss-tory Tour",
   city: "Vancouver, BC",
   duration: 4,
-  description: "A walk through some of Vancouver's historical spots.",
+  description: "A brewery tour through some of Vancouver's most historical spots.",
   full_description: "Make sure to stop and take in the historical sights along the way.",
   rating: 2.5
 })
@@ -1361,7 +1361,7 @@ Tour.create!({
   name: "Portland Pawb Crawl",
   city: "Portland, OR",
   duration: 3.5,
-  description: "Feline good and pawsitive vibes.",
+  description: "You'll be feline good as pawsitive vibes abound in Rose City.",
   full_description: "Saddle up and trot over to the Miniature Horse. If you're feeling adventurous, try out the Shiny Unicorn. In three jumps you'll be at your next stop, Red Hat. Be wary of banana peels along the way as locals can be a little forgetful of their fruit. Curious Coniferous has a large patio with shady spots which will be a nice way to relax and end of your tour.",
   rating: 3.5
 })

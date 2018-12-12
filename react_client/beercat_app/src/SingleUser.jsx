@@ -96,7 +96,7 @@ export default class SingleUser extends Component {
       return (
         <div className="user-profile">
           <div className="user-banner">
-            <h1 className="user-title">{this.state.username}</h1>
+            <h1 className="user-title">Hi, {this.state.username}!</h1>
           </div>
           <div className="user-content">
             <div className="user-preferences">
