@@ -6,7 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "git push heroku `git subtree split --prefix rails_server/beercat-server production`:master --force"
-
   },
   "repository": {
     "type": "git",
@@ -25,10 +24,10 @@
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
-    "webpack-dev-server": "2.11.2"
+    "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
-    "@rails/webpacker": "3.5",
+    "@rails/webpacker": "^3.5.5",
     "axios": "^0.18.0",
     "babel-eslint": "^8.2.3",
     "react-router-dom": "^4.2.2"
