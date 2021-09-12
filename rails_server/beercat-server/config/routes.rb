@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  scope :api do
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace 'api' do
     get '/maps_js', to: 'maps#library'
     resources :breweries
     resources :beers
@@ -12,6 +13,6 @@ Rails.application.routes.draw do
     resources :tour_breweries
     resources :sessions, only: [:create]
     delete '/sessions', to: 'sessions#destroy'
-
   end
 end
+
